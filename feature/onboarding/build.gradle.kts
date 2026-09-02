@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.app.android.feature)
+    alias(libs.plugins.app.kotlin.serialization)
     alias(libs.plugins.app.detekt)
 }
 
@@ -10,6 +11,7 @@ android {
 dependencies {
     implementation(projects.core.common)
     implementation(projects.core.model)
+    implementation(libs.kotlinx.serialization)
 
     testImplementation(libs.bundles.unit.test)
     androidTestImplementation(libs.bundles.android.test)
