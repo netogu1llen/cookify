@@ -130,7 +130,9 @@ internal fun ContenidoOnboarding(
                     modifier = Modifier
                         .fillMaxSize()
                         .verticalScroll(rememberScrollState())
-                        .padding(vertical = Espaciado.m),
+                        // El padding inferior extra deja que la ultima opcion suba por
+                        // sobre el borde del scroll; sin el queda cortada contra el boton.
+                        .padding(top = Espaciado.m, bottom = Espaciado.xl),
                 ) {
                     ContenidoPaso(paso = paso, estado = estado, acciones = acciones)
                 }

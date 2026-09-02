@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.app.android.application)
     alias(libs.plugins.app.android.application.compose)
     alias(libs.plugins.app.hilt)
+    // Necesario: las rutas de Navigation3 son @Serializable y sin el plugin las
+    // anotaciones compilan como no-op y la app revienta al guardar el back stack.
+    alias(libs.plugins.app.kotlin.serialization)
     alias(libs.plugins.app.detekt)
     alias(libs.plugins.app.spotless)
 }
