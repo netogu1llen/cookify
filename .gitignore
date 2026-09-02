@@ -14,6 +14,8 @@
 .cxx
 local.properties
 
-# Build logic
-build-logic/**/build/
+
+# Directorios de build de todos los modulos (el /build del template solo cubre la raiz)
+build/
 .kotlin/
+.cxx/
