@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Build logic
+build-logic/**/build/
+.kotlin/

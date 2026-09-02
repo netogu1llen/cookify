@@ -1,59 +1,61 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.app.android.application)
+    alias(libs.plugins.app.android.application.compose)
+    alias(libs.plugins.app.hilt)
+    alias(libs.plugins.app.detekt)
+    alias(libs.plugins.app.spotless)
 }
 
 android {
     namespace = "com.app.cookify"
-    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.app.cookify"
-        minSdk = 26
-        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix = ".debug"
+        }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-    buildFeatures {
-        compose = true
     }
 }
 
 dependencies {
+    implementation(projects.core.ui)
+    implementation(projects.core.model)
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
+    implementation(projects.core.common)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(projects.feature.home)
+    implementation(projects.feature.onboarding)
+    implementation(projects.feature.planning)
+    implementation(projects.feature.week)
+
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
+
+    implementation(libs.bundles.compose)
+    implementation(libs.bundles.navigation3)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.kotlinx.serialization)
+
+    testImplementation(libs.bundles.unit.test)
+    androidTestImplementation(libs.bundles.android.test)
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
 }

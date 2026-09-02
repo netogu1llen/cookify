@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.Cookify" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Tema de arranque: pinta el fondo oscuro de la marca antes de que Compose monte,
+         para que no haya un flash blanco al abrir la app. -->
+    <style name="Theme.Cookify" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/cookify_background</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 </resources>
