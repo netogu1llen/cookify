@@ -39,6 +39,9 @@ object PlanificadorSemanal {
     /** Bajo este porcentaje del presupuesto se intenta subir de categoria algunos platos. */
     private const val UMBRAL_HOLGURA = 0.70
 
+    /** Cuanto mas vale un reemplazo que por si solo deja la semana dentro del presupuesto. */
+    private const val FACTOR_CIERRA_BRECHA = 2
+
     fun planificar(
         solicitud: SolicitudPlan,
         recetas: List<Receta>,
@@ -167,9 +170,11 @@ object PlanificadorSemanal {
         for (candidata in ordenadas) {
             if (elegidas.size == cantidad) break
             val base = candidata.receta.basePrincipal
-            if (usoPorBase.getOrDefault(base, 0) >= topePorBase) continue
-            elegidas += candidata
-            usoPorBase[base] = usoPorBase.getOrDefault(base, 0) + 1
+            val usos = usoPorBase.getOrDefault(base, 0)
+            if (usos < topePorBase) {
+                elegidas += candidata
+                usoPorBase[base] = usos + 1
+            }
         }
         return elegidas
     }
@@ -210,30 +215,25 @@ object PlanificadorSemanal {
         excesoClp: Int,
     ): Pair<Candidata, Candidata>? {
         val enUso = seleccion.mapTo(mutableSetOf()) { it.receta.id }
-        var mejor: Pair<Candidata, Candidata>? = null
-        var mejorValor = Double.NEGATIVE_INFINITY
+        val disponibles = candidatas.filterNot { it.receta.id in enUso }
 
-        for (saliente in seleccion) {
-            for (entrante in candidatas) {
-                if (entrante.receta.id in enUso) continue
-                val ahorro = saliente.costoClp - entrante.costoClp
-                if (ahorro <= 0) continue
-                if (!respetaTope(seleccion, entrante, saliente)) continue
+        return seleccion
+            .flatMap { saliente -> disponibles.map { entrante -> saliente to entrante } }
+            .filter { (saliente, entrante) -> entrante.costoClp < saliente.costoClp }
+            .filter { (saliente, entrante) -> respetaTope(seleccion, entrante, saliente) }
+            .maxByOrNull { (saliente, entrante) -> valorDelCambio(saliente, entrante, excesoClp) }
+    }
 
-                val perdida = (saliente.puntaje - entrante.puntaje).coerceAtLeast(0)
-                // Ahorro por punto sacrificado; el +1 evita dividir por cero y premia
-                // levemente los cambios que no cuestan puntaje.
-                val eficiencia = ahorro.toDouble() / (perdida + 1)
-                // Cerrar la brecha de un viaje vale mas que ahorrar de a poco.
-                val valor = if (ahorro >= excesoClp) eficiencia * 2 else eficiencia
-
-                if (valor > mejorValor) {
-                    mejorValor = valor
-                    mejor = saliente to entrante
-                }
-            }
-        }
-        return mejor
+    /**
+     * Cuanto conviene un reemplazo: ahorro por punto de gusto sacrificado. El +1 evita
+     * dividir por cero y premia los cambios que no cuestan puntaje; duplicar el valor
+     * cuando el ahorro ya cierra la brecha evita encadenar reemplazos innecesarios.
+     */
+    private fun valorDelCambio(saliente: Candidata, entrante: Candidata, excesoClp: Int): Double {
+        val ahorro = saliente.costoClp - entrante.costoClp
+        val perdida = (saliente.puntaje - entrante.puntaje).coerceAtLeast(0)
+        val eficiencia = ahorro.toDouble() / (perdida + 1)
+        return if (ahorro >= excesoClp) eficiencia * FACTOR_CIERRA_BRECHA else eficiencia
     }
 
     /**

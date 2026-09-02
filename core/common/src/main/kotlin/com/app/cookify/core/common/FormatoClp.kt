@@ -11,8 +11,10 @@ fun Int.aPesos(): String {
     val digitos = kotlin.math.abs(this).toString()
     val conPuntos = digitos
         .reversed()
-        .chunked(3)
+        .chunked(DIGITOS_POR_GRUPO)
         .joinToString(".")
         .reversed()
     return "$signo$$conPuntos"
 }
+
+private const val DIGITOS_POR_GRUPO = 3
