@@ -72,11 +72,14 @@ object PlanificadorSemanal {
         val random = Random(semilla)
 
         // 1. Mejor semana por gusto, ignorando el presupuesto.
+        //
+        // A igualdad de puntaje decide la semilla, NO el precio. Si desempatara por
+        // precio, un usuario sin antojos recibiria siempre las mismas recetas mas
+        // baratas por mucho presupuesto que tenga, y "regenerar" no cambiaria nada.
+        // El presupuesto es un techo, no un objetivo: abaratar es tarea del paso 2.
         val porGusto = seleccionar(candidatas, dias.size) { a, b ->
             compareValuesBy(b, a) { it.puntaje }
                 .takeIf { it != 0 }
-                ?: compareValuesBy(a, b) { it.costoClp }
-                    .takeIf { it != 0 }
                 ?: desempate(a, b, random)
         }
 

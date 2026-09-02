@@ -5,5 +5,5 @@ plugins {
 
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.java.inject)
+    api(libs.java.inject)
 }

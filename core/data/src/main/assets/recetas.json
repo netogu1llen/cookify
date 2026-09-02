@@ -1,0 +1,4440 @@
+{
+  "version": 1,
+  "actualizadoEn": "2026-09-02",
+  "nota": "cantidadPorPorcion es POR PERSONA, en la unidad base del ingrediente. Ver README.md antes de editar.",
+  "recetas": [
+    {
+      "id": "pollo_al_curry",
+      "nombre": "Pollo al curry",
+      "descripcion": "Cremoso y suave, se hace en una sola olla y rinde para el otro dia.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "pechuga_pollo",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "curry",
+          "cantidadPorPorcion": 3
+        },
+        {
+          "ingredienteId": "leche_coco",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "cilantro",
+          "cantidadPorPorcion": 0.2,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Pon el arroz a cocer con el doble de agua y una pizca de sal.",
+        "Corta el pollo en cubos de dos centimetros y salalo.",
+        "Sofrie la cebolla picada fina y el ajo hasta que esten transparentes.",
+        "Agrega el pollo y dora por fuera, unos cinco minutos.",
+        "Suma el curry, revuelve treinta segundos y vierte la leche de coco.",
+        "Cocina a fuego bajo quince minutos y sirve sobre el arroz."
+      ],
+      "kcalPorPorcion": 620,
+      "proteinaGPorPorcion": 42
+    },
+    {
+      "id": "pollo_arvejas",
+      "nombre": "Pollo con arvejas",
+      "descripcion": "Guiso de casa, de esos que saben mejor recalentados.",
+      "minutosTotal": 40,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY",
+        "GUT_FRIENDLY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "trutro_pollo",
+          "cantidadPorPorcion": 180
+        },
+        {
+          "ingredienteId": "porotos_verdes_congelados",
+          "cantidadPorPorcion": 100
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Dora los trutros por ambos lados en la olla con aceite.",
+        "Saca el pollo y sofrie la cebolla y la zanahoria en la misma grasa.",
+        "Devuelve el pollo, agrega la papa en cubos y el caldo con agua hasta cubrir.",
+        "Cocina tapado veinte minutos.",
+        "Suma las arvejas y cocina cinco minutos mas."
+      ],
+      "kcalPorPorcion": 540,
+      "proteinaGPorPorcion": 36
+    },
+    {
+      "id": "pollo_asado_papas",
+      "nombre": "Pollo asado con papas",
+      "descripcion": "El horno hace todo el trabajo mientras haces otra cosa.",
+      "minutosTotal": 60,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "trutro_pollo",
+          "cantidadPorPorcion": 200
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 250
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "oregano",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Precalienta el horno a 200 grados.",
+        "Adoba el pollo con ajo molido, oregano, sal, jugo de limon y aceite.",
+        "Corta las papas en gajos y mezclalas con el jugo del adobo.",
+        "Acomoda todo en una fuente, el pollo con la piel hacia arriba.",
+        "Hornea cuarenta y cinco minutos, dando vuelta las papas a la mitad."
+      ],
+      "kcalPorPorcion": 680,
+      "proteinaGPorPorcion": 38
+    },
+    {
+      "id": "pollo_airfryer_limon",
+      "nombre": "Pollo al limon en airfryer",
+      "descripcion": "Veinte minutos, sin ensuciar nada y con harta proteina.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "RAPIDO",
+        "ALTO_PROTEINA",
+        "BAJO_CALORIAS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "AIRFRYER"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "pechuga_pollo",
+          "cantidadPorPorcion": 180
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "oregano",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 5
+        },
+        {
+          "ingredienteId": "lechuga",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Abre la pechuga en mariposa para que quede pareja.",
+        "Adobala con jugo de limon, ajo molido, oregano, sal y aceite.",
+        "Airfryer a 190 grados por dieciocho minutos, dando vuelta a la mitad.",
+        "Mientras tanto arma una ensalada de lechuga y tomate.",
+        "Deja reposar el pollo tres minutos antes de cortar."
+      ],
+      "kcalPorPorcion": 420,
+      "proteinaGPorPorcion": 48
+    },
+    {
+      "id": "arroz_pollo",
+      "nombre": "Arroz con pollo",
+      "descripcion": "Plato unico, barato y de los que nunca fallan.",
+      "minutosTotal": 40,
+      "porcionesBase": 4,
+      "basePrincipal": "ARROZ",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "trutro_pollo",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "porotos_verdes_congelados",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "aji_color",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Dora el pollo en trozos y resérvalo.",
+        "Sofrie cebolla y pimiento, agrega el aji de color.",
+        "Suma el arroz y revuelve un minuto para que tome sabor.",
+        "Vierte el doble de agua con el caldo, devuelve el pollo y tapa.",
+        "Cocina dieciocho minutos a fuego bajo y suma las arvejas al final."
+      ],
+      "kcalPorPorcion": 610,
+      "proteinaGPorPorcion": 33
+    },
+    {
+      "id": "ensalada_pollo_palta",
+      "nombre": "Ensalada de pollo y palta",
+      "descripcion": "Fresca, liviana y lista en veinte minutos.",
+      "minutosTotal": 20,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "RAPIDO",
+        "BAJO_CALORIAS",
+        "SANO",
+        "ALTO_PROTEINA"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "pechuga_pollo",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "palta",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "lechuga",
+          "cantidadPorPorcion": 0.3
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "pepino",
+          "cantidadPorPorcion": 0.3
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.3
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 6
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Cocina la pechuga a la plancha con sal, ocho minutos por lado.",
+        "Deja reposar y cortala en tiras.",
+        "Pica lechuga, tomate y pepino, y lamina la palta.",
+        "Mezcla todo y alina con aceite de oliva, limon y sal."
+      ],
+      "kcalPorPorcion": 430,
+      "proteinaGPorPorcion": 40
+    },
+    {
+      "id": "pollo_champinones",
+      "nombre": "Pollo con champinones",
+      "descripcion": "Salsa cremosa de sarten, elegante sin ser complicada.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "pechuga_pollo",
+          "cantidadPorPorcion": 160
+        },
+        {
+          "ingredienteId": "champinon",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "crema",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "pimienta",
+          "cantidadPorPorcion": 0.5
+        }
+      ],
+      "pasos": [
+        "Pon el arroz a cocer.",
+        "Dora las pechugas enteras y resérvalas.",
+        "En la misma sarten saltea cebolla, ajo y champinones laminados.",
+        "Agrega la crema, sal y pimienta, y deja espesar tres minutos.",
+        "Devuelve el pollo a la salsa y cocina cinco minutos mas."
+      ],
+      "kcalPorPorcion": 650,
+      "proteinaGPorPorcion": 44
+    },
+    {
+      "id": "fajitas_pollo",
+      "nombre": "Fajitas de pollo",
+      "descripcion": "Cada uno arma la suya, funciona bien con ninos.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "PARA_TODOS",
+        "RAPIDO"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "pechuga_pollo",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "pimiento_verde",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "tortilla",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "paprika",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "comino",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "palta",
+          "cantidadPorPorcion": 0.3,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Corta pollo, pimientos y cebolla en tiras del mismo grosor.",
+        "Adoba el pollo con paprika, comino y sal.",
+        "Saltea el pollo a fuego fuerte hasta dorar y resérvalo.",
+        "Saltea las verduras dos minutos, que queden crujientes.",
+        "Junta todo, calienta las tortillas y sirve al centro de la mesa."
+      ],
+      "kcalPorPorcion": 590,
+      "proteinaGPorPorcion": 40
+    },
+    {
+      "id": "pollo_miel_mostaza",
+      "nombre": "Pollo miel mostaza",
+      "descripcion": "Dulce y salado, se hace solo en el horno.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "AIRFRYER",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "pechuga_pollo",
+          "cantidadPorPorcion": 170
+        },
+        {
+          "ingredienteId": "miel",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "mostaza",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "camote",
+          "cantidadPorPorcion": 180
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 6
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Mezcla miel, mostaza, ajo molido, sal y aceite.",
+        "Baña el pollo con la mezcla y dejalo diez minutos.",
+        "Corta el camote en cubos y acomodalo alrededor.",
+        "Hornea a 200 grados por veinticinco minutos.",
+        "Pincela con el jugo de la fuente antes de servir."
+      ],
+      "kcalPorPorcion": 580,
+      "proteinaGPorPorcion": 43
+    },
+    {
+      "id": "crema_pollo_verduras",
+      "nombre": "Crema de pollo y verduras",
+      "descripcion": "Suave y reconfortante, cae bien cuando el estomago anda sensible.",
+      "minutosTotal": 40,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "GUT_FRIENDLY",
+        "BAJO_CALORIAS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "pechuga_pollo",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "zapallo",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 100
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 5
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Sofrie la cebolla suave, sin dorar.",
+        "Agrega zapallo, zanahoria y papa en cubos.",
+        "Cubre con agua y el caldo, y cocina veinte minutos.",
+        "Cuece el pollo aparte y deshilachalo.",
+        "Muele la sopa hasta dejarla lisa y devuelve el pollo."
+      ],
+      "kcalPorPorcion": 380,
+      "proteinaGPorPorcion": 32
+    },
+    {
+      "id": "sopa_pollo_fideos",
+      "nombre": "Sopa de pollo con fideos",
+      "descripcion": "El remedio de la abuela, liviano y caliente.",
+      "minutosTotal": 40,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "GUT_FRIENDLY",
+        "BAJO_CALORIAS",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "trutro_pollo",
+          "cantidadPorPorcion": 140
+        },
+        {
+          "ingredienteId": "fideos_cortos",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "apio",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "perejil",
+          "cantidadPorPorcion": 0.15
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Cuece el pollo en agua con cebolla, zanahoria y apio, veinticinco minutos.",
+        "Saca el pollo, deshuesalo y deshilachalo.",
+        "Cuela el caldo si lo quieres mas limpio y vuelve a hervir.",
+        "Agrega los fideos y cocina segun el paquete.",
+        "Devuelve el pollo y termina con perejil picado."
+      ],
+      "kcalPorPorcion": 400,
+      "proteinaGPorPorcion": 30
+    },
+    {
+      "id": "wrap_pollo",
+      "nombre": "Wrap de pollo",
+      "descripcion": "Se arma en veinte minutos y viaja perfecto en la lonchera.",
+      "minutosTotal": 20,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "RAPIDO",
+        "TAKEAWAY",
+        "ALTO_PROTEINA"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "pechuga_pollo",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "tortilla",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "lechuga",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "queso_gauda",
+          "cantidadPorPorcion": 30
+        },
+        {
+          "ingredienteId": "mayonesa",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 5
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Cocina el pollo en tiras a la plancha con sal.",
+        "Calienta las tortillas treinta segundos por lado.",
+        "Unta mayonesa y arma con lechuga, tomate, queso y pollo.",
+        "Envuelve apretado y corta en diagonal."
+      ],
+      "kcalPorPorcion": 560,
+      "proteinaGPorPorcion": 44
+    },
+    {
+      "id": "tallarines_bolonesa",
+      "nombre": "Tallarines a la bolonesa",
+      "descripcion": "El clasico que le gusta a todos, sin misterio.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "PASTA",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "spaghetti",
+          "cantidadPorPorcion": 100
+        },
+        {
+          "ingredienteId": "carne_molida",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "salsa_tomate",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "oregano",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 20,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Sofrie cebolla, zanahoria rallada y ajo hasta que esten blandos.",
+        "Agrega la carne molida y desarmala con la cuchara hasta dorar.",
+        "Vierte la salsa de tomate y el oregano, y cocina veinte minutos a fuego bajo.",
+        "Cuece los tallarines al dente en agua con sal.",
+        "Mezcla la pasta con la salsa y sirve con queso rallado."
+      ],
+      "kcalPorPorcion": 680,
+      "proteinaGPorPorcion": 35
+    },
+    {
+      "id": "carne_mechada",
+      "nombre": "Carne mechada",
+      "descripcion": "Se cocina sola y al dia siguiente esta aun mejor.",
+      "minutosTotal": 90,
+      "porcionesBase": 4,
+      "basePrincipal": "VACUNO",
+      "antojos": [
+        "TAKEAWAY",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "asiento",
+          "cantidadPorPorcion": 160
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "salsa_tomate",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 200
+        },
+        {
+          "ingredienteId": "aji_color",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Sella la carne entera por todos lados a fuego fuerte.",
+        "Saca la carne y sofrie cebolla, zanahoria y ajo.",
+        "Devuelve la carne, agrega la salsa de tomate y agua hasta la mitad.",
+        "Tapa y cocina a fuego muy bajo una hora, dando vuelta a la mitad.",
+        "Deshilacha la carne dentro de su jugo y sirve con pure de papas."
+      ],
+      "kcalPorPorcion": 640,
+      "proteinaGPorPorcion": 42
+    },
+    {
+      "id": "pastel_papas",
+      "nombre": "Pastel de papas",
+      "descripcion": "Pure dorado arriba, pino jugoso abajo.",
+      "minutosTotal": 60,
+      "porcionesBase": 4,
+      "basePrincipal": "VACUNO",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ],
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "carne_molida",
+          "cantidadPorPorcion": 130
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 300
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "leche",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "mantequilla",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "huevo",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "comino",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Cuece las papas y haz un pure con leche y mantequilla.",
+        "Sofrie bastante cebolla picada fina hasta que quede transparente.",
+        "Agrega la carne, el comino y sal, y cocina hasta que no quede liquido.",
+        "Pon el pino en una fuente y cubre con el pure.",
+        "Hornea a 200 grados veinte minutos hasta gratinar, con medio huevo duro dentro."
+      ],
+      "kcalPorPorcion": 700,
+      "proteinaGPorPorcion": 34
+    },
+    {
+      "id": "lomo_saltado",
+      "nombre": "Lomo saltado",
+      "descripcion": "Wok rapido, carne jugosa y papas fritas adentro.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "VACUNO",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "lomo_liso",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "papas_congeladas",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "salsa_soya",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "cilantro",
+          "cantidadPorPorcion": 0.2,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Pon el arroz a cocer y las papas a freir aparte.",
+        "Corta la carne en tiras gruesas y salala.",
+        "Saltea la carne a fuego muy fuerte, un minuto por lado, y resérvala.",
+        "En la misma sarten saltea cebolla en pluma y tomate en gajos.",
+        "Devuelve la carne, agrega la soya y las papas, y revuelve una vez."
+      ],
+      "kcalPorPorcion": 720,
+      "proteinaGPorPorcion": 40
+    },
+    {
+      "id": "albondigas_salsa",
+      "nombre": "Albondigas en salsa",
+      "descripcion": "Blanditas y en salsa de tomate, ganan siempre.",
+      "minutosTotal": 45,
+      "porcionesBase": 4,
+      "basePrincipal": "VACUNO",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "carne_molida",
+          "cantidadPorPorcion": 140
+        },
+        {
+          "ingredienteId": "pan_molde",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "huevo",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "salsa_tomate",
+          "cantidadPorPorcion": 130
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Remoja el pan en un poco de leche y estrujalo.",
+        "Mezcla carne, pan, huevo, ajo, sal y forma bolitas.",
+        "Dora las albondigas por fuera y resérvalas.",
+        "Sofrie la cebolla, agrega la salsa de tomate y deja hervir.",
+        "Devuelve las albondigas y cocina veinte minutos tapado. Sirve con arroz."
+      ],
+      "kcalPorPorcion": 660,
+      "proteinaGPorPorcion": 38
+    },
+    {
+      "id": "hamburguesa_casera",
+      "nombre": "Hamburguesa casera",
+      "descripcion": "Mejor que cualquier delivery y en veinticinco minutos.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "VACUNO",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "carne_molida",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "hallulla",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "queso_gauda",
+          "cantidadPorPorcion": 30
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "lechuga",
+          "cantidadPorPorcion": 0.2
+        },
+        {
+          "ingredienteId": "mayonesa",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "papas_congeladas",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Forma los medallones sin apretar mucho la carne y salalos por fuera.",
+        "Pon las papas a freir u hornear.",
+        "Cocina la carne a fuego fuerte tres minutos por lado.",
+        "Pon el queso encima el ultimo minuto para que se derrita.",
+        "Tuesta el pan y arma con lechuga, tomate y mayonesa."
+      ],
+      "kcalPorPorcion": 780,
+      "proteinaGPorPorcion": 42
+    },
+    {
+      "id": "charquican",
+      "nombre": "Charquican",
+      "descripcion": "Zapallo, papa y carne desmenuzada. Comida chilena de verdad.",
+      "minutosTotal": 50,
+      "porcionesBase": 4,
+      "basePrincipal": "VACUNO",
+      "antojos": [
+        "GUT_FRIENDLY",
+        "TAKEAWAY",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "carne_molida",
+          "cantidadPorPorcion": 100
+        },
+        {
+          "ingredienteId": "zapallo",
+          "cantidadPorPorcion": 200
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 180
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "choclo",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "porotos_verdes_congelados",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "aji_color",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Sofrie la cebolla con el aji de color.",
+        "Agrega la carne y dorala.",
+        "Suma zapallo y papa en cubos y agua hasta cubrir a medias.",
+        "Cocina treinta minutos hasta que el zapallo se deshaga.",
+        "Machaca con el uslero, agrega choclo y arvejas, y cocina cinco minutos."
+      ],
+      "kcalPorPorcion": 520,
+      "proteinaGPorPorcion": 28
+    },
+    {
+      "id": "cazuela_vacuno",
+      "nombre": "Cazuela de vacuno",
+      "descripcion": "Caldo claro y verduras enteras, el domingo en un plato.",
+      "minutosTotal": 75,
+      "porcionesBase": 4,
+      "basePrincipal": "VACUNO",
+      "antojos": [
+        "GUT_FRIENDLY",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "asiento",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "zapallo",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 180
+        },
+        {
+          "ingredienteId": "choclo",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 25
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "perejil",
+          "cantidadPorPorcion": 0.15
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Hierve la carne en abundante agua con cebolla y sal, cuarenta minutos.",
+        "Retira la espuma para que el caldo quede limpio.",
+        "Agrega papa entera, zapallo y zanahoria, veinte minutos mas.",
+        "Suma el choclo y el arroz y cocina quince minutos.",
+        "Sirve un trozo de cada cosa por plato y espolvorea perejil."
+      ],
+      "kcalPorPorcion": 560,
+      "proteinaGPorPorcion": 40
+    },
+    {
+      "id": "carne_arroz_salteado",
+      "nombre": "Salteado de carne y verduras",
+      "descripcion": "Todo al wok, rapido y con harta verdura.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "VACUNO",
+      "antojos": [
+        "RAPIDO",
+        "SANO",
+        "ALTO_PROTEINA"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "posta_rosada",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "brocoli",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "salsa_soya",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "jengibre",
+          "cantidadPorPorcion": 5
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sesamo",
+          "cantidadPorPorcion": 3,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Pon el arroz a cocer.",
+        "Corta la carne en tiras finas contra la fibra.",
+        "Saltea la carne a fuego maximo un minuto y resérvala.",
+        "Saltea brocoli, pimiento y zanahoria con el jengibre rallado.",
+        "Devuelve la carne, agrega la soya y sirve sobre el arroz con sesamo."
+      ],
+      "kcalPorPorcion": 590,
+      "proteinaGPorPorcion": 45
+    },
+    {
+      "id": "lasana",
+      "nombre": "Lasana de carne",
+      "descripcion": "Toma su tiempo pero alcanza para dos dias.",
+      "minutosTotal": 70,
+      "porcionesBase": 4,
+      "basePrincipal": "PASTA",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ],
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "spaghetti",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "carne_molida",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "salsa_tomate",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "leche",
+          "cantidadPorPorcion": 100
+        },
+        {
+          "ingredienteId": "harina",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "mantequilla",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 35
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Prepara la salsa de carne con cebolla y salsa de tomate, veinte minutos.",
+        "Haz una bechamel con mantequilla, harina y leche.",
+        "Cuece las laminas de pasta si no son precocidas.",
+        "Arma capas alternando pasta, carne y bechamel.",
+        "Cubre con queso rallado y hornea a 190 grados por treinta minutos."
+      ],
+      "kcalPorPorcion": 760,
+      "proteinaGPorPorcion": 38
+    },
+    {
+      "id": "chuleta_pure",
+      "nombre": "Chuleta con pure",
+      "descripcion": "Directo al grano, sin vueltas.",
+      "minutosTotal": 40,
+      "porcionesBase": 4,
+      "basePrincipal": "CERDO",
+      "antojos": [
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "chuleta_cerdo",
+          "cantidadPorPorcion": 180
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 250
+        },
+        {
+          "ingredienteId": "leche",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "mantequilla",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        },
+        {
+          "ingredienteId": "pimienta",
+          "cantidadPorPorcion": 0.5
+        }
+      ],
+      "pasos": [
+        "Cuece las papas en agua con sal, veinte minutos.",
+        "Adoba las chuletas con ajo, sal y pimienta.",
+        "Cocinalas a fuego medio alto, cinco minutos por lado.",
+        "Muele las papas con leche caliente y mantequilla.",
+        "Deja reposar la carne dos minutos antes de servir."
+      ],
+      "kcalPorPorcion": 690,
+      "proteinaGPorPorcion": 44
+    },
+    {
+      "id": "costillar_horno",
+      "nombre": "Costillar al horno",
+      "descripcion": "Lento en el horno hasta que se suelta del hueso.",
+      "minutosTotal": 90,
+      "porcionesBase": 4,
+      "basePrincipal": "CERDO",
+      "antojos": [
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "costillar_cerdo",
+          "cantidadPorPorcion": 250
+        },
+        {
+          "ingredienteId": "miel",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "mostaza",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "paprika",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 200
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Adoba el costillar con ajo, paprika, sal y aceite.",
+        "Tapalo con papel aluminio y hornea a 160 grados una hora.",
+        "Mezcla miel y mostaza para el glaseado.",
+        "Destapa, pincela el glaseado y sube a 200 grados.",
+        "Hornea veinte minutos mas con las papas alrededor."
+      ],
+      "kcalPorPorcion": 820,
+      "proteinaGPorPorcion": 46
+    },
+    {
+      "id": "cerdo_agridulce",
+      "nombre": "Cerdo agridulce",
+      "descripcion": "Dulce, acido y con verduras crujientes.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "CERDO",
+      "antojos": [
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "chuleta_cerdo",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "vinagre",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "azucar",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "salsa_soya",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        }
+      ],
+      "pasos": [
+        "Pon el arroz a cocer.",
+        "Corta el cerdo en cubos y dóralo bien por fuera.",
+        "Saltea cebolla y pimiento dos minutos.",
+        "Mezcla vinagre, azucar y soya, y viertelo en la sarten.",
+        "Cocina cinco minutos hasta que la salsa se ponga brillante."
+      ],
+      "kcalPorPorcion": 640,
+      "proteinaGPorPorcion": 38
+    },
+    {
+      "id": "longaniza_papas_airfryer",
+      "nombre": "Longaniza con papas al airfryer",
+      "descripcion": "Cero esfuerzo, todo en la misma canasta.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "CERDO",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "AIRFRYER"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "longaniza",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 220
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "paprika",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Corta las papas en cubos y mezclalas con aceite, paprika y sal.",
+        "Airfryer a 190 grados por quince minutos.",
+        "Agrega la longaniza en trozos y la cebolla en pluma.",
+        "Diez minutos mas, sacudiendo la canasta a la mitad."
+      ],
+      "kcalPorPorcion": 710,
+      "proteinaGPorPorcion": 30
+    },
+    {
+      "id": "tortilla_verduras",
+      "nombre": "Tortilla de verduras",
+      "descripcion": "Huevo y lo que haya en el refrigerador.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "HUEVO",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "huevo",
+          "cantidadPorPorcion": 2.5
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "zapallo_italiano",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "perejil",
+          "cantidadPorPorcion": 0.15,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Corta la papa en laminas finas y cocinala en aceite a fuego bajo.",
+        "Agrega cebolla y zapallo italiano hasta que todo este blando.",
+        "Bate los huevos con sal y mezclalos con las verduras escurridas.",
+        "Vierte en la sarten y cocina cinco minutos a fuego bajo.",
+        "Da vuelta con ayuda de un plato y cocina cuatro minutos mas."
+      ],
+      "kcalPorPorcion": 420,
+      "proteinaGPorPorcion": 20
+    },
+    {
+      "id": "huevos_revueltos_tomate",
+      "nombre": "Huevos revueltos con tomate",
+      "descripcion": "Quince minutos de principio a fin.",
+      "minutosTotal": 15,
+      "porcionesBase": 4,
+      "basePrincipal": "HUEVO",
+      "antojos": [
+        "RAPIDO",
+        "GUT_FRIENDLY",
+        "BAJO_CALORIAS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "huevo",
+          "cantidadPorPorcion": 3
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "cebollin",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "hallulla",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Pela el tomate si quieres una textura mas suave y picalo.",
+        "Sofrielo dos minutos con sal hasta que suelte jugo.",
+        "Bate los huevos y viertelos sobre el tomate.",
+        "Revuelve lento hasta que cuajen apenas, quedan mas ricos jugosos.",
+        "Termina con cebollin y sirve con pan tostado."
+      ],
+      "kcalPorPorcion": 380,
+      "proteinaGPorPorcion": 22
+    },
+    {
+      "id": "arroz_frito_huevo",
+      "nombre": "Arroz frito con huevo",
+      "descripcion": "Ideal para aprovechar arroz del dia anterior.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "ARROZ",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "huevo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "porotos_verdes_congelados",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "cebollin",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "salsa_soya",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 12
+        }
+      ],
+      "pasos": [
+        "Cuece el arroz y dejalo enfriar, o usa arroz del dia anterior.",
+        "Revuelve los huevos en la sarten y resérvalos.",
+        "Saltea zanahoria en cubitos y arvejas a fuego fuerte.",
+        "Agrega el arroz y revuelve dos minutos sin aplastarlo.",
+        "Suma el huevo, la soya y el cebollin, y sirve."
+      ],
+      "kcalPorPorcion": 490,
+      "proteinaGPorPorcion": 18
+    },
+    {
+      "id": "omelette_queso",
+      "nombre": "Omelette de queso",
+      "descripcion": "Lo mas rapido del recetario, y con harta proteina.",
+      "minutosTotal": 15,
+      "porcionesBase": 4,
+      "basePrincipal": "HUEVO",
+      "antojos": [
+        "RAPIDO",
+        "ALTO_PROTEINA",
+        "GUT_FRIENDLY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "huevo",
+          "cantidadPorPorcion": 3
+        },
+        {
+          "ingredienteId": "queso_gauda",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "espinaca",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "mantequilla",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "hallulla",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Saltea la espinaca treinta segundos y resérvala.",
+        "Bate los huevos con sal hasta que queden homogeneos.",
+        "Derrite la mantequilla y vierte el huevo a fuego bajo.",
+        "Cuando cuaje por abajo pon queso y espinaca en la mitad.",
+        "Dobla, deja treinta segundos mas y sirve con pan."
+      ],
+      "kcalPorPorcion": 480,
+      "proteinaGPorPorcion": 32
+    },
+    {
+      "id": "pasta_pesto",
+      "nombre": "Pasta al pesto",
+      "descripcion": "Cinco ingredientes y sabe a verano.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "PASTA",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "spaghetti",
+          "cantidadPorPorcion": 110
+        },
+        {
+          "ingredienteId": "albahaca",
+          "cantidadPorPorcion": 0.35
+        },
+        {
+          "ingredienteId": "nueces",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 25
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 20
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Cuece la pasta en abundante agua con sal.",
+        "Muele albahaca, nueces, ajo, queso y aceite hasta formar una pasta.",
+        "Guarda media taza del agua de coccion antes de colar.",
+        "Mezcla la pasta con el pesto fuera del fuego.",
+        "Suelta con el agua reservada hasta que quede cremosa."
+      ],
+      "kcalPorPorcion": 620,
+      "proteinaGPorPorcion": 19
+    },
+    {
+      "id": "pasta_salsa_tomate",
+      "nombre": "Pasta con salsa de tomate",
+      "descripcion": "La receta mas barata del recetario y sigue siendo rica.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "PASTA",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "spaghetti",
+          "cantidadPorPorcion": 110
+        },
+        {
+          "ingredienteId": "salsa_tomate",
+          "cantidadPorPorcion": 140
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "oregano",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 20,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Sofrie cebolla y ajo en aceite de oliva, sin que tomen color.",
+        "Agrega la salsa de tomate, oregano y sal.",
+        "Cocina quince minutos a fuego bajo, que espese.",
+        "Cuece la pasta al dente y mezclala con la salsa en la olla.",
+        "Sirve con queso rallado por encima."
+      ],
+      "kcalPorPorcion": 540,
+      "proteinaGPorPorcion": 16
+    },
+    {
+      "id": "macarrones_queso",
+      "nombre": "Macarrones con queso",
+      "descripcion": "Cremosos, del gusto garantizado de los ninos.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "PASTA",
+      "antojos": [
+        "PARA_TODOS",
+        "RAPIDO"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "fideos_cortos",
+          "cantidadPorPorcion": 110
+        },
+        {
+          "ingredienteId": "leche",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "queso_gauda",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 25
+        },
+        {
+          "ingredienteId": "harina",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "mantequilla",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Cuece los fideos al dente.",
+        "Derrite la mantequilla, agrega la harina y revuelve un minuto.",
+        "Vierte la leche de a poco batiendo para que no queden grumos.",
+        "Fuera del fuego suma los quesos hasta que se derritan.",
+        "Mezcla con los fideos y sirve de inmediato."
+      ],
+      "kcalPorPorcion": 640,
+      "proteinaGPorPorcion": 24
+    },
+    {
+      "id": "risotto_champinones",
+      "nombre": "Risotto de champinones",
+      "descripcion": "Pide revolver, pero el resultado lo vale.",
+      "minutosTotal": 40,
+      "porcionesBase": 4,
+      "basePrincipal": "ARROZ",
+      "antojos": [
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "champinon",
+          "cantidadPorPorcion": 100
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 30
+        },
+        {
+          "ingredienteId": "mantequilla",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Ten el caldo caliente en una olla al lado.",
+        "Sofrie la cebolla y agrega los champinones laminados.",
+        "Suma el arroz y nacaralo dos minutos revolviendo.",
+        "Agrega caldo de a un cucharon, esperando que se absorba cada vez.",
+        "A los dieciocho minutos apaga y suma mantequilla y queso."
+      ],
+      "kcalPorPorcion": 580,
+      "proteinaGPorPorcion": 18
+    },
+    {
+      "id": "arroz_primavera",
+      "nombre": "Arroz primavera",
+      "descripcion": "Harta verdura, liviano y colorido.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "ARROZ",
+      "antojos": [
+        "SANO",
+        "BAJO_CALORIAS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 85
+        },
+        {
+          "ingredienteId": "zapallo_italiano",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "porotos_verdes_congelados",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 20
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Cuece el arroz con una pizca de sal.",
+        "Saltea zanahoria y pimiento tres minutos.",
+        "Agrega zapallo italiano y arvejas, dos minutos mas.",
+        "Mezcla con el arroz cocido y rectifica la sal.",
+        "Termina con queso rallado y un hilo de aceite de oliva."
+      ],
+      "kcalPorPorcion": 450,
+      "proteinaGPorPorcion": 14
+    },
+    {
+      "id": "quesadillas",
+      "nombre": "Quesadillas",
+      "descripcion": "Veinte minutos y no queda nadie con hambre.",
+      "minutosTotal": 20,
+      "porcionesBase": 4,
+      "basePrincipal": "QUESO",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "tortilla",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "queso_gauda",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "choclo_lata",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 6
+        },
+        {
+          "ingredienteId": "palta",
+          "cantidadPorPorcion": 0.3,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Saltea cebolla y pimiento hasta que esten blandos.",
+        "Pon queso sobre media tortilla, agrega las verduras y el choclo.",
+        "Dobla la tortilla y llevala a la sarten seca.",
+        "Dora dos minutos por lado hasta que el queso se derrita.",
+        "Corta en triangulos y sirve con palta."
+      ],
+      "kcalPorPorcion": 560,
+      "proteinaGPorPorcion": 22
+    },
+    {
+      "id": "berenjenas_parmesana",
+      "nombre": "Berenjenas a la parmesana",
+      "descripcion": "Capas de berenjena, tomate y queso gratinado.",
+      "minutosTotal": 55,
+      "porcionesBase": 4,
+      "basePrincipal": "QUESO",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "berenjena",
+          "cantidadPorPorcion": 250
+        },
+        {
+          "ingredienteId": "salsa_tomate",
+          "cantidadPorPorcion": 130
+        },
+        {
+          "ingredienteId": "queso_gauda",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 25
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "oregano",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Corta las berenjenas en laminas, salalas y dejalas veinte minutos.",
+        "Secalas con papel y hornealas con aceite a 200 grados por quince minutos.",
+        "Calienta la salsa de tomate con ajo y oregano.",
+        "Arma capas de berenjena, salsa y queso en una fuente.",
+        "Gratina veinte minutos hasta que la superficie este dorada."
+      ],
+      "kcalPorPorcion": 520,
+      "proteinaGPorPorcion": 21
+    },
+    {
+      "id": "zapallitos_rellenos",
+      "nombre": "Zapallitos rellenos",
+      "descripcion": "Bonitos de servir y mas faciles de lo que parecen.",
+      "minutosTotal": 50,
+      "porcionesBase": 4,
+      "basePrincipal": "QUESO",
+      "antojos": [
+        "SANO",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "zapallo_italiano",
+          "cantidadPorPorcion": 250
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "queso_gauda",
+          "cantidadPorPorcion": 45
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "huevo",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Corta los zapallitos a lo largo y sacales la pulpa con una cuchara.",
+        "Pica la pulpa y sofriela con cebolla y tomate.",
+        "Mezcla con el arroz cocido, el huevo y la mitad del queso.",
+        "Rellena los zapallitos y cubre con el resto del queso.",
+        "Hornea a 190 grados por treinta minutos."
+      ],
+      "kcalPorPorcion": 440,
+      "proteinaGPorPorcion": 19
+    },
+    {
+      "id": "tarta_verduras",
+      "nombre": "Tarta de verduras",
+      "descripcion": "Se come caliente o fria, y viaja bien.",
+      "minutosTotal": 55,
+      "porcionesBase": 4,
+      "basePrincipal": "QUESO",
+      "antojos": [
+        "TAKEAWAY",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "harina",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "mantequilla",
+          "cantidadPorPorcion": 30
+        },
+        {
+          "ingredienteId": "huevo",
+          "cantidadPorPorcion": 1.5
+        },
+        {
+          "ingredienteId": "espinaca",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 35
+        },
+        {
+          "ingredienteId": "crema",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Une harina, mantequilla fria y un poco de agua hasta formar la masa.",
+        "Estirala en el molde y llevala al refrigerador veinte minutos.",
+        "Saltea espinaca y cebolla y escurre bien el liquido.",
+        "Bate huevos con crema, queso y sal, y mezcla con las verduras.",
+        "Vierte sobre la masa y hornea a 180 grados por treinta minutos."
+      ],
+      "kcalPorPorcion": 560,
+      "proteinaGPorPorcion": 20
+    },
+    {
+      "id": "pizza_casera",
+      "nombre": "Pizza casera",
+      "descripcion": "Vale la pena por la masa recien hecha.",
+      "minutosTotal": 45,
+      "porcionesBase": 4,
+      "basePrincipal": "QUESO",
+      "antojos": [
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "harina",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "salsa_tomate",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "queso_gauda",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "champinon",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 40
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "oregano",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Mezcla harina, agua tibia, sal y aceite, y amasa cinco minutos.",
+        "Deja leudar tapada treinta minutos si tienes levadura.",
+        "Estira la masa delgada sobre una lata aceitada.",
+        "Cubre con salsa, queso, champinones y pimiento.",
+        "Hornea a 220 grados por quince minutos, lo mas abajo posible."
+      ],
+      "kcalPorPorcion": 620,
+      "proteinaGPorPorcion": 24
+    },
+    {
+      "id": "lentejas_guiso",
+      "nombre": "Lentejas guisadas",
+      "descripcion": "Baratas, llenadoras y mejores al dia siguiente.",
+      "minutosTotal": 50,
+      "porcionesBase": 4,
+      "basePrincipal": "LEGUMBRE",
+      "antojos": [
+        "GUT_FRIENDLY",
+        "TAKEAWAY",
+        "SANO"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "lentejas",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "aji_color",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Remoja las lentejas mientras preparas el sofrito.",
+        "Sofrie cebolla, ajo y zanahoria con el aji de color.",
+        "Agrega las lentejas escurridas y agua que las cubra dos dedos.",
+        "Cocina treinta minutos, sumando la papa a la mitad.",
+        "Ajusta la sal al final; antes las lentejas quedan duras."
+      ],
+      "kcalPorPorcion": 460,
+      "proteinaGPorPorcion": 24
+    },
+    {
+      "id": "porotos_riendas",
+      "nombre": "Porotos con riendas",
+      "descripcion": "Porotos y tallarines juntos, plato completo de invierno.",
+      "minutosTotal": 60,
+      "porcionesBase": 4,
+      "basePrincipal": "PASTA",
+      "antojos": [
+        "TAKEAWAY",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "porotos",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "spaghetti",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "zapallo",
+          "cantidadPorPorcion": 100
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "aji_color",
+          "cantidadPorPorcion": 1.5
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Remoja los porotos la noche anterior y cuecelos con el zapallo.",
+        "Cuando esten blandos, muele parte del zapallo para espesar.",
+        "Prepara un sofrito de cebolla, ajo y aji de color.",
+        "Incorpora el sofrito a los porotos.",
+        "Agrega los tallarines quebrados y cocina hasta que esten listos."
+      ],
+      "kcalPorPorcion": 540,
+      "proteinaGPorPorcion": 22
+    },
+    {
+      "id": "garbanzos_curry",
+      "nombre": "Garbanzos al curry",
+      "descripcion": "Una olla, veinte minutos de fuego y sabor de sobra.",
+      "minutosTotal": 40,
+      "porcionesBase": 4,
+      "basePrincipal": "LEGUMBRE",
+      "antojos": [
+        "TAKEAWAY",
+        "SANO",
+        "ALTO_PROTEINA"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "garbanzos",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "leche_coco",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "curry",
+          "cantidadPorPorcion": 3
+        },
+        {
+          "ingredienteId": "jengibre",
+          "cantidadPorPorcion": 5
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        }
+      ],
+      "pasos": [
+        "Cuece los garbanzos si son secos, o escurrelos si son de conserva.",
+        "Sofrie cebolla, jengibre rallado y curry hasta que huela.",
+        "Agrega el tomate picado y deshacelo cinco minutos.",
+        "Suma garbanzos y leche de coco, y cocina quince minutos.",
+        "Sirve sobre arroz blanco."
+      ],
+      "kcalPorPorcion": 580,
+      "proteinaGPorPorcion": 22
+    },
+    {
+      "id": "hamburguesa_lentejas",
+      "nombre": "Hamburguesas de lentejas",
+      "descripcion": "Se congelan crudas y salvan cualquier semana.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "LEGUMBRE",
+      "antojos": [
+        "TAKEAWAY",
+        "SANO"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA",
+          "AIRFRYER"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "lentejas",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "avena",
+          "cantidadPorPorcion": 30
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "comino",
+          "cantidadPorPorcion": 1.5
+        },
+        {
+          "ingredienteId": "hallulla",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Cuece las lentejas hasta que esten muy blandas y escurrelas bien.",
+        "Muelelas con cebolla, ajo, comino y sal, sin llegar a pure.",
+        "Agrega la avena y deja reposar diez minutos para que tome cuerpo.",
+        "Forma medallones y cocinalos cuatro minutos por lado.",
+        "Arma con pan, tomate y lo que tengas a mano."
+      ],
+      "kcalPorPorcion": 490,
+      "proteinaGPorPorcion": 21
+    },
+    {
+      "id": "ensalada_garbanzos",
+      "nombre": "Ensalada de garbanzos",
+      "descripcion": "Sin fuego, lista en quince minutos.",
+      "minutosTotal": 15,
+      "porcionesBase": 4,
+      "basePrincipal": "LEGUMBRE",
+      "antojos": [
+        "RAPIDO",
+        "BAJO_CALORIAS",
+        "SANO",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [],
+      "ingredientes": [
+        {
+          "ingredienteId": "garbanzos",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "pepino",
+          "cantidadPorPorcion": 0.4
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 30
+        },
+        {
+          "ingredienteId": "perejil",
+          "cantidadPorPorcion": 0.2
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.4
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Escurre y enjuaga los garbanzos de conserva.",
+        "Pica tomate, pepino y cebolla en cubos parejos.",
+        "Mezcla todo con perejil picado.",
+        "Alina con aceite de oliva, jugo de limon y sal.",
+        "Deja reposar diez minutos antes de servir."
+      ],
+      "kcalPorPorcion": 390,
+      "proteinaGPorPorcion": 16
+    },
+    {
+      "id": "chili_porotos",
+      "nombre": "Chili de porotos",
+      "descripcion": "Picantito, rinde harto y se recalienta perfecto.",
+      "minutosTotal": 45,
+      "porcionesBase": 4,
+      "basePrincipal": "LEGUMBRE",
+      "antojos": [
+        "TAKEAWAY",
+        "PARA_TODOS",
+        "ALTO_PROTEINA"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "porotos",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "salsa_tomate",
+          "cantidadPorPorcion": 110
+        },
+        {
+          "ingredienteId": "choclo_lata",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "comino",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "paprika",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        }
+      ],
+      "pasos": [
+        "Sofrie cebolla y pimiento hasta que esten blandos.",
+        "Agrega comino y paprika y tuestalos treinta segundos.",
+        "Suma los porotos cocidos y la salsa de tomate.",
+        "Cocina veinticinco minutos a fuego bajo, que espese.",
+        "Agrega el choclo al final y sirve con arroz."
+      ],
+      "kcalPorPorcion": 520,
+      "proteinaGPorPorcion": 23
+    },
+    {
+      "id": "porotos_granados",
+      "nombre": "Porotos granados",
+      "descripcion": "Zapallo, choclo y albahaca. Verano chileno en una olla.",
+      "minutosTotal": 55,
+      "porcionesBase": 4,
+      "basePrincipal": "LEGUMBRE",
+      "antojos": [
+        "GUT_FRIENDLY",
+        "SANO",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "porotos",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "zapallo",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "choclo",
+          "cantidadPorPorcion": 0.75
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "albahaca",
+          "cantidadPorPorcion": 0.2
+        },
+        {
+          "ingredienteId": "aji_color",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Cuece los porotos con el zapallo hasta que este se deshaga.",
+        "Ralla el choclo o muelelo grueso y agregalo.",
+        "Prepara un sofrito de cebolla con aji de color.",
+        "Incorpora el sofrito y cocina quince minutos.",
+        "Termina con abundante albahaca picada fuera del fuego."
+      ],
+      "kcalPorPorcion": 480,
+      "proteinaGPorPorcion": 20
+    },
+    {
+      "id": "tacos_soya",
+      "nombre": "Tacos de soya",
+      "descripcion": "Textura de carne molida sin carne, y salen baratos.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "LEGUMBRE",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS",
+        "ALTO_PROTEINA"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "soya_texturizada",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "tortilla",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "comino",
+          "cantidadPorPorcion": 1.5
+        },
+        {
+          "ingredienteId": "paprika",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "palta",
+          "cantidadPorPorcion": 0.4
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "cilantro",
+          "cantidadPorPorcion": 0.2,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Hidrata la soya en agua caliente diez minutos y estrujala bien.",
+        "Sofrie la cebolla y agrega la soya con comino y paprika.",
+        "Cocina hasta que se dore y quede suelta.",
+        "Calienta las tortillas.",
+        "Arma con tomate picado, palta y cilantro."
+      ],
+      "kcalPorPorcion": 520,
+      "proteinaGPorPorcion": 30
+    },
+    {
+      "id": "curry_verduras_coco",
+      "nombre": "Curry de verduras al coco",
+      "descripcion": "Cremoso sin lacteos, con lo que haya de verdura.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "VERDURA",
+      "antojos": [
+        "SANO",
+        "TAKEAWAY",
+        "GUT_FRIENDLY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "camote",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "coliflor",
+          "cantidadPorPorcion": 100
+        },
+        {
+          "ingredienteId": "espinaca",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "leche_coco",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "curry",
+          "cantidadPorPorcion": 3
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        }
+      ],
+      "pasos": [
+        "Sofrie la cebolla y tuesta el curry treinta segundos.",
+        "Agrega camote y coliflor en trozos parejos.",
+        "Vierte la leche de coco y un poco de agua.",
+        "Cocina veinte minutos hasta que el camote este blando.",
+        "Suma la espinaca al final, que solo se marchite."
+      ],
+      "kcalPorPorcion": 510,
+      "proteinaGPorPorcion": 12
+    },
+    {
+      "id": "tofu_salteado",
+      "nombre": "Tofu salteado con verduras",
+      "descripcion": "El truco es dorar bien el tofu antes de sumar nada.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "TOFU",
+      "antojos": [
+        "RAPIDO",
+        "ALTO_PROTEINA",
+        "SANO"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "tofu",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "brocoli",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "salsa_soya",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "jengibre",
+          "cantidadPorPorcion": 5
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sesamo",
+          "cantidadPorPorcion": 3,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Escurre el tofu con peso encima veinte minutos y cortalo en cubos.",
+        "Dóralo en aceite bien caliente sin moverlo mucho.",
+        "Retiralo y saltea brocoli, pimiento, ajo y jengibre.",
+        "Devuelve el tofu y agrega la soya.",
+        "Sirve sobre arroz con sesamo por encima."
+      ],
+      "kcalPorPorcion": 520,
+      "proteinaGPorPorcion": 32
+    },
+    {
+      "id": "verduras_asadas_airfryer",
+      "nombre": "Verduras asadas al airfryer",
+      "descripcion": "Quedan doradas por fuera y tiernas por dentro.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "VERDURA",
+      "antojos": [
+        "SANO",
+        "BAJO_CALORIAS",
+        "RAPIDO"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "AIRFRYER"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "camote",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "zapallo_italiano",
+          "cantidadPorPorcion": 100
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "garbanzos",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "paprika",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Corta todas las verduras del mismo tamano para que se cocinen parejo.",
+        "Mezclalas con aceite, paprika y sal.",
+        "Airfryer a 190 grados por quince minutos.",
+        "Sacude la canasta, agrega los garbanzos y cocina diez minutos mas.",
+        "Sirve con un chorrito de limon."
+      ],
+      "kcalPorPorcion": 400,
+      "proteinaGPorPorcion": 13
+    },
+    {
+      "id": "quinoa_verduras",
+      "nombre": "Quinoa con verduras",
+      "descripcion": "Liviana, con proteina completa y se come fria o caliente.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "VERDURA",
+      "antojos": [
+        "SANO",
+        "TAKEAWAY",
+        "BAJO_CALORIAS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "quinoa",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "zapallo_italiano",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "cebollin",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.3
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Enjuaga bien la quinoa para sacarle el amargor.",
+        "Cuecela con el doble de agua por quince minutos.",
+        "Saltea zapallo italiano y pimiento a fuego fuerte.",
+        "Mezcla con la quinoa, el tomate crudo y el cebollin.",
+        "Alina con aceite de oliva, limon y sal."
+      ],
+      "kcalPorPorcion": 430,
+      "proteinaGPorPorcion": 15
+    },
+    {
+      "id": "crema_zapallo",
+      "nombre": "Crema de zapallo",
+      "descripcion": "Suave, dulce y de las cosas que mejor caen al estomago.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "VERDURA",
+      "antojos": [
+        "GUT_FRIENDLY",
+        "BAJO_CALORIAS",
+        "SANO"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "zapallo",
+          "cantidadPorPorcion": 300
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "jengibre",
+          "cantidadPorPorcion": 4
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "hallulla",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Sofrie la cebolla suave con el jengibre rallado.",
+        "Agrega zapallo y zanahoria en trozos.",
+        "Cubre con agua y el caldo y cocina veinte minutos.",
+        "Muele hasta dejarla completamente lisa.",
+        "Sirve con un hilo de aceite de oliva y pan tostado."
+      ],
+      "kcalPorPorcion": 320,
+      "proteinaGPorPorcion": 8
+    },
+    {
+      "id": "papas_camote_horno",
+      "nombre": "Papas y camote al horno",
+      "descripcion": "Guarnicion que se convierte en plato principal.",
+      "minutosTotal": 45,
+      "porcionesBase": 4,
+      "basePrincipal": "VERDURA",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "AIRFRYER",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 200
+        },
+        {
+          "ingredienteId": "camote",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "oregano",
+          "cantidadPorPorcion": 1.5
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "garbanzos",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Corta papa y camote en gajos del mismo grosor.",
+        "Mezclalos con aceite, ajo picado, oregano y sal.",
+        "Extiendelos en una lata sin amontonar.",
+        "Hornea a 200 grados por treinta minutos.",
+        "Agrega los garbanzos y hornea diez minutos mas para que queden crujientes."
+      ],
+      "kcalPorPorcion": 470,
+      "proteinaGPorPorcion": 12
+    },
+    {
+      "id": "ensalada_quinoa_palta",
+      "nombre": "Ensalada de quinoa y palta",
+      "descripcion": "Sin fuego mas alla de la quinoa, perfecta para llevar.",
+      "minutosTotal": 20,
+      "porcionesBase": 4,
+      "basePrincipal": "VERDURA",
+      "antojos": [
+        "RAPIDO",
+        "SANO",
+        "BAJO_CALORIAS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "quinoa",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "palta",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "choclo_lata",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "cilantro",
+          "cantidadPorPorcion": 0.2
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.4
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Cuece la quinoa y dejala enfriar bien.",
+        "Pica tomate y palta en cubos.",
+        "Mezcla con el choclo escurrido y el cilantro.",
+        "Alina con limon, aceite de oliva y sal.",
+        "Come de inmediato o guarda con la palta aparte."
+      ],
+      "kcalPorPorcion": 440,
+      "proteinaGPorPorcion": 13
+    },
+    {
+      "id": "sopa_verduras",
+      "nombre": "Sopa de verduras",
+      "descripcion": "Vacia el cajon de verduras y deja el cuerpo liviano.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "VERDURA",
+      "antojos": [
+        "GUT_FRIENDLY",
+        "BAJO_CALORIAS",
+        "SANO"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "apio",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "zapallo_italiano",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "fideos_cortos",
+          "cantidadPorPorcion": 30
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "perejil",
+          "cantidadPorPorcion": 0.15
+        }
+      ],
+      "pasos": [
+        "Sofrie cebolla, zanahoria y apio cinco minutos.",
+        "Agrega la papa y cubre con agua y el caldo.",
+        "Cocina quince minutos hasta que la papa este blanda.",
+        "Suma el zapallo italiano y los fideos, ocho minutos mas.",
+        "Termina con perejil y un hilo de aceite de oliva."
+      ],
+      "kcalPorPorcion": 300,
+      "proteinaGPorPorcion": 9
+    },
+    {
+      "id": "merluza_frita",
+      "nombre": "Merluza frita con ensalada",
+      "descripcion": "Crujiente por fuera y lista en veinticinco minutos.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "PESCADO",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "merluza",
+          "cantidadPorPorcion": 180
+        },
+        {
+          "ingredienteId": "harina",
+          "cantidadPorPorcion": 25
+        },
+        {
+          "ingredienteId": "huevo",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.3
+        },
+        {
+          "ingredienteId": "lechuga",
+          "cantidadPorPorcion": 0.3
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 20
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Seca bien los filetes con papel, es clave para que queden crujientes.",
+        "Salalos y pasalos por harina y huevo batido.",
+        "Frie en aceite caliente tres minutos por lado.",
+        "Escurre sobre papel absorbente.",
+        "Sirve con ensalada de lechuga y tomate y limon exprimido."
+      ],
+      "kcalPorPorcion": 520,
+      "proteinaGPorPorcion": 40
+    },
+    {
+      "id": "merluza_airfryer",
+      "nombre": "Merluza al airfryer",
+      "descripcion": "Toda la proteina, casi nada de aceite.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "PESCADO",
+      "antojos": [
+        "RAPIDO",
+        "BAJO_CALORIAS",
+        "ALTO_PROTEINA",
+        "SANO"
+      ],
+      "aptaPara": [
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "AIRFRYER"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "merluza",
+          "cantidadPorPorcion": 190
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.4
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "perejil",
+          "cantidadPorPorcion": 0.2
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 180
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Corta las papas en cubos y ponlas quince minutos a 190 grados.",
+        "Adoba el pescado con ajo, perejil, limon, sal y aceite.",
+        "Agrega el pescado a la canasta sobre las papas.",
+        "Diez minutos mas a 180 grados, sin dar vuelta.",
+        "Sirve con mas limon encima."
+      ],
+      "kcalPorPorcion": 430,
+      "proteinaGPorPorcion": 42
+    },
+    {
+      "id": "salmon_horno",
+      "nombre": "Salmon al horno",
+      "descripcion": "El plato caro de la semana, y vale cada peso.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "PESCADO",
+      "antojos": [
+        "ALTO_PROTEINA",
+        "SANO"
+      ],
+      "aptaPara": [
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "AIRFRYER",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "salmon",
+          "cantidadPorPorcion": 160
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.4
+        },
+        {
+          "ingredienteId": "brocoli",
+          "cantidadPorPorcion": 120
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "miel",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "salsa_soya",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 8
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Mezcla miel, soya, ajo y limon para el glaseado.",
+        "Pon el salmon con la piel abajo en una fuente y pincelalo.",
+        "Acomoda el brocoli alrededor con aceite y sal.",
+        "Hornea a 200 grados por doce a quince minutos.",
+        "No lo pases de coccion: debe quedar rosado al centro."
+      ],
+      "kcalPorPorcion": 540,
+      "proteinaGPorPorcion": 44
+    },
+    {
+      "id": "reineta_verduras",
+      "nombre": "Reineta con verduras al vapor",
+      "descripcion": "Lo mas liviano del recetario, sin perder sabor.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "PESCADO",
+      "antojos": [
+        "SANO",
+        "GUT_FRIENDLY",
+        "BAJO_CALORIAS",
+        "ALTO_PROTEINA"
+      ],
+      "aptaPara": [
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "reineta",
+          "cantidadPorPorcion": 180
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "zapallo_italiano",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.4
+        },
+        {
+          "ingredienteId": "perejil",
+          "cantidadPorPorcion": 0.2
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Cuece las papas y las zanahorias al vapor quince minutos.",
+        "Agrega el zapallo italiano los ultimos cinco minutos.",
+        "Cocina la reineta a la plancha, tres minutos por lado.",
+        "Alina las verduras con aceite de oliva, limon y sal.",
+        "Sirve con perejil picado por encima."
+      ],
+      "kcalPorPorcion": 400,
+      "proteinaGPorPorcion": 38
+    },
+    {
+      "id": "pastel_atun",
+      "nombre": "Pastel de atun",
+      "descripcion": "Se arma con lo que hay en la despensa.",
+      "minutosTotal": 45,
+      "porcionesBase": 4,
+      "basePrincipal": "PESCADO",
+      "antojos": [
+        "TAKEAWAY",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ],
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "atun_lata",
+          "cantidadPorPorcion": 0.75
+        },
+        {
+          "ingredienteId": "papa",
+          "cantidadPorPorcion": 280
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "choclo_lata",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "leche",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "mantequilla",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "queso_rallado",
+          "cantidadPorPorcion": 25
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Cuece las papas y haz un pure con leche y mantequilla.",
+        "Sofrie la cebolla y mezclala con el atun escurrido y el choclo.",
+        "Pon el relleno en una fuente y cubrelo con el pure.",
+        "Espolvorea queso rallado.",
+        "Hornea a 200 grados por veinte minutos hasta gratinar."
+      ],
+      "kcalPorPorcion": 580,
+      "proteinaGPorPorcion": 34
+    },
+    {
+      "id": "ensalada_atun",
+      "nombre": "Ensalada de atun",
+      "descripcion": "Quince minutos, sin encender la cocina.",
+      "minutosTotal": 15,
+      "porcionesBase": 4,
+      "basePrincipal": "PESCADO",
+      "antojos": [
+        "RAPIDO",
+        "BAJO_CALORIAS",
+        "TAKEAWAY",
+        "ALTO_PROTEINA"
+      ],
+      "aptaPara": [
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [],
+      "ingredientes": [
+        {
+          "ingredienteId": "atun_lata",
+          "cantidadPorPorcion": 0.75
+        },
+        {
+          "ingredienteId": "porotos",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 30
+        },
+        {
+          "ingredienteId": "aceitunas",
+          "cantidadPorPorcion": 20
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.4
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Escurre bien el atun y los porotos.",
+        "Corta la cebolla en pluma fina y dejala cinco minutos en agua con sal.",
+        "Mezcla atun, porotos, tomate, cebolla y aceitunas.",
+        "Alina con aceite de oliva, limon y sal."
+      ],
+      "kcalPorPorcion": 380,
+      "proteinaGPorPorcion": 34
+    },
+    {
+      "id": "arroz_camarones",
+      "nombre": "Arroz con camarones",
+      "descripcion": "Los camarones se cocinan en dos minutos, no mas.",
+      "minutosTotal": 35,
+      "porcionesBase": 4,
+      "basePrincipal": "MARISCO",
+      "antojos": [
+        "PARA_TODOS",
+        "ALTO_PROTEINA"
+      ],
+      "aptaPara": [
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "camaron",
+          "cantidadPorPorcion": 130
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 85
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "perejil",
+          "cantidadPorPorcion": 0.2
+        }
+      ],
+      "pasos": [
+        "Sofrie cebolla, ajo y pimiento en aceite de oliva.",
+        "Agrega el arroz y nacaralo un minuto.",
+        "Vierte el doble de caldo caliente y cocina dieciocho minutos.",
+        "Saltea los camarones aparte dos minutos, no mas.",
+        "Incorporalos al arroz con el perejil justo antes de servir."
+      ],
+      "kcalPorPorcion": 550,
+      "proteinaGPorPorcion": 38
+    },
+    {
+      "id": "tacos_pescado",
+      "nombre": "Tacos de pescado",
+      "descripcion": "Pescado dorado, repollo crujiente y salsa de limon.",
+      "minutosTotal": 30,
+      "porcionesBase": 4,
+      "basePrincipal": "PESCADO",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS",
+        "SANO"
+      ],
+      "aptaPara": [
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "merluza",
+          "cantidadPorPorcion": 160
+        },
+        {
+          "ingredienteId": "tortilla",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "repollo",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "palta",
+          "cantidadPorPorcion": 0.4
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "mayonesa",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "paprika",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "cilantro",
+          "cantidadPorPorcion": 0.2,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Corta el pescado en tiras y adobalo con paprika y sal.",
+        "Dora las tiras dos minutos por lado, sin moverlas mucho.",
+        "Corta el repollo en juliana muy fina.",
+        "Mezcla mayonesa con jugo de limon para la salsa.",
+        "Arma los tacos con repollo, pescado, palta y salsa."
+      ],
+      "kcalPorPorcion": 540,
+      "proteinaGPorPorcion": 36
+    },
+    {
+      "id": "pollo_arroz_horno",
+      "nombre": "Arroz al horno con pollo",
+      "descripcion": "Se mete todo junto al horno y no se revuelve mas.",
+      "minutosTotal": 55,
+      "porcionesBase": 4,
+      "basePrincipal": "ARROZ",
+      "antojos": [
+        "PARA_TODOS",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "HORNO",
+          "HORNO_ELECTRICO"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "trutro_pollo",
+          "cantidadPorPorcion": 160
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "paprika",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Adoba el pollo con paprika, ajo y sal.",
+        "Pon el arroz crudo en una fuente con cebolla y pimiento picados.",
+        "Vierte el doble de caldo caliente sobre el arroz.",
+        "Acomoda el pollo encima, con la piel hacia arriba.",
+        "Hornea a 190 grados por cuarenta minutos sin revolver."
+      ],
+      "kcalPorPorcion": 640,
+      "proteinaGPorPorcion": 36
+    },
+    {
+      "id": "pavo_zapallo_italiano",
+      "nombre": "Pavo molido con zapallo italiano",
+      "descripcion": "Liviano, alto en proteina y de una sola sarten.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "POLLO",
+      "antojos": [
+        "RAPIDO",
+        "ALTO_PROTEINA",
+        "BAJO_CALORIAS",
+        "SANO"
+      ],
+      "aptaPara": [],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "pavo_molido",
+          "cantidadPorPorcion": 160
+        },
+        {
+          "ingredienteId": "zapallo_italiano",
+          "cantidadPorPorcion": 150
+        },
+        {
+          "ingredienteId": "tomate",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "oregano",
+          "cantidadPorPorcion": 1
+        },
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 10
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 2
+        }
+      ],
+      "pasos": [
+        "Pon el arroz a cocer.",
+        "Sofrie cebolla y ajo y agrega el pavo hasta que se dore.",
+        "Suma el zapallo italiano en cubos y cocina cinco minutos.",
+        "Agrega el tomate y el oregano, y deja que espese.",
+        "Sirve sobre el arroz."
+      ],
+      "kcalPorPorcion": 460,
+      "proteinaGPorPorcion": 42
+    },
+    {
+      "id": "arroz_verduras_vegano",
+      "nombre": "Arroz salteado con verduras",
+      "descripcion": "Wok de verduras sobre arroz, sin nada de origen animal.",
+      "minutosTotal": 25,
+      "porcionesBase": 4,
+      "basePrincipal": "ARROZ",
+      "antojos": [
+        "RAPIDO",
+        "SANO",
+        "TAKEAWAY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 90
+        },
+        {
+          "ingredienteId": "brocoli",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "zanahoria",
+          "cantidadPorPorcion": 60
+        },
+        {
+          "ingredienteId": "pimiento_rojo",
+          "cantidadPorPorcion": 50
+        },
+        {
+          "ingredienteId": "cebollin",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "salsa_soya",
+          "cantidadPorPorcion": 15
+        },
+        {
+          "ingredienteId": "jengibre",
+          "cantidadPorPorcion": 5
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sesamo",
+          "cantidadPorPorcion": 3,
+          "opcional": true
+        }
+      ],
+      "pasos": [
+        "Cuece el arroz y dejalo entibiar para que no se apelmace.",
+        "Saltea zanahoria y brocoli a fuego fuerte tres minutos.",
+        "Agrega pimiento y jengibre rallado, un minuto mas.",
+        "Suma el arroz y revuelve sin aplastarlo.",
+        "Termina con soya, cebollin y sesamo."
+      ],
+      "kcalPorPorcion": 450,
+      "proteinaGPorPorcion": 12
+    },
+    {
+      "id": "arroz_lentejas_especiado",
+      "nombre": "Arroz con lentejas especiado",
+      "descripcion": "Dos ingredientes baratos que juntos hacen proteina completa.",
+      "minutosTotal": 40,
+      "porcionesBase": 4,
+      "basePrincipal": "ARROZ",
+      "antojos": [
+        "TAKEAWAY",
+        "SANO",
+        "ALTO_PROTEINA",
+        "GUT_FRIENDLY"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "arroz",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "lentejas",
+          "cantidadPorPorcion": 70
+        },
+        {
+          "ingredienteId": "cebolla",
+          "cantidadPorPorcion": 80
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "comino",
+          "cantidadPorPorcion": 2
+        },
+        {
+          "ingredienteId": "canela",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "caldo_verduras",
+          "cantidadPorPorcion": 0.5
+        },
+        {
+          "ingredienteId": "aceite",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Dora bastante cebolla en pluma hasta que quede casi caramelizada.",
+        "Cuece las lentejas veinte minutos, que queden enteras.",
+        "Tuesta comino y canela en el aceite treinta segundos.",
+        "Agrega el arroz, las lentejas escurridas y el caldo.",
+        "Cocina tapado dieciocho minutos y sirve con la cebolla encima."
+      ],
+      "kcalPorPorcion": 500,
+      "proteinaGPorPorcion": 20
+    },
+    {
+      "id": "pasta_ajo_aceite",
+      "nombre": "Pasta al ajo y aceite de oliva",
+      "descripcion": "Cuatro ingredientes, veinte minutos y sale siempre bien.",
+      "minutosTotal": 20,
+      "porcionesBase": 4,
+      "basePrincipal": "PASTA",
+      "antojos": [
+        "RAPIDO",
+        "PARA_TODOS"
+      ],
+      "aptaPara": [
+        "VEGETARIANO",
+        "VEGANO",
+        "SOLO_PESCADO"
+      ],
+      "requisitosArtefactos": [
+        [
+          "ESTUFA"
+        ]
+      ],
+      "ingredientes": [
+        {
+          "ingredienteId": "spaghetti",
+          "cantidadPorPorcion": 110
+        },
+        {
+          "ingredienteId": "ajo",
+          "cantidadPorPorcion": 3
+        },
+        {
+          "ingredienteId": "aceite_oliva",
+          "cantidadPorPorcion": 20
+        },
+        {
+          "ingredienteId": "perejil",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "nueces",
+          "cantidadPorPorcion": 12
+        },
+        {
+          "ingredienteId": "limon",
+          "cantidadPorPorcion": 0.25
+        },
+        {
+          "ingredienteId": "sal",
+          "cantidadPorPorcion": 3
+        }
+      ],
+      "pasos": [
+        "Cuece la pasta en abundante agua con sal y guarda una taza del agua.",
+        "Lamina el ajo fino y dóralo lento en el aceite, sin quemarlo.",
+        "Agrega las nueces picadas y tuestalas treinta segundos.",
+        "Echa la pasta a la sarten con un poco del agua reservada.",
+        "Revuelve fuerte hasta que emulsione y termina con perejil y limon."
+      ],
+      "kcalPorPorcion": 580,
+      "proteinaGPorPorcion": 15
+    }
+  ]
+}
