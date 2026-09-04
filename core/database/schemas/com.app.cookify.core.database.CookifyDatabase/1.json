@@ -1,0 +1,157 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "ab024f71c1f94d48dd7e8a5fa7eeeb84",
+    "entities": [
+      {
+        "tableName": "semanas_guardadas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT NOT NULL, `creada_en` INTEGER NOT NULL, `supermercado` TEXT NOT NULL, `personas` INTEGER NOT NULL, `presupuesto_clp` INTEGER NOT NULL, `costo_total_clp` INTEGER NOT NULL, `antojos` TEXT NOT NULL, `restriccion` TEXT NOT NULL, `artefactos` TEXT NOT NULL, `semilla` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "creadaEn",
+            "columnName": "creada_en",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "supermercado",
+            "columnName": "supermercado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "personas",
+            "columnName": "personas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "presupuestoClp",
+            "columnName": "presupuesto_clp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "costoTotalClp",
+            "columnName": "costo_total_clp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "antojos",
+            "columnName": "antojos",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "restriccion",
+            "columnName": "restriccion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "artefactos",
+            "columnName": "artefactos",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "semilla",
+            "columnName": "semilla",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "dias_semana_guardada",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `semana_id` INTEGER NOT NULL, `dia` TEXT NOT NULL, `receta_id` TEXT NOT NULL, `costo_clp` INTEGER NOT NULL, FOREIGN KEY(`semana_id`) REFERENCES `semanas_guardadas`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "semanaId",
+            "columnName": "semana_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dia",
+            "columnName": "dia",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "recetaId",
+            "columnName": "receta_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "costoClp",
+            "columnName": "costo_clp",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_dias_semana_guardada_semana_id",
+            "unique": false,
+            "columnNames": [
+              "semana_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_dias_semana_guardada_semana_id` ON `${TABLE_NAME}` (`semana_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "semanas_guardadas",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "semana_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ab024f71c1f94d48dd7e8a5fa7eeeb84')"
+    ]
+  }
+}

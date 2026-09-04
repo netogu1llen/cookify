@@ -2,8 +2,11 @@ package com.app.cookify.core.domain
 
 import com.app.cookify.core.model.Ingrediente
 import com.app.cookify.core.model.IngredienteCalculado
+import com.app.cookify.core.model.IngredienteReceta
 import com.app.cookify.core.model.Receta
 import com.app.cookify.core.model.Supermercado
+import com.app.cookify.core.model.Unidad
+import kotlin.math.ceil
 import kotlin.math.roundToInt
 
 /**
@@ -32,7 +35,7 @@ object CalculadoraCostos {
             .sumOf { linea ->
                 val ingrediente = ingredientes[linea.ingredienteId]
                     ?: error("Ingrediente '${linea.ingredienteId}' de la receta '${receta.id}' no esta en el catalogo")
-                ingrediente.precioClpPorUnidad * linea.cantidadPorPorcion * personas
+                ingrediente.precioClpPorUnidad * cantidadTotal(linea, ingrediente, personas)
             }
         return redondear(bruto * supermercado.multiplicadorPrecio)
     }
@@ -48,7 +51,7 @@ object CalculadoraCostos {
         supermercado: Supermercado,
     ): List<IngredienteCalculado> = receta.ingredientes.map { linea ->
         val ingrediente = ingredientes.getValue(linea.ingredienteId)
-        val cantidadTotal = linea.cantidadPorPorcion * personas
+        val cantidadTotal = cantidadTotal(linea, ingrediente, personas)
         IngredienteCalculado(
             ingrediente = ingrediente,
             cantidadTotal = cantidadTotal,
@@ -57,6 +60,22 @@ object CalculadoraCostos {
             ),
             opcional = linea.opcional,
         )
+    }
+
+    /**
+     * Lo que hay que comprar de verdad, no lo que pide la receta.
+     *
+     * Lo que se vende por unidad se redondea hacia arriba: media palta y 1,6 limones
+     * no existen en el supermercado. Se hace aca y no al mostrar, para que el
+     * presupuesto cobre las dos paltas enteras que el usuario va a terminar pagando.
+     */
+    private fun cantidadTotal(
+        linea: IngredienteReceta,
+        ingrediente: Ingrediente,
+        personas: Int,
+    ): Double {
+        val bruto = linea.cantidadPorPorcion * personas
+        return if (ingrediente.unidad == Unidad.UNIDAD) ceil(bruto) else bruto
     }
 
     private fun redondear(valor: Double): Int =

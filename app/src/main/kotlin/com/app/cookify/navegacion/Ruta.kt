@@ -2,6 +2,7 @@ package com.app.cookify.navegacion
 
 import androidx.navigation3.runtime.NavKey
 import com.app.cookify.core.model.SolicitudPlan
+import com.app.cookify.core.model.Supermercado
 import kotlinx.serialization.Serializable
 
 /**
@@ -28,4 +29,20 @@ sealed interface Ruta : NavKey {
 
     @Serializable
     data class Semana(val solicitud: SolicitudPlan, val semilla: Long) : Ruta
+
+    /** Una semana ya guardada, que se lee de la base tal como quedo. */
+    @Serializable
+    data class SemanaGuardada(val id: Long) : Ruta
+
+    /**
+     * El detalle no necesita la semana entera: con el id de la receta y las dos cosas
+     * que cambian los números (comensales y supermercado) se resuelve todo contra el
+     * catálogo.
+     */
+    @Serializable
+    data class Detalle(
+        val recetaId: String,
+        val personas: Int,
+        val supermercado: Supermercado,
+    ) : Ruta
 }

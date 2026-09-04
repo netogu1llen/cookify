@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
@@ -83,26 +84,31 @@ fun BarraPresupuesto(
             )
         }
 
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(ALTO_BARRA.dp)
-                .clip(MaterialTheme.shapes.extraSmall)
-                .background(colores.surfaceContainerHigh),
-        ) {
-            Box(
-                Modifier
-                    .fillMaxWidth(relleno)
-                    .height(ALTO_BARRA.dp)
-                    .clip(MaterialTheme.shapes.extraSmall)
-                    .background(color),
-            )
-        }
+        Riel(relleno = relleno, color = color)
 
         Text(
             text = resumen,
             style = MaterialTheme.typography.bodySmall,
             color = if (excedido) colores.error else colores.onSurfaceVariant,
+        )
+    }
+}
+
+@Composable
+private fun Riel(relleno: Float, color: Color) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(ALTO_BARRA.dp)
+            .clip(MaterialTheme.shapes.extraSmall)
+            .background(MaterialTheme.colorScheme.surfaceContainerHigh),
+    ) {
+        Box(
+            Modifier
+                .fillMaxWidth(relleno)
+                .height(ALTO_BARRA.dp)
+                .clip(MaterialTheme.shapes.extraSmall)
+                .background(color),
         )
     }
 }

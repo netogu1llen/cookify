@@ -4,13 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
@@ -18,10 +12,13 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.app.cookify.core.model.SolicitudPlan
-import com.app.cookify.core.ui.componentes.EstadoVacio
 import com.app.cookify.core.ui.theme.CookifyTheme
+import com.app.cookify.feature.home.PantallaHome
 import com.app.cookify.feature.onboarding.PantallaOnboarding
 import com.app.cookify.feature.planning.PantallaArmado
+import com.app.cookify.feature.week.PantallaDetalle
+import com.app.cookify.feature.week.PantallaSemana
+import com.app.cookify.feature.week.PantallaSemanaGuardada
 import com.app.cookify.navegacion.Ruta
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,7 +50,10 @@ private fun CookifyApp() {
         onBack = { backStack.removeLastOrNull() },
         entryProvider = entryProvider<NavKey> {
             entry<Ruta.Home> {
-                PantallaHomeVacia(onNuevaSemana = { backStack.add(Ruta.Onboarding) })
+                PantallaHome(
+                    onNuevaSemana = { backStack.add(Ruta.Onboarding) },
+                    onAbrirSemana = { id -> backStack.add(Ruta.SemanaGuardada(id)) },
+                )
             }
 
             entry<Ruta.Onboarding> {
@@ -77,7 +77,35 @@ private fun CookifyApp() {
             }
 
             entry<Ruta.Semana> { ruta ->
-                PantallaSemanaProvisoria(ruta)
+                PantallaSemana(
+                    solicitud = ruta.solicitud,
+                    semilla = ruta.semilla,
+                    onAbrirReceta = { recetaId, personas, supermercado ->
+                        backStack.add(Ruta.Detalle(recetaId, personas, supermercado))
+                    },
+                    // Al guardar se limpia todo el camino y se vuelve a la home,
+                    // que ahora tiene la semana recien guardada arriba.
+                    onGuardada = { backStack.removeAll { it != Ruta.Home } },
+                )
+            }
+
+            entry<Ruta.SemanaGuardada> { ruta ->
+                PantallaSemanaGuardada(
+                    id = ruta.id,
+                    onAbrirReceta = { recetaId, personas, supermercado ->
+                        backStack.add(Ruta.Detalle(recetaId, personas, supermercado))
+                    },
+                    onBorrada = { backStack.removeLastOrNull() },
+                )
+            }
+
+            entry<Ruta.Detalle> { ruta ->
+                PantallaDetalle(
+                    recetaId = ruta.recetaId,
+                    personas = ruta.personas,
+                    supermercado = ruta.supermercado,
+                    onVolver = { backStack.removeLastOrNull() },
+                )
             }
         },
     )
@@ -93,32 +121,4 @@ private fun NavBackStack<NavKey>.irASemana(solicitud: SolicitudPlan, semilla: Lo
     val semana = Ruta.Semana(solicitud, semilla)
     removeAll { it is Ruta.Armado || it is Ruta.Onboarding }
     add(semana)
-}
-
-/** Home provisoria: se reemplaza por :feature:home cuando existan semanas guardadas. */
-@Composable
-private fun PantallaHomeVacia(onNuevaSemana: () -> Unit) {
-    Scaffold(containerColor = MaterialTheme.colorScheme.background) { relleno ->
-        EstadoVacio(
-            titulo = "Todavía no tienes semanas",
-            mensaje = "Arma tu primera semana de almuerzos y te decimos cuánto te va a costar en el súper.",
-            textoAccion = "Armar mi primera semana",
-            onAccion = onNuevaSemana,
-            modifier = Modifier.padding(relleno),
-        )
-    }
-}
-
-/** Provisoria hasta la fase 8, que trae :feature:week con la semana y el detalle. */
-@Composable
-private fun PantallaSemanaProvisoria(ruta: Ruta.Semana) {
-    Scaffold(containerColor = MaterialTheme.colorScheme.background) { relleno ->
-        Text(
-            text = "Semana lista para ${ruta.solicitud.personas} personas " +
-                "(semilla ${ruta.semilla})",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.padding(relleno).padding(24.dp),
-        )
-    }
 }

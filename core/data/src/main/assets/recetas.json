@@ -6,7 +6,7 @@
     {
       "id": "pollo_al_curry",
       "nombre": "Pollo al curry",
-      "descripcion": "Cremoso y suave, se hace en una sola olla y rinde para el otro dia.",
+      "descripcion": "Cremoso y suave, se hace en una sola olla y rinde para el otro día.",
       "minutosTotal": 35,
       "porcionesBase": 4,
       "basePrincipal": "POLLO",
@@ -61,8 +61,8 @@
       ],
       "pasos": [
         "Pon el arroz a cocer con el doble de agua y una pizca de sal.",
-        "Corta el pollo en cubos de dos centimetros y salalo.",
-        "Sofrie la cebolla picada fina y el ajo hasta que esten transparentes.",
+        "Corta el pollo en cubos de dos centímetros y sálalo.",
+        "Sofríe la cebolla picada fina y el ajo hasta que estén transparentes.",
         "Agrega el pollo y dora por fuera, unos cinco minutos.",
         "Suma el curry, revuelve treinta segundos y vierte la leche de coco.",
         "Cocina a fuego bajo quince minutos y sirve sobre el arroz."
@@ -124,7 +124,7 @@
       ],
       "pasos": [
         "Dora los trutros por ambos lados en la olla con aceite.",
-        "Saca el pollo y sofrie la cebolla y la zanahoria en la misma grasa.",
+        "Saca el pollo y sofríe la cebolla y la zanahoria en la misma grasa.",
         "Devuelve el pollo, agrega la papa en cubos y el caldo con agua hasta cubrir.",
         "Cocina tapado veinte minutos.",
         "Suma las arvejas y cocina cinco minutos mas."
@@ -181,8 +181,8 @@
       ],
       "pasos": [
         "Precalienta el horno a 200 grados.",
-        "Adoba el pollo con ajo molido, oregano, sal, jugo de limon y aceite.",
-        "Corta las papas en gajos y mezclalas con el jugo del adobo.",
+        "Adoba el pollo con ajo molido, orégano, sal, jugo de limón y aceite.",
+        "Corta las papas en gajos y mézclalas con el jugo del adobo.",
         "Acomoda todo en una fuente, el pollo con la piel hacia arriba.",
         "Hornea cuarenta y cinco minutos, dando vuelta las papas a la mitad."
       ],
@@ -191,8 +191,8 @@
     },
     {
       "id": "pollo_airfryer_limon",
-      "nombre": "Pollo al limon en airfryer",
-      "descripcion": "Veinte minutos, sin ensuciar nada y con harta proteina.",
+      "nombre": "Pollo al limón en airfryer",
+      "descripcion": "Veinte minutos, sin ensuciar nada y con harta proteína.",
       "minutosTotal": 25,
       "porcionesBase": 4,
       "basePrincipal": "POLLO",
@@ -243,7 +243,7 @@
       ],
       "pasos": [
         "Abre la pechuga en mariposa para que quede pareja.",
-        "Adobala con jugo de limon, ajo molido, oregano, sal y aceite.",
+        "Adóbala con jugo de limón, ajo molido, orégano, sal y aceite.",
         "Airfryer a 190 grados por dieciocho minutos, dando vuelta a la mitad.",
         "Mientras tanto arma una ensalada de lechuga y tomate.",
         "Deja reposar el pollo tres minutos antes de cortar."
@@ -254,7 +254,7 @@
     {
       "id": "arroz_pollo",
       "nombre": "Arroz con pollo",
-      "descripcion": "Plato unico, barato y de los que nunca fallan.",
+      "descripcion": "Plato único, barato y de los que nunca fallan.",
       "minutosTotal": 40,
       "porcionesBase": 4,
       "basePrincipal": "ARROZ",
@@ -308,7 +308,7 @@
       ],
       "pasos": [
         "Dora el pollo en trozos y resérvalo.",
-        "Sofrie cebolla y pimiento, agrega el aji de color.",
+        "Sofríe cebolla y pimiento, agrega el ají de color.",
         "Suma el arroz y revuelve un minuto para que tome sabor.",
         "Vierte el doble de agua con el caldo, devuelve el pollo y tapa.",
         "Cocina dieciocho minutos a fuego bajo y suma las arvejas al final."
@@ -371,17 +371,17 @@
       ],
       "pasos": [
         "Cocina la pechuga a la plancha con sal, ocho minutos por lado.",
-        "Deja reposar y cortala en tiras.",
-        "Pica lechuga, tomate y pepino, y lamina la palta.",
-        "Mezcla todo y alina con aceite de oliva, limon y sal."
+        "Deja reposar y córtala en tiras.",
+        "Pica lechuga, tomate y pepino, y lámina la palta.",
+        "Mezcla todo y alina con aceite de oliva, limón y sal."
       ],
       "kcalPorPorcion": 430,
       "proteinaGPorPorcion": 40
     },
     {
       "id": "pollo_champinones",
-      "nombre": "Pollo con champinones",
-      "descripcion": "Salsa cremosa de sarten, elegante sin ser complicada.",
+      "nombre": "Pollo con champiñones",
+      "descripcion": "Salsa cremosa de sartén, elegante sin ser complicada.",
       "minutosTotal": 35,
       "porcionesBase": 4,
       "basePrincipal": "POLLO",
@@ -435,7 +435,7 @@
       "pasos": [
         "Pon el arroz a cocer.",
         "Dora las pechugas enteras y resérvalas.",
-        "En la misma sarten saltea cebolla, ajo y champinones laminados.",
+        "En la misma sartén saltea cebolla, ajo y champiñones laminados.",
         "Agrega la crema, sal y pimienta, y deja espesar tres minutos.",
         "Devuelve el pollo a la salsa y cocina cinco minutos mas."
       ],
@@ -445,7 +445,7 @@
     {
       "id": "fajitas_pollo",
       "nombre": "Fajitas de pollo",
-      "descripcion": "Cada uno arma la suya, funciona bien con ninos.",
+      "descripcion": "Cada uno arma la suya, funciona bien con niños.",
       "minutosTotal": 30,
       "porcionesBase": 4,
       "basePrincipal": "POLLO",
@@ -559,8 +559,8 @@
       ],
       "pasos": [
         "Mezcla miel, mostaza, ajo molido, sal y aceite.",
-        "Baña el pollo con la mezcla y dejalo diez minutos.",
-        "Corta el camote en cubos y acomodalo alrededor.",
+        "Baña el pollo con la mezcla y déjalo diez minutos.",
+        "Corta el camote en cubos y acomódalo alrededor.",
         "Hornea a 200 grados por veinticinco minutos.",
         "Pincela con el jugo de la fuente antes de servir."
       ],
@@ -570,7 +570,7 @@
     {
       "id": "crema_pollo_verduras",
       "nombre": "Crema de pollo y verduras",
-      "descripcion": "Suave y reconfortante, cae bien cuando el estomago anda sensible.",
+      "descripcion": "Suave y reconfortante, cae bien cuando el estómago anda sensible.",
       "minutosTotal": 40,
       "porcionesBase": 4,
       "basePrincipal": "POLLO",
@@ -620,10 +620,10 @@
         }
       ],
       "pasos": [
-        "Sofrie la cebolla suave, sin dorar.",
+        "Sofríe la cebolla suave, sin dorar.",
         "Agrega zapallo, zanahoria y papa en cubos.",
         "Cubre con agua y el caldo, y cocina veinte minutos.",
-        "Cuece el pollo aparte y deshilachalo.",
+        "Cuece el pollo aparte y deshiláchalo.",
         "Muele la sopa hasta dejarla lisa y devuelve el pollo."
       ],
       "kcalPorPorcion": 380,
@@ -683,9 +683,9 @@
       ],
       "pasos": [
         "Cuece el pollo en agua con cebolla, zanahoria y apio, veinticinco minutos.",
-        "Saca el pollo, deshuesalo y deshilachalo.",
+        "Saca el pollo, deshuésalo y deshiláchalo.",
         "Cuela el caldo si lo quieres mas limpio y vuelve a hervir.",
-        "Agrega los fideos y cocina segun el paquete.",
+        "Agrega los fideos y cocina según el paquete.",
         "Devuelve el pollo y termina con perejil picado."
       ],
       "kcalPorPorcion": 400,
@@ -755,7 +755,7 @@
     {
       "id": "tallarines_bolonesa",
       "nombre": "Tallarines a la bolonesa",
-      "descripcion": "El clasico que le gusta a todos, sin misterio.",
+      "descripcion": "El clásico que le gusta a todos, sin misterio.",
       "minutosTotal": 35,
       "porcionesBase": 4,
       "basePrincipal": "PASTA",
@@ -809,9 +809,9 @@
         }
       ],
       "pasos": [
-        "Sofrie cebolla, zanahoria rallada y ajo hasta que esten blandos.",
-        "Agrega la carne molida y desarmala con la cuchara hasta dorar.",
-        "Vierte la salsa de tomate y el oregano, y cocina veinte minutos a fuego bajo.",
+        "Sofríe cebolla, zanahoria rallada y ajo hasta que estén blandos.",
+        "Agrega la carne molida y desármala con la cuchara hasta dorar.",
+        "Vierte la salsa de tomate y el orégano, y cocina veinte minutos a fuego bajo.",
         "Cuece los tallarines al dente en agua con sal.",
         "Mezcla la pasta con la salsa y sirve con queso rallado."
       ],
@@ -821,7 +821,7 @@
     {
       "id": "carne_mechada",
       "nombre": "Carne mechada",
-      "descripcion": "Se cocina sola y al dia siguiente esta aun mejor.",
+      "descripcion": "Se cocina sola y al día siguiente esta aun mejor.",
       "minutosTotal": 90,
       "porcionesBase": 4,
       "basePrincipal": "VACUNO",
@@ -875,10 +875,10 @@
       ],
       "pasos": [
         "Sella la carne entera por todos lados a fuego fuerte.",
-        "Saca la carne y sofrie cebolla, zanahoria y ajo.",
+        "Saca la carne y sofríe cebolla, zanahoria y ajo.",
         "Devuelve la carne, agrega la salsa de tomate y agua hasta la mitad.",
         "Tapa y cocina a fuego muy bajo una hora, dando vuelta a la mitad.",
-        "Deshilacha la carne dentro de su jugo y sirve con pure de papas."
+        "Deshilacha la carne dentro de su jugo y sirve con puré de papas."
       ],
       "kcalPorPorcion": 640,
       "proteinaGPorPorcion": 42
@@ -886,7 +886,7 @@
     {
       "id": "pastel_papas",
       "nombre": "Pastel de papas",
-      "descripcion": "Pure dorado arriba, pino jugoso abajo.",
+      "descripcion": "Puré dorado arriba, pino jugoso abajo.",
       "minutosTotal": 60,
       "porcionesBase": 4,
       "basePrincipal": "VACUNO",
@@ -943,10 +943,10 @@
         }
       ],
       "pasos": [
-        "Cuece las papas y haz un pure con leche y mantequilla.",
-        "Sofrie bastante cebolla picada fina hasta que quede transparente.",
-        "Agrega la carne, el comino y sal, y cocina hasta que no quede liquido.",
-        "Pon el pino en una fuente y cubre con el pure.",
+        "Cuece las papas y haz un puré con leche y mantequilla.",
+        "Sofríe bastante cebolla picada fina hasta que quede transparente.",
+        "Agrega la carne, el comino y sal, y cocina hasta que no quede líquido.",
+        "Pon el pino en una fuente y cubre con el puré.",
         "Hornea a 200 grados veinte minutos hasta gratinar, con medio huevo duro dentro."
       ],
       "kcalPorPorcion": 700,
@@ -955,7 +955,7 @@
     {
       "id": "lomo_saltado",
       "nombre": "Lomo saltado",
-      "descripcion": "Wok rapido, carne jugosa y papas fritas adentro.",
+      "descripcion": "Wok rápido, carne jugosa y papas fritas adentro.",
       "minutosTotal": 30,
       "porcionesBase": 4,
       "basePrincipal": "VACUNO",
@@ -1006,9 +1006,9 @@
       ],
       "pasos": [
         "Pon el arroz a cocer y las papas a freir aparte.",
-        "Corta la carne en tiras gruesas y salala.",
+        "Corta la carne en tiras gruesas y sálala.",
         "Saltea la carne a fuego muy fuerte, un minuto por lado, y resérvala.",
-        "En la misma sarten saltea cebolla en pluma y tomate en gajos.",
+        "En la misma sartén saltea cebolla en pluma y tomate en gajos.",
         "Devuelve la carne, agrega la soya y las papas, y revuelve una vez."
       ],
       "kcalPorPorcion": 720,
@@ -1016,7 +1016,7 @@
     },
     {
       "id": "albondigas_salsa",
-      "nombre": "Albondigas en salsa",
+      "nombre": "Albóndigas en salsa",
       "descripcion": "Blanditas y en salsa de tomate, ganan siempre.",
       "minutosTotal": 45,
       "porcionesBase": 4,
@@ -1070,11 +1070,11 @@
         }
       ],
       "pasos": [
-        "Remoja el pan en un poco de leche y estrujalo.",
+        "Remoja el pan en un poco de leche y estrújalo.",
         "Mezcla carne, pan, huevo, ajo, sal y forma bolitas.",
-        "Dora las albondigas por fuera y resérvalas.",
-        "Sofrie la cebolla, agrega la salsa de tomate y deja hervir.",
-        "Devuelve las albondigas y cocina veinte minutos tapado. Sirve con arroz."
+        "Dora las albóndigas por fuera y resérvalas.",
+        "Sofríe la cebolla, agrega la salsa de tomate y deja hervir.",
+        "Devuelve las albóndigas y cocina veinte minutos tapado. Sirve con arroz."
       ],
       "kcalPorPorcion": 660,
       "proteinaGPorPorcion": 38
@@ -1131,10 +1131,10 @@
         }
       ],
       "pasos": [
-        "Forma los medallones sin apretar mucho la carne y salalos por fuera.",
+        "Forma los medallones sin apretar mucho la carne y sálalos por fuera.",
         "Pon las papas a freir u hornear.",
         "Cocina la carne a fuego fuerte tres minutos por lado.",
-        "Pon el queso encima el ultimo minuto para que se derrita.",
+        "Pon el queso encima el último minuto para que se derrita.",
         "Tuesta el pan y arma con lechuga, tomate y mayonesa."
       ],
       "kcalPorPorcion": 780,
@@ -1142,7 +1142,7 @@
     },
     {
       "id": "charquican",
-      "nombre": "Charquican",
+      "nombre": "Charquicán",
       "descripcion": "Zapallo, papa y carne desmenuzada. Comida chilena de verdad.",
       "minutosTotal": 50,
       "porcionesBase": 4,
@@ -1197,8 +1197,8 @@
         }
       ],
       "pasos": [
-        "Sofrie la cebolla con el aji de color.",
-        "Agrega la carne y dorala.",
+        "Sofríe la cebolla con el ají de color.",
+        "Agrega la carne y dórala.",
         "Suma zapallo y papa en cubos y agua hasta cubrir a medias.",
         "Cocina treinta minutos hasta que el zapallo se deshaga.",
         "Machaca con el uslero, agrega choclo y arvejas, y cocina cinco minutos."
@@ -1274,7 +1274,7 @@
     {
       "id": "carne_arroz_salteado",
       "nombre": "Salteado de carne y verduras",
-      "descripcion": "Todo al wok, rapido y con harta verdura.",
+      "descripcion": "Todo al wok, rápido y con harta verdura.",
       "minutosTotal": 30,
       "porcionesBase": 4,
       "basePrincipal": "VACUNO",
@@ -1331,17 +1331,17 @@
       "pasos": [
         "Pon el arroz a cocer.",
         "Corta la carne en tiras finas contra la fibra.",
-        "Saltea la carne a fuego maximo un minuto y resérvala.",
-        "Saltea brocoli, pimiento y zanahoria con el jengibre rallado.",
-        "Devuelve la carne, agrega la soya y sirve sobre el arroz con sesamo."
+        "Saltea la carne a fuego máximo un minuto y resérvala.",
+        "Saltea brócoli, pimiento y zanahoria con el jengibre rallado.",
+        "Devuelve la carne, agrega la soya y sirve sobre el arroz con sésamo."
       ],
       "kcalPorPorcion": 590,
       "proteinaGPorPorcion": 45
     },
     {
       "id": "lasana",
-      "nombre": "Lasana de carne",
-      "descripcion": "Toma su tiempo pero alcanza para dos dias.",
+      "nombre": "Lasaña de carne",
+      "descripcion": "Toma su tiempo pero alcanza para dos días.",
       "minutosTotal": 70,
       "porcionesBase": 4,
       "basePrincipal": "PASTA",
@@ -1400,7 +1400,7 @@
       "pasos": [
         "Prepara la salsa de carne con cebolla y salsa de tomate, veinte minutos.",
         "Haz una bechamel con mantequilla, harina y leche.",
-        "Cuece las laminas de pasta si no son precocidas.",
+        "Cuece las láminas de pasta si no son precocidas.",
         "Arma capas alternando pasta, carne y bechamel.",
         "Cubre con queso rallado y hornea a 190 grados por treinta minutos."
       ],
@@ -1409,7 +1409,7 @@
     },
     {
       "id": "chuleta_pure",
-      "nombre": "Chuleta con pure",
+      "nombre": "Chuleta con puré",
       "descripcion": "Directo al grano, sin vueltas.",
       "minutosTotal": 40,
       "porcionesBase": 4,
@@ -1460,7 +1460,7 @@
       "pasos": [
         "Cuece las papas en agua con sal, veinte minutos.",
         "Adoba las chuletas con ajo, sal y pimienta.",
-        "Cocinalas a fuego medio alto, cinco minutos por lado.",
+        "Cocínalas a fuego medio alto, cinco minutos por lado.",
         "Muele las papas con leche caliente y mantequilla.",
         "Deja reposar la carne dos minutos antes de servir."
       ],
@@ -1520,7 +1520,7 @@
       ],
       "pasos": [
         "Adoba el costillar con ajo, paprika, sal y aceite.",
-        "Tapalo con papel aluminio y hornea a 160 grados una hora.",
+        "Tápalo con papel aluminio y hornea a 160 grados una hora.",
         "Mezcla miel y mostaza para el glaseado.",
         "Destapa, pincela el glaseado y sube a 200 grados.",
         "Hornea veinte minutos mas con las papas alrededor."
@@ -1582,7 +1582,7 @@
         "Pon el arroz a cocer.",
         "Corta el cerdo en cubos y dóralo bien por fuera.",
         "Saltea cebolla y pimiento dos minutos.",
-        "Mezcla vinagre, azucar y soya, y viertelo en la sarten.",
+        "Mezcla vinagre, azúcar y soya, y viértelo en la sartén.",
         "Cocina cinco minutos hasta que la salsa se ponga brillante."
       ],
       "kcalPorPorcion": 640,
@@ -1632,7 +1632,7 @@
         }
       ],
       "pasos": [
-        "Corta las papas en cubos y mezclalas con aceite, paprika y sal.",
+        "Corta las papas en cubos y mézclalas con aceite, paprika y sal.",
         "Airfryer a 190 grados por quince minutos.",
         "Agrega la longaniza en trozos y la cebolla en pluma.",
         "Diez minutos mas, sacudiendo la canasta a la mitad."
@@ -1693,10 +1693,10 @@
         }
       ],
       "pasos": [
-        "Corta la papa en laminas finas y cocinala en aceite a fuego bajo.",
+        "Corta la papa en láminas finas y cocínala en aceite a fuego bajo.",
         "Agrega cebolla y zapallo italiano hasta que todo este blando.",
-        "Bate los huevos con sal y mezclalos con las verduras escurridas.",
-        "Vierte en la sarten y cocina cinco minutos a fuego bajo.",
+        "Bate los huevos con sal y mézclalos con las verduras escurridas.",
+        "Vierte en la sartén y cocina cinco minutos a fuego bajo.",
         "Da vuelta con ayuda de un plato y cocina cuatro minutos mas."
       ],
       "kcalPorPorcion": 420,
@@ -1750,11 +1750,11 @@
         }
       ],
       "pasos": [
-        "Pela el tomate si quieres una textura mas suave y picalo.",
-        "Sofrielo dos minutos con sal hasta que suelte jugo.",
-        "Bate los huevos y viertelos sobre el tomate.",
+        "Pela el tomate si quieres una textura mas suave y pícalo.",
+        "Sofríelo dos minutos con sal hasta que suelte jugo.",
+        "Bate los huevos y viértelos sobre el tomate.",
         "Revuelve lento hasta que cuajen apenas, quedan mas ricos jugosos.",
-        "Termina con cebollin y sirve con pan tostado."
+        "Termina con cebollín y sirve con pan tostado."
       ],
       "kcalPorPorcion": 380,
       "proteinaGPorPorcion": 22
@@ -1762,7 +1762,7 @@
     {
       "id": "arroz_frito_huevo",
       "nombre": "Arroz frito con huevo",
-      "descripcion": "Ideal para aprovechar arroz del dia anterior.",
+      "descripcion": "Ideal para aprovechar arroz del día anterior.",
       "minutosTotal": 25,
       "porcionesBase": 4,
       "basePrincipal": "ARROZ",
@@ -1811,11 +1811,11 @@
         }
       ],
       "pasos": [
-        "Cuece el arroz y dejalo enfriar, o usa arroz del dia anterior.",
-        "Revuelve los huevos en la sarten y resérvalos.",
+        "Cuece el arroz y déjalo enfriar, o usa arroz del día anterior.",
+        "Revuelve los huevos en la sartén y resérvalos.",
         "Saltea zanahoria en cubitos y arvejas a fuego fuerte.",
         "Agrega el arroz y revuelve dos minutos sin aplastarlo.",
-        "Suma el huevo, la soya y el cebollin, y sirve."
+        "Suma el huevo, la soya y el cebollín, y sirve."
       ],
       "kcalPorPorcion": 490,
       "proteinaGPorPorcion": 18
@@ -1823,7 +1823,7 @@
     {
       "id": "omelette_queso",
       "nombre": "Omelette de queso",
-      "descripcion": "Lo mas rapido del recetario, y con harta proteina.",
+      "descripcion": "Lo mas rápido del recetario, y con harta proteína.",
       "minutosTotal": 15,
       "porcionesBase": 4,
       "basePrincipal": "HUEVO",
@@ -1930,7 +1930,7 @@
       "pasos": [
         "Cuece la pasta en abundante agua con sal.",
         "Muele albahaca, nueces, ajo, queso y aceite hasta formar una pasta.",
-        "Guarda media taza del agua de coccion antes de colar.",
+        "Guarda media taza del agua de cocción antes de colar.",
         "Mezcla la pasta con el pesto fuera del fuego.",
         "Suelta con el agua reservada hasta que quede cremosa."
       ],
@@ -1990,10 +1990,10 @@
         }
       ],
       "pasos": [
-        "Sofrie cebolla y ajo en aceite de oliva, sin que tomen color.",
-        "Agrega la salsa de tomate, oregano y sal.",
+        "Sofríe cebolla y ajo en aceite de oliva, sin que tomen color.",
+        "Agrega la salsa de tomate, orégano y sal.",
         "Cocina quince minutos a fuego bajo, que espese.",
-        "Cuece la pasta al dente y mezclala con la salsa en la olla.",
+        "Cuece la pasta al dente y mézclala con la salsa en la olla.",
         "Sirve con queso rallado por encima."
       ],
       "kcalPorPorcion": 540,
@@ -2002,7 +2002,7 @@
     {
       "id": "macarrones_queso",
       "nombre": "Macarrones con queso",
-      "descripcion": "Cremosos, del gusto garantizado de los ninos.",
+      "descripcion": "Cremosos, del gusto garantizado de los niños.",
       "minutosTotal": 30,
       "porcionesBase": 4,
       "basePrincipal": "PASTA",
@@ -2061,7 +2061,7 @@
     },
     {
       "id": "risotto_champinones",
-      "nombre": "Risotto de champinones",
+      "nombre": "Risotto de champiñones",
       "descripcion": "Pide revolver, pero el resultado lo vale.",
       "minutosTotal": 40,
       "porcionesBase": 4,
@@ -2114,9 +2114,9 @@
       ],
       "pasos": [
         "Ten el caldo caliente en una olla al lado.",
-        "Sofrie la cebolla y agrega los champinones laminados.",
+        "Sofríe la cebolla y agrega los champiñones laminados.",
         "Suma el arroz y nacaralo dos minutos revolviendo.",
-        "Agrega caldo de a un cucharon, esperando que se absorba cada vez.",
+        "Agrega caldo de a un cucharón, esperando que se absorba cada vez.",
         "A los dieciocho minutos apaga y suma mantequilla y queso."
       ],
       "kcalPorPorcion": 580,
@@ -2239,9 +2239,9 @@
         }
       ],
       "pasos": [
-        "Saltea cebolla y pimiento hasta que esten blandos.",
+        "Saltea cebolla y pimiento hasta que estén blandos.",
         "Pon queso sobre media tortilla, agrega las verduras y el choclo.",
-        "Dobla la tortilla y llevala a la sarten seca.",
+        "Dobla la tortilla y llévala a la sartén seca.",
         "Dora dos minutos por lado hasta que el queso se derrita.",
         "Corta en triangulos y sirve con palta."
       ],
@@ -2304,9 +2304,9 @@
         }
       ],
       "pasos": [
-        "Corta las berenjenas en laminas, salalas y dejalas veinte minutos.",
-        "Secalas con papel y hornealas con aceite a 200 grados por quince minutos.",
-        "Calienta la salsa de tomate con ajo y oregano.",
+        "Corta las berenjenas en láminas, sálalas y déjalas veinte minutos.",
+        "Secalas con papel y hornéalas con aceite a 200 grados por quince minutos.",
+        "Calienta la salsa de tomate con ajo y orégano.",
         "Arma capas de berenjena, salsa y queso en una fuente.",
         "Gratina veinte minutos hasta que la superficie este dorada."
       ],
@@ -2316,7 +2316,7 @@
     {
       "id": "zapallitos_rellenos",
       "nombre": "Zapallitos rellenos",
-      "descripcion": "Bonitos de servir y mas faciles de lo que parecen.",
+      "descripcion": "Bonitos de servir y mas fáciles de lo que parecen.",
       "minutosTotal": 50,
       "porcionesBase": 4,
       "basePrincipal": "QUESO",
@@ -2369,8 +2369,8 @@
         }
       ],
       "pasos": [
-        "Corta los zapallitos a lo largo y sacales la pulpa con una cuchara.",
-        "Pica la pulpa y sofriela con cebolla y tomate.",
+        "Corta los zapallitos a lo largo y sácales la pulpa con una cuchara.",
+        "Pica la pulpa y sofríela con cebolla y tomate.",
         "Mezcla con el arroz cocido, el huevo y la mitad del queso.",
         "Rellena los zapallitos y cubre con el resto del queso.",
         "Hornea a 190 grados por treinta minutos."
@@ -2435,8 +2435,8 @@
       ],
       "pasos": [
         "Une harina, mantequilla fria y un poco de agua hasta formar la masa.",
-        "Estirala en el molde y llevala al refrigerador veinte minutos.",
-        "Saltea espinaca y cebolla y escurre bien el liquido.",
+        "Estírala en el molde y llévala al refrigerador veinte minutos.",
+        "Saltea espinaca y cebolla y escurre bien el líquido.",
         "Bate huevos con crema, queso y sal, y mezcla con las verduras.",
         "Vierte sobre la masa y hornea a 180 grados por treinta minutos."
       ],
@@ -2446,7 +2446,7 @@
     {
       "id": "pizza_casera",
       "nombre": "Pizza casera",
-      "descripcion": "Vale la pena por la masa recien hecha.",
+      "descripcion": "Vale la pena por la masa recién hecha.",
       "minutosTotal": 45,
       "porcionesBase": 4,
       "basePrincipal": "QUESO",
@@ -2501,7 +2501,7 @@
         "Mezcla harina, agua tibia, sal y aceite, y amasa cinco minutos.",
         "Deja leudar tapada treinta minutos si tienes levadura.",
         "Estira la masa delgada sobre una lata aceitada.",
-        "Cubre con salsa, queso, champinones y pimiento.",
+        "Cubre con salsa, queso, champiñones y pimiento.",
         "Hornea a 220 grados por quince minutos, lo mas abajo posible."
       ],
       "kcalPorPorcion": 620,
@@ -2510,7 +2510,7 @@
     {
       "id": "lentejas_guiso",
       "nombre": "Lentejas guisadas",
-      "descripcion": "Baratas, llenadoras y mejores al dia siguiente.",
+      "descripcion": "Baratas, llenadoras y mejores al día siguiente.",
       "minutosTotal": 50,
       "porcionesBase": 4,
       "basePrincipal": "LEGUMBRE",
@@ -2569,7 +2569,7 @@
       ],
       "pasos": [
         "Remoja las lentejas mientras preparas el sofrito.",
-        "Sofrie cebolla, ajo y zanahoria con el aji de color.",
+        "Sofríe cebolla, ajo y zanahoria con el ají de color.",
         "Agrega las lentejas escurridas y agua que las cubra dos dedos.",
         "Cocina treinta minutos, sumando la papa a la mitad.",
         "Ajusta la sal al final; antes las lentejas quedan duras."
@@ -2633,11 +2633,11 @@
         }
       ],
       "pasos": [
-        "Remoja los porotos la noche anterior y cuecelos con el zapallo.",
-        "Cuando esten blandos, muele parte del zapallo para espesar.",
-        "Prepara un sofrito de cebolla, ajo y aji de color.",
+        "Remoja los porotos la noche anterior y cuécelos con el zapallo.",
+        "Cuando estén blandos, muele parte del zapallo para espesar.",
+        "Prepara un sofrito de cebolla, ajo y ají de color.",
         "Incorpora el sofrito a los porotos.",
-        "Agrega los tallarines quebrados y cocina hasta que esten listos."
+        "Agrega los tallarines quebrados y cocina hasta que estén listos."
       ],
       "kcalPorPorcion": 540,
       "proteinaGPorPorcion": 22
@@ -2699,9 +2699,9 @@
         }
       ],
       "pasos": [
-        "Cuece los garbanzos si son secos, o escurrelos si son de conserva.",
-        "Sofrie cebolla, jengibre rallado y curry hasta que huela.",
-        "Agrega el tomate picado y deshacelo cinco minutos.",
+        "Cuece los garbanzos si son secos, o escúrrelos si son de conserva.",
+        "Sofríe cebolla, jengibre rallado y curry hasta que huela.",
+        "Agrega el tomate picado y deshácelo cinco minutos.",
         "Suma garbanzos y leche de coco, y cocina quince minutos.",
         "Sirve sobre arroz blanco."
       ],
@@ -2769,10 +2769,10 @@
         }
       ],
       "pasos": [
-        "Cuece las lentejas hasta que esten muy blandas y escurrelas bien.",
-        "Muelelas con cebolla, ajo, comino y sal, sin llegar a pure.",
+        "Cuece las lentejas hasta que estén muy blandas y escúrrelas bien.",
+        "Muélelas con cebolla, ajo, comino y sal, sin llegar a puré.",
         "Agrega la avena y deja reposar diez minutos para que tome cuerpo.",
-        "Forma medallones y cocinalos cuatro minutos por lado.",
+        "Forma medallones y cocínalos cuatro minutos por lado.",
         "Arma con pan, tomate y lo que tengas a mano."
       ],
       "kcalPorPorcion": 490,
@@ -2835,7 +2835,7 @@
         "Escurre y enjuaga los garbanzos de conserva.",
         "Pica tomate, pepino y cebolla en cubos parejos.",
         "Mezcla todo con perejil picado.",
-        "Alina con aceite de oliva, jugo de limon y sal.",
+        "Alina con aceite de oliva, jugo de limón y sal.",
         "Deja reposar diez minutos antes de servir."
       ],
       "kcalPorPorcion": 390,
@@ -2902,8 +2902,8 @@
         }
       ],
       "pasos": [
-        "Sofrie cebolla y pimiento hasta que esten blandos.",
-        "Agrega comino y paprika y tuestalos treinta segundos.",
+        "Sofríe cebolla y pimiento hasta que estén blandos.",
+        "Agrega comino y paprika y tuéstalos treinta segundos.",
         "Suma los porotos cocidos y la salsa de tomate.",
         "Cocina veinticinco minutos a fuego bajo, que espese.",
         "Agrega el choclo al final y sirve con arroz."
@@ -2969,8 +2969,8 @@
       ],
       "pasos": [
         "Cuece los porotos con el zapallo hasta que este se deshaga.",
-        "Ralla el choclo o muelelo grueso y agregalo.",
-        "Prepara un sofrito de cebolla con aji de color.",
+        "Ralla el choclo o muélelo grueso y agrégalo.",
+        "Prepara un sofrito de cebolla con ají de color.",
         "Incorpora el sofrito y cocina quince minutos.",
         "Termina con abundante albahaca picada fuera del fuego."
       ],
@@ -3039,8 +3039,8 @@
         }
       ],
       "pasos": [
-        "Hidrata la soya en agua caliente diez minutos y estrujala bien.",
-        "Sofrie la cebolla y agrega la soya con comino y paprika.",
+        "Hidrata la soya en agua caliente diez minutos y estrújala bien.",
+        "Sofríe la cebolla y agrega la soya con comino y paprika.",
         "Cocina hasta que se dore y quede suelta.",
         "Calienta las tortillas.",
         "Arma con tomate picado, palta y cilantro."
@@ -3105,7 +3105,7 @@
         }
       ],
       "pasos": [
-        "Sofrie la cebolla y tuesta el curry treinta segundos.",
+        "Sofríe la cebolla y tuesta el curry treinta segundos.",
         "Agrega camote y coliflor en trozos parejos.",
         "Vierte la leche de coco y un poco de agua.",
         "Cocina veinte minutos hasta que el camote este blando.",
@@ -3176,11 +3176,11 @@
         }
       ],
       "pasos": [
-        "Escurre el tofu con peso encima veinte minutos y cortalo en cubos.",
+        "Escurre el tofu con peso encima veinte minutos y córtalo en cubos.",
         "Dóralo en aceite bien caliente sin moverlo mucho.",
-        "Retiralo y saltea brocoli, pimiento, ajo y jengibre.",
+        "Retíralo y saltea brócoli, pimiento, ajo y jengibre.",
         "Devuelve el tofu y agrega la soya.",
-        "Sirve sobre arroz con sesamo por encima."
+        "Sirve sobre arroz con sésamo por encima."
       ],
       "kcalPorPorcion": 520,
       "proteinaGPorPorcion": 32
@@ -3242,11 +3242,11 @@
         }
       ],
       "pasos": [
-        "Corta todas las verduras del mismo tamano para que se cocinen parejo.",
-        "Mezclalas con aceite, paprika y sal.",
+        "Corta todas las verduras del mismo tamaño para que se cocinen parejo.",
+        "Mézclalas con aceite, paprika y sal.",
         "Airfryer a 190 grados por quince minutos.",
         "Sacude la canasta, agrega los garbanzos y cocina diez minutos mas.",
-        "Sirve con un chorrito de limon."
+        "Sirve con un chorrito de limón."
       ],
       "kcalPorPorcion": 400,
       "proteinaGPorPorcion": 13
@@ -3254,7 +3254,7 @@
     {
       "id": "quinoa_verduras",
       "nombre": "Quinoa con verduras",
-      "descripcion": "Liviana, con proteina completa y se come fria o caliente.",
+      "descripcion": "Liviana, con proteína completa y se come fria o caliente.",
       "minutosTotal": 30,
       "porcionesBase": 4,
       "basePrincipal": "VERDURA",
@@ -3309,10 +3309,10 @@
       ],
       "pasos": [
         "Enjuaga bien la quinoa para sacarle el amargor.",
-        "Cuecela con el doble de agua por quince minutos.",
+        "Cuécela con el doble de agua por quince minutos.",
         "Saltea zapallo italiano y pimiento a fuego fuerte.",
-        "Mezcla con la quinoa, el tomate crudo y el cebollin.",
-        "Alina con aceite de oliva, limon y sal."
+        "Mezcla con la quinoa, el tomate crudo y el cebollín.",
+        "Alina con aceite de oliva, limón y sal."
       ],
       "kcalPorPorcion": 430,
       "proteinaGPorPorcion": 15
@@ -3320,7 +3320,7 @@
     {
       "id": "crema_zapallo",
       "nombre": "Crema de zapallo",
-      "descripcion": "Suave, dulce y de las cosas que mejor caen al estomago.",
+      "descripcion": "Suave, dulce y de las cosas que mejor caen al estómago.",
       "minutosTotal": 35,
       "porcionesBase": 4,
       "basePrincipal": "VERDURA",
@@ -3374,7 +3374,7 @@
         }
       ],
       "pasos": [
-        "Sofrie la cebolla suave con el jengibre rallado.",
+        "Sofríe la cebolla suave con el jengibre rallado.",
         "Agrega zapallo y zanahoria en trozos.",
         "Cubre con agua y el caldo y cocina veinte minutos.",
         "Muele hasta dejarla completamente lisa.",
@@ -3386,7 +3386,7 @@
     {
       "id": "papas_camote_horno",
       "nombre": "Papas y camote al horno",
-      "descripcion": "Guarnicion que se convierte en plato principal.",
+      "descripcion": "Guarnición que se convierte en plato principal.",
       "minutosTotal": 45,
       "porcionesBase": 4,
       "basePrincipal": "VERDURA",
@@ -3442,8 +3442,8 @@
       ],
       "pasos": [
         "Corta papa y camote en gajos del mismo grosor.",
-        "Mezclalos con aceite, ajo picado, oregano y sal.",
-        "Extiendelos en una lata sin amontonar.",
+        "Mézclalos con aceite, ajo picado, orégano y sal.",
+        "Extiéndelos en una lata sin amontonar.",
         "Hornea a 200 grados por treinta minutos.",
         "Agrega los garbanzos y hornea diez minutos mas para que queden crujientes."
       ],
@@ -3508,10 +3508,10 @@
         }
       ],
       "pasos": [
-        "Cuece la quinoa y dejala enfriar bien.",
+        "Cuece la quinoa y déjala enfriar bien.",
         "Pica tomate y palta en cubos.",
         "Mezcla con el choclo escurrido y el cilantro.",
-        "Alina con limon, aceite de oliva y sal.",
+        "Alina con limón, aceite de oliva y sal.",
         "Come de inmediato o guarda con la palta aparte."
       ],
       "kcalPorPorcion": 440,
@@ -3520,7 +3520,7 @@
     {
       "id": "sopa_verduras",
       "nombre": "Sopa de verduras",
-      "descripcion": "Vacia el cajon de verduras y deja el cuerpo liviano.",
+      "descripcion": "Vacia el cajón de verduras y deja el cuerpo liviano.",
       "minutosTotal": 35,
       "porcionesBase": 4,
       "basePrincipal": "VERDURA",
@@ -3578,7 +3578,7 @@
         }
       ],
       "pasos": [
-        "Sofrie cebolla, zanahoria y apio cinco minutos.",
+        "Sofríe cebolla, zanahoria y apio cinco minutos.",
         "Agrega la papa y cubre con agua y el caldo.",
         "Cocina quince minutos hasta que la papa este blanda.",
         "Suma el zapallo italiano y los fideos, ocho minutos mas.",
@@ -3642,10 +3642,10 @@
       ],
       "pasos": [
         "Seca bien los filetes con papel, es clave para que queden crujientes.",
-        "Salalos y pasalos por harina y huevo batido.",
-        "Frie en aceite caliente tres minutos por lado.",
+        "Sálalos y pásalos por harina y huevo batido.",
+        "Fríe en aceite caliente tres minutos por lado.",
         "Escurre sobre papel absorbente.",
-        "Sirve con ensalada de lechuga y tomate y limon exprimido."
+        "Sirve con ensalada de lechuga y tomate y limón exprimido."
       ],
       "kcalPorPorcion": 520,
       "proteinaGPorPorcion": 40
@@ -3653,7 +3653,7 @@
     {
       "id": "merluza_airfryer",
       "nombre": "Merluza al airfryer",
-      "descripcion": "Toda la proteina, casi nada de aceite.",
+      "descripcion": "Toda la proteína, casi nada de aceite.",
       "minutosTotal": 25,
       "porcionesBase": 4,
       "basePrincipal": "PESCADO",
@@ -3703,17 +3703,17 @@
       ],
       "pasos": [
         "Corta las papas en cubos y ponlas quince minutos a 190 grados.",
-        "Adoba el pescado con ajo, perejil, limon, sal y aceite.",
+        "Adoba el pescado con ajo, perejil, limón, sal y aceite.",
         "Agrega el pescado a la canasta sobre las papas.",
         "Diez minutos mas a 180 grados, sin dar vuelta.",
-        "Sirve con mas limon encima."
+        "Sirve con mas limón encima."
       ],
       "kcalPorPorcion": 430,
       "proteinaGPorPorcion": 42
     },
     {
       "id": "salmon_horno",
-      "nombre": "Salmon al horno",
+      "nombre": "Salmón al horno",
       "descripcion": "El plato caro de la semana, y vale cada peso.",
       "minutosTotal": 30,
       "porcionesBase": 4,
@@ -3767,11 +3767,11 @@
         }
       ],
       "pasos": [
-        "Mezcla miel, soya, ajo y limon para el glaseado.",
-        "Pon el salmon con la piel abajo en una fuente y pincelalo.",
-        "Acomoda el brocoli alrededor con aceite y sal.",
+        "Mezcla miel, soya, ajo y limón para el glaseado.",
+        "Pon el salmón con la piel abajo en una fuente y pincélalo.",
+        "Acomoda el brócoli alrededor con aceite y sal.",
         "Hornea a 200 grados por doce a quince minutos.",
-        "No lo pases de coccion: debe quedar rosado al centro."
+        "No lo pases de cocción: debe quedar rosado al centro."
       ],
       "kcalPorPorcion": 540,
       "proteinaGPorPorcion": 44
@@ -3833,9 +3833,9 @@
       ],
       "pasos": [
         "Cuece las papas y las zanahorias al vapor quince minutos.",
-        "Agrega el zapallo italiano los ultimos cinco minutos.",
+        "Agrega el zapallo italiano los últimos cinco minutos.",
         "Cocina la reineta a la plancha, tres minutos por lado.",
-        "Alina las verduras con aceite de oliva, limon y sal.",
+        "Alina las verduras con aceite de oliva, limón y sal.",
         "Sirve con perejil picado por encima."
       ],
       "kcalPorPorcion": 400,
@@ -3843,7 +3843,7 @@
     },
     {
       "id": "pastel_atun",
-      "nombre": "Pastel de atun",
+      "nombre": "Pastel de atún",
       "descripcion": "Se arma con lo que hay en la despensa.",
       "minutosTotal": 45,
       "porcionesBase": 4,
@@ -3899,9 +3899,9 @@
         }
       ],
       "pasos": [
-        "Cuece las papas y haz un pure con leche y mantequilla.",
-        "Sofrie la cebolla y mezclala con el atun escurrido y el choclo.",
-        "Pon el relleno en una fuente y cubrelo con el pure.",
+        "Cuece las papas y haz un puré con leche y mantequilla.",
+        "Sofríe la cebolla y mézclala con el atún escurrido y el choclo.",
+        "Pon el relleno en una fuente y cúbrelo con el puré.",
         "Espolvorea queso rallado.",
         "Hornea a 200 grados por veinte minutos hasta gratinar."
       ],
@@ -3910,7 +3910,7 @@
     },
     {
       "id": "ensalada_atun",
-      "nombre": "Ensalada de atun",
+      "nombre": "Ensalada de atún",
       "descripcion": "Quince minutos, sin encender la cocina.",
       "minutosTotal": 15,
       "porcionesBase": 4,
@@ -3960,10 +3960,10 @@
         }
       ],
       "pasos": [
-        "Escurre bien el atun y los porotos.",
-        "Corta la cebolla en pluma fina y dejala cinco minutos en agua con sal.",
-        "Mezcla atun, porotos, tomate, cebolla y aceitunas.",
-        "Alina con aceite de oliva, limon y sal."
+        "Escurre bien el atún y los porotos.",
+        "Corta la cebolla en pluma fina y déjala cinco minutos en agua con sal.",
+        "Mezcla atún, porotos, tomate, cebolla y aceitunas.",
+        "Alina con aceite de oliva, limón y sal."
       ],
       "kcalPorPorcion": 380,
       "proteinaGPorPorcion": 34
@@ -4022,11 +4022,11 @@
         }
       ],
       "pasos": [
-        "Sofrie cebolla, ajo y pimiento en aceite de oliva.",
+        "Sofríe cebolla, ajo y pimiento en aceite de oliva.",
         "Agrega el arroz y nacaralo un minuto.",
         "Vierte el doble de caldo caliente y cocina dieciocho minutos.",
         "Saltea los camarones aparte dos minutos, no mas.",
-        "Incorporalos al arroz con el perejil justo antes de servir."
+        "Incorpóralos al arroz con el perejil justo antes de servir."
       ],
       "kcalPorPorcion": 550,
       "proteinaGPorPorcion": 38
@@ -4034,7 +4034,7 @@
     {
       "id": "tacos_pescado",
       "nombre": "Tacos de pescado",
-      "descripcion": "Pescado dorado, repollo crujiente y salsa de limon.",
+      "descripcion": "Pescado dorado, repollo crujiente y salsa de limón.",
       "minutosTotal": 30,
       "porcionesBase": 4,
       "basePrincipal": "PESCADO",
@@ -4091,10 +4091,10 @@
         }
       ],
       "pasos": [
-        "Corta el pescado en tiras y adobalo con paprika y sal.",
+        "Corta el pescado en tiras y adóbalo con paprika y sal.",
         "Dora las tiras dos minutos por lado, sin moverlas mucho.",
         "Corta el repollo en juliana muy fina.",
-        "Mezcla mayonesa con jugo de limon para la salsa.",
+        "Mezcla mayonesa con jugo de limón para la salsa.",
         "Arma los tacos con repollo, pescado, palta y salsa."
       ],
       "kcalPorPorcion": 540,
@@ -4169,7 +4169,7 @@
     {
       "id": "pavo_zapallo_italiano",
       "nombre": "Pavo molido con zapallo italiano",
-      "descripcion": "Liviano, alto en proteina y de una sola sarten.",
+      "descripcion": "Liviano, alto en proteína y de una sola sartén.",
       "minutosTotal": 25,
       "porcionesBase": 4,
       "basePrincipal": "POLLO",
@@ -4225,9 +4225,9 @@
       ],
       "pasos": [
         "Pon el arroz a cocer.",
-        "Sofrie cebolla y ajo y agrega el pavo hasta que se dore.",
+        "Sofríe cebolla y ajo y agrega el pavo hasta que se dore.",
         "Suma el zapallo italiano en cubos y cocina cinco minutos.",
-        "Agrega el tomate y el oregano, y deja que espese.",
+        "Agrega el tomate y el orégano, y deja que espese.",
         "Sirve sobre el arroz."
       ],
       "kcalPorPorcion": 460,
@@ -4295,11 +4295,11 @@
         }
       ],
       "pasos": [
-        "Cuece el arroz y dejalo entibiar para que no se apelmace.",
-        "Saltea zanahoria y brocoli a fuego fuerte tres minutos.",
+        "Cuece el arroz y déjalo entibiar para que no se apelmace.",
+        "Saltea zanahoria y brócoli a fuego fuerte tres minutos.",
         "Agrega pimiento y jengibre rallado, un minuto mas.",
         "Suma el arroz y revuelve sin aplastarlo.",
-        "Termina con soya, cebollin y sesamo."
+        "Termina con soya, cebollín y sésamo."
       ],
       "kcalPorPorcion": 450,
       "proteinaGPorPorcion": 12
@@ -4307,7 +4307,7 @@
     {
       "id": "arroz_lentejas_especiado",
       "nombre": "Arroz con lentejas especiado",
-      "descripcion": "Dos ingredientes baratos que juntos hacen proteina completa.",
+      "descripcion": "Dos ingredientes baratos que juntos hacen proteína completa.",
       "minutosTotal": 40,
       "porcionesBase": 4,
       "basePrincipal": "ARROZ",
@@ -4428,10 +4428,10 @@
       ],
       "pasos": [
         "Cuece la pasta en abundante agua con sal y guarda una taza del agua.",
-        "Lamina el ajo fino y dóralo lento en el aceite, sin quemarlo.",
-        "Agrega las nueces picadas y tuestalas treinta segundos.",
-        "Echa la pasta a la sarten con un poco del agua reservada.",
-        "Revuelve fuerte hasta que emulsione y termina con perejil y limon."
+        "Lámina el ajo fino y dóralo lento en el aceite, sin quemarlo.",
+        "Agrega las nueces picadas y tuéstalas treinta segundos.",
+        "Echa la pasta a la sartén con un poco del agua reservada.",
+        "Revuelve fuerte hasta que emulsione y termina con perejil y limón."
       ],
       "kcalPorPorcion": 580,
       "proteinaGPorPorcion": 15

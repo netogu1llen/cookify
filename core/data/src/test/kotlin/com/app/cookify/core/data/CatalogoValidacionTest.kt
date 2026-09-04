@@ -4,26 +4,35 @@ import com.app.cookify.core.model.Antojo
 import com.app.cookify.core.model.Restriccion
 import com.app.cookify.core.model.Unidad
 import com.google.common.truth.Truth.assertThat
-import java.io.File
 import kotlinx.serialization.json.Json
 import org.junit.Test
 
 /**
  * Valida el catalogo que vive en assets.
  *
- * Lee los archivos directo del filesystem en vez de por Context.getAssets(), para
- * que corra como unit test normal sin Robolectric ni emulador. Es la red de
- * seguridad de cualquiera que edite los precios a mano: ver assets/README.md.
+ * Lee los JSON del classpath en vez de por Context.getAssets(), para que corra como
+ * unit test normal sin Robolectric ni emulador. Es la red de seguridad de cualquiera
+ * que edite los precios a mano: ver assets/README.md.
  */
 class CatalogoValidacionTest {
 
     private val json = Json { ignoreUnknownKeys = true }
 
-    private val ingredientesDto: IngredientesDto =
-        json.decodeFromString(File("src/main/assets/ingredientes.json").readText())
+    private val ingredientesDto: IngredientesDto = leer("ingredientes.json")
 
-    private val recetasDto: RecetasDto =
-        json.decodeFromString(File("src/main/assets/recetas.json").readText())
+    private val recetasDto: RecetasDto = leer("recetas.json")
+
+    /**
+     * Del classpath y no del filesystem: leerlo con File() dejaba el archivo fuera de
+     * las entradas que Gradle rastrea, y la tarea se saltaba en UP-TO-DATE aunque el
+     * catalogo hubiera cambiado. Ver el comentario en build.gradle.kts.
+     */
+    private inline fun <reified T> leer(nombre: String): T {
+        val texto = checkNotNull(javaClass.classLoader?.getResourceAsStream(nombre)) {
+            "$nombre no esta en el classpath del test"
+        }.bufferedReader().use { it.readText() }
+        return json.decodeFromString(texto)
+    }
 
     private val ingredientes = ingredientesDto.ingredientes
     private val recetas = recetasDto.recetas

@@ -17,7 +17,7 @@ El objetivo es una app Android que arme una semana de **almuerzos** (1 platillo 
 
 ---
 
-## Fase 0 — Toolchain (bloqueante, parte manual del usuario)
+## Fase 0 ✅ — Toolchain (bloqueante, parte manual del usuario)
 
 **Estado actual detectado:** Android Studio 2024.3 (Meerkat, build 243), JBR 21, SDK con plataformas 33/34/35, build-tools hasta 36.0.0, Gradle wrapper 8.11.1, sin git. `sdkmanager` CLI disponible en `Sdk/cmdline-tools/latest/bin/`.
 
@@ -35,7 +35,7 @@ El stack elegido (AGP 9.3.1) **no abre en Studio 2024.3**. Pasos:
 
 ---
 
-## Fase 1 — Bootstrap multi-módulo + `build-logic`
+## Fase 1 ✅ — Bootstrap multi-módulo + `build-logic`
 
 Fuente de verdad: `C:\Users\ernes\.claude\skills\claude-android-ninja\assets\`. Se copia, no se reinventa.
 
@@ -68,7 +68,7 @@ Fuente de verdad: `C:\Users\ernes\.claude\skills\claude-android-ninja\assets\`. 
 
 ---
 
-## Fase 2 — Design system oscuro premium (`:core:ui`)
+## Fase 2 ✅ — Design system oscuro premium (`:core:ui`)
 
 Aplicar `references/android-theming-quick.md`: **set completo de roles M3** en `Color.kt` (incluidos `surfaceContainer*`, `*Dim`/`*Bright`, `*Fixed`/`*FixedDim`), nunca `Color(0xFF…)` crudo dentro de composables.
 
@@ -89,7 +89,7 @@ Dynamic color (Material You) queda **desactivado por defecto**: la identidad de 
 
 ---
 
-## Fase 3 — Modelo de dominio y catálogo de datos
+## Fase 3 ✅ — Modelo de dominio y catálogo de datos
 
 ### `:core:model`
 ```
@@ -123,7 +123,7 @@ data class PlanSemanal(dias:List<DiaPlanificado>, costoTotalClp, solicitud, semi
 
 ---
 
-## Fase 4 — Motor de planificación (`:core:domain`)
+## Fase 4 ✅ — Motor de planificación (`:core:domain`)
 
 `GenerarPlanSemanalUseCase` — Kotlin puro, sin Android, determinista dada una semilla. Es el corazón de la app y lo que más tests lleva.
 
@@ -140,7 +140,7 @@ data class PlanSemanal(dias:List<DiaPlanificado>, costoTotalClp, solicitud, semi
 
 ---
 
-## Fase 5 — Persistencia (`:core:database` + `:core:data`)
+## Fase 5 ✅ — Persistencia (`:core:database` + `:core:data`)
 
 Room 3 (plugin `app.android.room`) con `BundledSQLiteDriver()` en `Room.databaseBuilder`, `@ColumnTypeConverter` (no `@TypeConverter`), DAOs `suspend`/`Flow`, y `room3 { schemaDirectory(...) }` con los schemas commiteados.
 
@@ -153,7 +153,7 @@ Sólo se guardan **IDs de receta**; el detalle se resuelve contra el catálogo a
 
 ---
 
-## Fase 6 — Onboarding: el wizard de 7 pasos (`:feature:onboarding`)
+## Fase 6 ✅ — Onboarding: el wizard de 7 pasos (`:feature:onboarding`)
 
 Un solo `OnboardingViewModel` con `StateFlow<OnboardingUiState>` sobre `SavedStateHandle` (sobrevive muerte de proceso) y un `Channel` para eventos one-shot (navegar a planificación). Nav3 maneja las claves; **cada paso es un pane dentro de una misma ruta** con transición horizontal, para no perder estado entre pasos.
 
@@ -172,7 +172,7 @@ Transversal: `StepProgressBar` arriba (7 segmentos), botón primario en la thumb
 
 ---
 
-## Fase 7 — Pantalla de carga con checks (`:feature:planning`)
+## Fase 7 ✅ — Pantalla de carga con checks (`:feature:planning`)
 
 El motor real corre en <100 ms, así que la secuencia es deliberadamente escenificada — es el momento en que la app "se gana" la confianza del usuario.
 
@@ -188,7 +188,7 @@ Manejo de fallos: si el motor devuelve `PresupuestoInsuficiente` o `SinRecetasCo
 
 ---
 
-## Fase 8 — Semana y detalle de receta (`:feature:week`)
+## Fase 8 ✅ — Semana y detalle de receta (`:feature:week`)
 
 **Pantalla de semana:**
 - Header con resumen: total gastado vs. presupuesto (barra), supermercado, personas.
@@ -204,7 +204,7 @@ Manejo de fallos: si el motor devuelve `PresupuestoInsuficiente` o `SinRecetasCo
 
 ---
 
-## Fase 9 — Guardar semana y Home (`:feature:home`)
+## Fase 9 ✅ — Guardar semana y Home (`:feature:home`)
 
 - Al guardar: nombre por defecto editable ("Semana del 2 de septiembre"), confirmación con animación de éxito (**peak moment**: check que crece + copy que celebra) y vuelta a la home.
 - **Home = pantalla de arranque de la app.**
@@ -215,7 +215,7 @@ Manejo de fallos: si el motor devuelve `PresupuestoInsuficiente` o `SinRecetasCo
 
 ---
 
-## Fase 10 — Pulido
+## Fase 10 ⏳ — Pulido
 
 - Micro-animaciones de estado (selección de opciones, checks, guardado) — `references/compose-patterns-quick.md`.
 - Estados vacío / error / carga en cada pantalla.
@@ -224,6 +224,27 @@ Manejo de fallos: si el motor devuelve `PresupuestoInsuficiente` o `SinRecetasCo
 - `./gradlew detekt spotlessApply` limpio; R8 activado en release con las reglas del template.
 
 ---
+
+---
+
+## Estado al 4 de septiembre de 2026
+
+Fases 0 a 9 terminadas y verificadas en emulador API 36: se recorre el flujo completo
+-siete preguntas, armado con checks, semana, detalle, guardar, home- y la semana
+sobrevive a matar el proceso.
+
+Queda la **fase 10 (pulido)**, y dentro de ella lo que ya esta detectado:
+
+- **Iconos repetidos.** Los cuatro artefactos comparten el icono de horno, y "bajo en
+  calorias" y "alto en proteina" comparten el de balanza. Hay que dibujar los que
+  faltan en `core/ui/src/main/res/drawable` con el prefijo `core_ui_`.
+- **Imagenes de los platos.** La semana y el detalle son solo texto. Es lo que mas
+  cambiaria la percepcion de la app, y lo que hay que decidir es de donde salen: 69
+  fotos con licencia pesan y hay que conseguirlas.
+- **Icono de la app y splash** propios.
+- **Accesibilidad**: repasar contraste y `contentDescription` con TalkBack encendido.
+- **R8** en release con las reglas del template.
+
 
 ## Verificación end-to-end
 

@@ -2,6 +2,7 @@ package com.app.cookify.core.data
 
 import com.app.cookify.core.domain.CatalogoRepository
 import com.app.cookify.core.domain.PrecioRepository
+import com.app.cookify.core.domain.SemanaRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -20,4 +21,8 @@ internal abstract class DatosModule {
     @Binds
     @Singleton
     abstract fun precioRepository(impl: PrecioRepositoryLocal): PrecioRepository
+
+    @Binds
+    @Singleton
+    abstract fun semanaRepository(impl: SemanaRepositoryLocal): SemanaRepository
 }
