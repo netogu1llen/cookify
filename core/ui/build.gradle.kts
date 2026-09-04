@@ -10,6 +10,9 @@ android {
 
 dependencies {
     api(projects.core.model)
+    // api y no implementation: el formato de pesos lo necesita cualquiera que use
+    // estos componentes para armar sus propios textos de precio.
+    api(projects.core.common)
 
     api(libs.bundles.compose)
     api(libs.androidx.compose.animation)

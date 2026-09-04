@@ -284,11 +284,11 @@ object PlanificadorSemanal {
 
     private fun motivoDeEscasez(solicitud: SolicitudPlan): String = when {
         solicitud.artefactos.size == 1 ->
-            "Con solo ${solicitud.artefactos.first().etiqueta.lowercase()} quedan muy pocas recetas."
+            "Con sólo ${solicitud.artefactos.first().etiqueta.lowercase()} quedan muy pocas recetas."
         solicitud.restriccion != com.app.cookify.core.model.Restriccion.NINGUNA ->
             "No hay suficientes recetas ${solicitud.restriccion.etiqueta.lowercase()} " +
                 "para los artefactos que tienes."
-        else -> "No hay suficientes recetas para armar todos los dias que pediste."
+        else -> "No hay suficientes recetas para armar todos los días que pediste."
     }
 
     private data class Candidata(

@@ -54,7 +54,7 @@ private fun PreviewBotones() = Marco {
 @Composable
 private fun PreviewSeleccion() = Marco {
     var elegido by remember { mutableStateOf("Jumbo") }
-    listOf("Lider", "Jumbo", "Santa Isabel").forEach { nombre ->
+    listOf("Líder", "Jumbo", "Santa Isabel").forEach { nombre ->
         TarjetaOpcion(
             titulo = nombre,
             seleccionada = elegido == nombre,
@@ -81,10 +81,10 @@ private fun PreviewChips() = Marco {
         verticalArrangement = Arrangement.spacedBy(Espaciado.xs),
     ) {
         ChipAntojo("Rapido", true, {}, icono = IconosCookify.rayo)
-        ChipAntojo("Alto en proteina", true, {}, icono = IconosCookify.balanza)
-        ChipAntojo("Bajo en calorias", false, {}, icono = IconosCookify.hoja)
+        ChipAntojo("Alto en proteína", true, {}, icono = IconosCookify.balanza)
+        ChipAntojo("Bajo en calorías", false, {}, icono = IconosCookify.hoja)
         ChipAntojo("Para llevar", false, {}, habilitado = false)
-        ChipAntojo("Cae bien al estomago", false, {}, habilitado = false)
+        ChipAntojo("Cae bien al estómago", false, {}, habilitado = false)
     }
 }
 
@@ -103,7 +103,7 @@ private fun PreviewProgreso() = Marco {
 private fun PreviewEtiquetas() = Marco {
     FlowRow(horizontalArrangement = Arrangement.spacedBy(Espaciado.xs)) {
         Etiqueta(
-            texto = "Alto en proteina",
+            texto = "Alto en proteína",
             icono = IconosCookify.balanza,
             colorContenedor = MaterialTheme.colorScheme.secondaryContainer,
             colorContenido = MaterialTheme.colorScheme.onSecondaryContainer,
@@ -130,7 +130,7 @@ private fun PreviewEtiquetas() = Marco {
 @Composable
 private fun PreviewEncabezado() = Marco {
     EncabezadoPaso(
-        titulo = "¿Que se te antoja?",
+        titulo = "¿Qué se te antoja?",
         ayuda = "Elige hasta 3. Mientras mas especifico, mejor calza la semana.",
     )
 }
@@ -140,8 +140,8 @@ private fun PreviewEncabezado() = Marco {
 private fun PreviewEstadoVacio() = CookifyTheme {
     Surface(color = MaterialTheme.colorScheme.background) {
         EstadoVacio(
-            titulo = "Todavia no tienes semanas",
-            mensaje = "Arma tu primera semana de almuerzos y te decimos cuanto te va a costar en el super.",
+            titulo = "Todavía no tienes semanas",
+            mensaje = "Arma tu primera semana de almuerzos y te decimos cuánto te va a costar en el súper.",
             textoAccion = "Armar mi primera semana",
             onAccion = {},
         )

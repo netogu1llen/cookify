@@ -11,7 +11,7 @@ enum class Supermercado(
     val etiqueta: String,
     val multiplicadorPrecio: Double,
 ) {
-    LIDER("Lider", 1.00),
+    LIDER("Líder", 1.00),
     ACUENTA("aCuenta", 0.92),
     TOTTUS("Tottus", 0.98),
     UNIMARC("Unimarc", 1.05),

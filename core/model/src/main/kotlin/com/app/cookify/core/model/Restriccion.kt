@@ -5,5 +5,5 @@ enum class Restriccion(val etiqueta: String) {
     NINGUNA("Ninguna"),
     VEGETARIANO("Vegetariano"),
     VEGANO("Vegano"),
-    SOLO_PESCADO("Solo pescado"),
+    SOLO_PESCADO("Sólo pescado"),
 }

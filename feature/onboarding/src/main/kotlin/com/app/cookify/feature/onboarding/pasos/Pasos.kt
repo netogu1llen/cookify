@@ -40,7 +40,7 @@ internal fun PasoSupermercado(
 ) {
     ColumnaPaso(modifier) {
         EncabezadoPaso(
-            titulo = "¿En que super compras?",
+            titulo = "¿En qué súper compras?",
             ayuda = "Los precios cambian bastante entre cadenas.",
         )
         Supermercado.entries.forEach { super_ ->
@@ -62,7 +62,7 @@ internal fun PasoPersonas(
 ) {
     ColumnaPaso(modifier) {
         EncabezadoPaso(
-            titulo = "¿Para cuantas personas cocinas?",
+            titulo = "¿Para cuántas personas cocinas?",
             ayuda = "Con esto escalamos las cantidades de cada receta.",
         )
         Surface(
@@ -98,7 +98,7 @@ internal fun PasoPersonas(
             }
         }
         Text(
-            text = if (personas == 1) "Un plato por dia" else "$personas platos por dia",
+            text = if (personas == 1) "Un plato por día" else "$personas platos por día",
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -113,8 +113,8 @@ internal fun PasoDias(
 ) {
     ColumnaPaso(modifier) {
         EncabezadoPaso(
-            titulo = "¿Que dias vas a cocinar?",
-            ayuda = "Elige los dias que quieras; el resto los dejamos libres.",
+            titulo = "¿Qué días vas a cocinar?",
+            ayuda = "Elige los días que quieras; el resto los dejamos libres.",
         )
         DiaSemana.entries.forEach { dia ->
             TarjetaOpcion(
@@ -136,7 +136,7 @@ internal fun PasoPresupuesto(
 ) {
     ColumnaPaso(modifier) {
         EncabezadoPaso(
-            titulo = "¿Cuanto quieres gastar?",
+            titulo = "¿Cuánto quieres gastar?",
             ayuda = "Es el total de la semana, para todas las personas.",
         )
 
@@ -189,8 +189,8 @@ internal fun PasoAntojos(
 ) {
     ColumnaPaso(modifier) {
         EncabezadoPaso(
-            titulo = "¿Que se te antoja?",
-            ayuda = "Elige hasta ${Antojo.MAXIMO_SELECCION}. Tambien puedes seguir sin elegir ninguno.",
+            titulo = "¿Qué se te antoja?",
+            ayuda = "Elige hasta ${Antojo.MAXIMO_SELECCION}. También puedes seguir sin elegir ninguno.",
         )
         Text(
             text = "${elegidos.size} de ${Antojo.MAXIMO_SELECCION}",
@@ -227,8 +227,8 @@ internal fun PasoRestriccion(
 ) {
     ColumnaPaso(modifier) {
         EncabezadoPaso(
-            titulo = "¿Alguna restriccion?",
-            ayuda = "Filtramos el recetario completo segun lo que elijas.",
+            titulo = "¿Alguna restricción?",
+            ayuda = "Filtramos el recetario completo según lo que elijas.",
         )
         Restriccion.entries.forEach { restriccion ->
             TarjetaOpcion(
@@ -253,7 +253,7 @@ internal fun PasoArtefactos(
 ) {
     ColumnaPaso(modifier) {
         EncabezadoPaso(
-            titulo = "¿Con que cocinas?",
+            titulo = "¿Con qué cocinas?",
             ayuda = "Solo te proponemos recetas que puedas hacer de verdad.",
         )
         Artefacto.entries.forEach { artefacto ->

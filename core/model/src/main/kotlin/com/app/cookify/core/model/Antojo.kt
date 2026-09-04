@@ -9,13 +9,13 @@ enum class Antojo(
     val etiqueta: String,
     val descripcion: String,
 ) {
-    RAPIDO("Rapido y sin esfuerzo", "Listo en 25 minutos o menos"),
-    BAJO_CALORIAS("Bajo en calorias", "Menos de 500 kcal por porcion"),
+    RAPIDO("Rápido y sin esfuerzo", "Listo en 25 minutos o menos"),
+    BAJO_CALORIAS("Bajo en calorías", "Menos de 500 kcal por porción"),
     PARA_TODOS("Amigable para todos", "Sabores que le gustan a grandes y chicos"),
     SANO("Algo sano", "Verduras frescas y poca fritura"),
-    TAKEAWAY("Para envasar y llevar", "Aguanta bien recalentado al dia siguiente"),
-    GUT_FRIENDLY("Cae bien al estomago", "Suave, sin frituras ni exceso de condimento"),
-    ALTO_PROTEINA("Alto en proteina", "30 g de proteina o mas por porcion"),
+    TAKEAWAY("Para envasar y llevar", "Aguanta bien recalentado al día siguiente"),
+    GUT_FRIENDLY("Cae bien al estómago", "Suave, sin frituras ni exceso de condimento"),
+    ALTO_PROTEINA("Alto en proteína", "30 g de proteína o más por porción"),
     ;
 
     companion object {

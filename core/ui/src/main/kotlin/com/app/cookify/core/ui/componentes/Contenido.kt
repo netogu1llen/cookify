@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.app.cookify.core.ui.theme.Espaciado
 
 /**
- * Etiqueta de clasificacion: "Rapido", "Alto en proteina", "Cae bien al estomago".
+ * Etiqueta de clasificacion: "Rapido", "Alto en proteína", "Cae bien al estómago".
  *
  * El color lo decide quien la usa segun el tipo de dato (nutricion en lima, tiempo
  * en verde agua), pero siempre sobre un contenedor tonal, nunca sobre el acento

@@ -1,9 +1,12 @@
 package com.app.cookify.core.model
 
+import kotlinx.serialization.Serializable
+
 /**
  * Todo lo que el usuario respondio en el onboarding. Es la entrada del motor de
  * planificacion y se guarda junto a la semana para poder regenerarla despues.
  */
+@Serializable
 data class SolicitudPlan(
     val supermercado: Supermercado,
     val personas: Int,
