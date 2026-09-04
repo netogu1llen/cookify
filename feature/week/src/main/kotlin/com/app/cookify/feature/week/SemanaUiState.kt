@@ -24,6 +24,11 @@ data class SemanaUiState(
      * la que el usuario eligio, y "regenerar" ahi seria destruir lo que guardo.
      */
     val soloLectura: Boolean = false,
+    /**
+     * El nombre que le puso el usuario, cuando la semana viene de la home. Una semana
+     * recien armada todavia no tiene nombre y se anuncia como "Tu semana".
+     */
+    val nombre: String? = null,
 ) {
     /**
      * Se muestra la semana igual cuando no cabe en el presupuesto, con la barra en

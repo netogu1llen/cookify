@@ -72,6 +72,7 @@ class SemanaViewModel @Inject constructor(
                 plan = guardada?.plan,
                 error = if (guardada == null) "Esta semana ya no existe." else null,
                 soloLectura = true,
+                nombre = guardada?.nombre,
             )
         }
     }
@@ -120,7 +121,12 @@ class SemanaViewModel @Inject constructor(
 
     private fun armar() {
         val solicitud = solicitud ?: return
-        _estado.update { it.copy(cargando = true, error = null) }
+        // soloLectura y nombre se apagan explicitamente: una semana que se arma es
+        // siempre editable, y dejarlos al copy() los arrastraria si este ViewModel
+        // llegara a reusarse entre pantallas.
+        _estado.update {
+            it.copy(cargando = true, error = null, soloLectura = false, nombre = null)
+        }
 
         viewModelScope.launch {
             val resultado = generarPlan(solicitud, semilla)

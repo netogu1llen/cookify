@@ -6,9 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavEntryDecorator
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.app.cookify.core.model.SolicitudPlan
@@ -38,6 +41,21 @@ class MainActivity : ComponentActivity() {
 }
 
 /**
+ * Sin esto los ViewModel NO son por pantalla.
+ *
+ * El unico decorador que trae NavDisplay por defecto es el de rememberSaveable; sin
+ * el de ViewModelStore, hiltViewModel() cae al store de la Activity y devuelve la
+ * MISMA instancia a todas las entradas. Se notaba feo: abrir una segunda receta
+ * mostraba la primera, y armar una semana despues de mirar una guardada la dejaba en
+ * modo solo lectura.
+ */
+@Composable
+private fun decoradoresDeEntrada(): List<NavEntryDecorator<NavKey>> = listOf(
+    rememberSaveableStateHolderNavEntryDecorator(),
+    rememberViewModelStoreNavEntryDecorator(),
+)
+
+/**
  * Shell de navegacion. Navigation3 trabaja sobre una lista mutable de claves: navegar
  * es agregar al final y volver es sacar el ultimo, sin grafo declarado aparte.
  */
@@ -48,6 +66,7 @@ private fun CookifyApp() {
     NavDisplay(
         backStack = backStack,
         onBack = { backStack.removeLastOrNull() },
+        entryDecorators = decoradoresDeEntrada(),
         entryProvider = entryProvider<NavKey> {
             entry<Ruta.Home> {
                 PantallaHome(
@@ -86,6 +105,7 @@ private fun CookifyApp() {
                     // Al guardar se limpia todo el camino y se vuelve a la home,
                     // que ahora tiene la semana recien guardada arriba.
                     onGuardada = { backStack.removeAll { it != Ruta.Home } },
+                    onVolver = { backStack.removeLastOrNull() },
                 )
             }
 
@@ -96,6 +116,7 @@ private fun CookifyApp() {
                         backStack.add(Ruta.Detalle(recetaId, personas, supermercado))
                     },
                     onBorrada = { backStack.removeLastOrNull() },
+                    onVolver = { backStack.removeLastOrNull() },
                 )
             }
 

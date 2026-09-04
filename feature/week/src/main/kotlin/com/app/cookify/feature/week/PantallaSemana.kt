@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -39,6 +40,7 @@ import com.app.cookify.core.ui.componentes.BarraPresupuesto
 import com.app.cookify.core.ui.componentes.BotonPrimario
 import com.app.cookify.core.ui.componentes.BotonSecundario
 import com.app.cookify.core.ui.componentes.Etiqueta
+import com.app.cookify.core.ui.componentes.IconoCookify
 import com.app.cookify.core.ui.componentes.IconosCookify
 import com.app.cookify.core.ui.theme.Espaciado
 
@@ -55,6 +57,7 @@ fun PantallaSemana(
     semilla: Long,
     onAbrirReceta: (recetaId: String, personas: Int, supermercado: Supermercado) -> Unit,
     onGuardada: () -> Unit,
+    onVolver: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SemanaViewModel = hiltViewModel(),
 ) {
@@ -82,6 +85,7 @@ fun PantallaSemana(
             cambiarNombre = viewModel::cambiarNombre,
             confirmarGuardado = viewModel::guardar,
             cancelarGuardado = viewModel::cancelarGuardado,
+            volver = onVolver,
         ),
         modifier = modifier,
     )
@@ -98,6 +102,7 @@ fun PantallaSemanaGuardada(
     id: Long,
     onAbrirReceta: (recetaId: String, personas: Int, supermercado: Supermercado) -> Unit,
     onBorrada: () -> Unit,
+    onVolver: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SemanaViewModel = hiltViewModel(),
 ) {
@@ -122,6 +127,7 @@ fun PantallaSemanaGuardada(
             confirmarGuardado = {},
             cancelarGuardado = {},
             borrar = viewModel::borrar,
+            volver = onVolver,
         ),
         modifier = modifier,
     )
@@ -139,6 +145,7 @@ internal data class AccionesSemana(
     val cambiarNombre: (String) -> Unit,
     val confirmarGuardado: () -> Unit,
     val cancelarGuardado: () -> Unit,
+    val volver: () -> Unit,
     val borrar: () -> Unit = {},
 )
 
@@ -166,6 +173,8 @@ internal fun ContenidoSemana(
                 .fillMaxSize()
                 .padding(relleno),
         ) {
+            BarraVolver(acciones.volver)
+
             val plan = estado.plan
             when {
                 estado.cargando && plan == null -> Cargando(Modifier.weight(1f))
@@ -173,6 +182,7 @@ internal fun ContenidoSemana(
                 else -> {
                     ListaSemana(
                         plan = plan,
+                        titulo = estado.nombre ?: "Tu semana",
                         onAbrirReceta = acciones.abrirReceta,
                         modifier = Modifier.weight(1f),
                     )
@@ -203,6 +213,7 @@ internal fun ContenidoSemana(
 @Composable
 private fun ListaSemana(
     plan: PlanSemanal,
+    titulo: String,
     onAbrirReceta: (String, Int, Supermercado) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -216,7 +227,7 @@ private fun ListaSemana(
         verticalArrangement = Arrangement.spacedBy(Espaciado.s),
     ) {
         item(key = "encabezado") {
-            Encabezado(plan)
+            Encabezado(plan = plan, titulo = titulo)
         }
 
         items(plan.almuerzos, key = { it.dia.name }) { almuerzo ->
@@ -235,7 +246,7 @@ private fun ListaSemana(
 }
 
 @Composable
-private fun Encabezado(plan: PlanSemanal) {
+private fun Encabezado(plan: PlanSemanal, titulo: String) {
     val solicitud = plan.solicitud
     val platos = plan.almuerzos.size
 
@@ -244,7 +255,7 @@ private fun Encabezado(plan: PlanSemanal) {
         verticalArrangement = Arrangement.spacedBy(Espaciado.s),
     ) {
         Text(
-            text = "Tu semana",
+            text = titulo,
             style = MaterialTheme.typography.headlineLarge,
             color = MaterialTheme.colorScheme.onSurface,
         )
@@ -355,5 +366,29 @@ private fun Error(mensaje: String?, modifier: Modifier = Modifier) {
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
         )
+    }
+}
+
+/**
+ * Barra con la flecha de volver.
+ *
+ * Existe porque una semana guardada no tenia como salir mas que borrandola: el gesto
+ * de atras funcionaba, pero la unica salida visible era el boton destructivo.
+ */
+@Composable
+private fun BarraVolver(onVolver: () -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = Espaciado.xs, vertical = Espaciado.xxs),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        IconButton(onClick = onVolver) {
+            IconoCookify(
+                icono = IconosCookify.flechaAtras,
+                descripcion = "Volver",
+                tinte = MaterialTheme.colorScheme.onSurface,
+            )
+        }
     }
 }
