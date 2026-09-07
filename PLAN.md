@@ -275,6 +275,6 @@ Recorrido manual en emulador (Pixel API 37), que es la prueba real del MVP:
 
 ## Puntos abiertos a resolver sobre la marcha
 
-- **Precios del catálogo:** se siembran con valores CLP de referencia (pollo ~$7.500/kg, arroz ~$1.500/kg, etc.). Al ver la app corriendo probablemente haya que corregirlos con precios reales — el archivo es un JSON plano, editarlo es trivial.
+- **Precios del catálogo:** se siembran con valores CLP de referencia (pollo ~$7.500/kg, arroz ~$1.500/kg, etc.). El archivo es un JSON plano y editarlo es trivial. **Fase 11** reemplaza el multiplicador por cadena con precios reales bajados de Jumbo y Santa Isabel — diseño validado con datos en vivo en [docs/PRECIOS_REALES.md](docs/PRECIOS_REALES.md).
 - **Supermercados:** parte con Líder, Jumbo, Santa Isabel, Tottus, Unimarc y aCuenta. Agregar otro es una línea en un enum.
 - **Comida:** confirmado que la app se limita a **almuerzos** (un plato principal por día).
