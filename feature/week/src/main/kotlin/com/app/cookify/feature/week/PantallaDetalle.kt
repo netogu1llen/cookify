@@ -36,6 +36,7 @@ import com.app.cookify.core.ui.componentes.DatoResumen
 import com.app.cookify.core.ui.componentes.Etiqueta
 import com.app.cookify.core.ui.componentes.IconoCookify
 import com.app.cookify.core.ui.componentes.IconosCookify
+import com.app.cookify.core.ui.componentes.IlustracionPlato
 import com.app.cookify.core.ui.theme.Espaciado
 
 /**
@@ -161,19 +162,33 @@ private fun BarraVolver(onVolver: () -> Unit) {
 
 @Composable
 private fun Titulo(receta: Receta) {
-    Column(verticalArrangement = Arrangement.spacedBy(Espaciado.xs)) {
-        Text(
-            text = receta.nombre,
-            style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.onSurface,
-        )
-        Text(
-            text = receta.descripcion,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(Espaciado.s),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        // Mas grande que en la lista de la semana: aca la receta es el unico tema de
+        // la pantalla y el dibujo hace de encabezado.
+        IlustracionPlato(receta.basePrincipal, tamano = TAMANO_ILUSTRACION.dp)
+
+        Column(
+            modifier = Modifier.weight(1f),
+            verticalArrangement = Arrangement.spacedBy(Espaciado.xs),
+        ) {
+            Text(
+                text = receta.nombre,
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
+            Text(
+                text = receta.descripcion,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
     }
 }
+
+private const val TAMANO_ILUSTRACION = 72
 
 @Composable
 private fun FilaDatos(receta: Receta, estado: DetalleUiState) {

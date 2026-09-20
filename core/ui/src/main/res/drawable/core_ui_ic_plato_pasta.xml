@@ -1,0 +1,13 @@
+<!--
+    Generado: ver tools/glifos.py. Los numeros salen de ahi, no se editan a mano.
+    Glifo de la categoria pasta para las tarjetas de plato.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M1,6.5 C5,3.5 8,9.5 12,6.5 C16,3.5 19,9.5 23,6.5 L23,8.5 C19,11.5 16,5.5 12,8.5 C8,11.5 5,5.5 1,8.5 ZM1,12 C5,9 8,15 12,12 C16,9 19,15 23,12 L23,14 C19,17 16,11 12,14 C8,17 5,11 1,14 ZM1,17.5 C5,14.5 8,20.5 12,17.5 C16,14.5 19,20.5 23,17.5 L23,19.5 C19,22.5 16,16.5 12,19.5 C8,22.5 5,16.5 1,19.5 Z" />
+</vector>

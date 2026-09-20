@@ -1,0 +1,14 @@
+<!--
+    Generado: ver tools/glifos.py. Los numeros salen de ahi, no se editan a mano.
+    Glifo de la categoria huevo para las tarjetas de plato.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:fillType="evenOdd"
+        android:pathData="M9.6,2.6 C13.4,2.2 16.4,3.8 18.4,6.2 C20.4,8.6 19.6,11.4 20.6,13.6 C21.8,16.2 20.4,19.4 17.4,20.6 C14.2,21.9 11.2,20.4 8.4,20.8 C5.2,21.2 2.4,19.2 2.4,16 C2.4,13.4 4,11.8 3.8,9.4 C3.5,6 6,3 9.6,2.6 ZM9.8,6.2 a4,4 0 1,0 0,8 a4,4 0 1,0 0,-8 ZM9.8,7.3 a2.9,2.9 0 1,0 0,5.8 a2.9,2.9 0 1,0 0,-5.8 Z" />
+</vector>

@@ -22,6 +22,7 @@ import com.app.cookify.core.model.AlmuerzoDelDia
 import com.app.cookify.core.ui.componentes.Etiqueta
 import com.app.cookify.core.ui.componentes.IconoCookify
 import com.app.cookify.core.ui.componentes.IconosCookify
+import com.app.cookify.core.ui.componentes.IlustracionPlato
 import com.app.cookify.core.ui.theme.Espaciado
 
 /**
@@ -53,6 +54,8 @@ internal fun TarjetaAlmuerzo(
             horizontalArrangement = Arrangement.spacedBy(Espaciado.s),
             verticalAlignment = Alignment.CenterVertically,
         ) {
+            IlustracionPlato(almuerzo.receta.basePrincipal)
+
             ContenidoAlmuerzo(almuerzo, Modifier.weight(1f))
 
             IconoCookify(

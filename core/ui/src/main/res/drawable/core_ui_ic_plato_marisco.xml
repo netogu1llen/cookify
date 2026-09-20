@@ -1,0 +1,14 @@
+<!--
+    Generado: ver tools/glifos.py. Los numeros salen de ahi, no se editan a mano.
+    Glifo de la categoria marisco para las tarjetas de plato.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:fillType="evenOdd"
+        android:pathData="M2.6,17.4 C2.6,9.2 6.8,3.4 12,3.4 C17.2,3.4 21.4,9.2 21.4,17.4 C21.4,18.9 20.4,19.9 19,19.9 L5,19.9 C3.6,19.9 2.6,18.9 2.6,17.4 ZM12.47,19.57 L5.67,10.07 L4.73,10.73 L11.53,20.23 ZM12.56,19.79 L9.76,5.49 L8.64,5.71 L11.44,20.01 ZM12.56,20.01 L15.36,5.71 L14.24,5.49 L11.44,19.79 ZM12.47,20.23 L19.27,10.73 L18.33,10.07 L11.53,19.57 Z" />
+</vector>

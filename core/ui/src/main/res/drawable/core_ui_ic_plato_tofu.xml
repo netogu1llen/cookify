@@ -1,0 +1,14 @@
+<!--
+    Generado: ver tools/glifos.py. Los numeros salen de ahi, no se editan a mano.
+    Glifo de la categoria tofu para las tarjetas de plato.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:fillType="evenOdd"
+        android:pathData="M12,2.6 L21,7.6 L21,16.4 L12,21.4 L3,16.4 L3,7.6 ZM11.45,12.00 L11.45,21.40 L12.55,21.40 L12.55,12.00 ZM12.24,11.51 L3.24,7.11 L2.76,8.09 L11.76,12.49 ZM12.24,12.49 L21.24,8.09 L20.76,7.11 L11.76,11.51 Z" />
+</vector>

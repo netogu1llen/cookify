@@ -1,0 +1,13 @@
+<!--
+    Generado: ver tools/glifos.py. Los numeros salen de ahi, no se editan a mano.
+    Glifo de la categoria pollo para las tarjetas de plato.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M9,3.9 a5.6,5.6 0 1,0 0,11.2 a5.6,5.6 0 1,0 0,-11.2 ZM10.55,13.03 L17.55,19.53 L19.45,17.47 L12.45,10.97 ZM19.4,15.3 a1.9,1.9 0 1,0 0,3.8 a1.9,1.9 0 1,0 0,-3.8 ZM17.2,17.5 a1.9,1.9 0 1,0 0,3.8 a1.9,1.9 0 1,0 0,-3.8 Z" />
+</vector>
