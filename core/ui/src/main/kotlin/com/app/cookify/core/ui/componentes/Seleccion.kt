@@ -45,6 +45,7 @@ fun TarjetaOpcion(
     icono: Int? = null,
     habilitada: Boolean = true,
     multiple: Boolean = false,
+    slotInicial: (@Composable () -> Unit)? = null,
 ) {
     val colores = MaterialTheme.colorScheme
 
@@ -80,6 +81,7 @@ fun TarjetaOpcion(
             icono = icono,
             seleccionada = seleccionada,
             habilitada = habilitada,
+            slotInicial = slotInicial,
         )
     }
 }
@@ -116,6 +118,7 @@ private fun ContenidoOpcion(
     icono: Int?,
     seleccionada: Boolean,
     habilitada: Boolean,
+    slotInicial: (@Composable () -> Unit)? = null,
 ) {
     val colores = MaterialTheme.colorScheme
     Row(
@@ -123,7 +126,11 @@ private fun ContenidoOpcion(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Espaciado.s),
     ) {
-        if (icono != null) {
+        // El slot gana sobre el icono: quien pasa contenido propio, como el logo de una
+        // cadena, no quiere ademas el glifo generico delante.
+        if (slotInicial != null) {
+            slotInicial()
+        } else if (icono != null) {
             IconoCookify(
                 icono = icono,
                 descripcion = null,

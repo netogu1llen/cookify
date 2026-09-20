@@ -29,6 +29,7 @@ import com.app.cookify.core.ui.componentes.ChipAntojo
 import com.app.cookify.core.ui.componentes.EncabezadoPaso
 import com.app.cookify.core.ui.componentes.IconoCookify
 import com.app.cookify.core.ui.componentes.IconosCookify
+import com.app.cookify.core.ui.componentes.LogoSupermercado
 import com.app.cookify.core.ui.componentes.TarjetaOpcion
 import com.app.cookify.core.ui.theme.Espaciado
 
@@ -48,7 +49,7 @@ internal fun PasoSupermercado(
                 titulo = super_.etiqueta,
                 seleccionada = seleccionado == super_,
                 onClick = { onElegir(super_) },
-                icono = IconosCookify.tienda,
+                slotInicial = { LogoSupermercado(super_) },
             )
         }
     }
