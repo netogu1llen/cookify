@@ -235,11 +235,7 @@ internal fun PasoRestriccion(
                 titulo = restriccion.etiqueta,
                 seleccionada = seleccionada == restriccion,
                 onClick = { onElegir(restriccion) },
-                icono = if (restriccion == Restriccion.NINGUNA) {
-                    IconosCookify.plato
-                } else {
-                    IconosCookify.hoja
-                },
+                icono = iconoDe(restriccion),
             )
         }
     }
@@ -261,7 +257,7 @@ internal fun PasoArtefactos(
                 titulo = artefacto.etiqueta,
                 seleccionada = artefacto in elegidos,
                 onClick = { onAlternar(artefacto) },
-                icono = IconosCookify.horno,
+                icono = iconoDe(artefacto),
                 multiple = true,
             )
         }
@@ -319,7 +315,21 @@ private fun iconoDe(antojo: Antojo): Int = when (antojo) {
     Antojo.SANO -> IconosCookify.hoja
     Antojo.TAKEAWAY -> IconosCookify.plato
     Antojo.GUT_FRIENDLY -> IconosCookify.corazon
-    Antojo.ALTO_PROTEINA -> IconosCookify.balanza
+    Antojo.ALTO_PROTEINA -> IconosCookify.pesa
+}
+
+private fun iconoDe(artefacto: Artefacto): Int = when (artefacto) {
+    Artefacto.ESTUFA -> IconosCookify.estufa
+    Artefacto.HORNO -> IconosCookify.horno
+    Artefacto.AIRFRYER -> IconosCookify.airfryer
+    Artefacto.HORNO_ELECTRICO -> IconosCookify.hornoElectrico
+}
+
+private fun iconoDe(restriccion: Restriccion): Int = when (restriccion) {
+    Restriccion.NINGUNA -> IconosCookify.plato
+    Restriccion.VEGETARIANO -> IconosCookify.hoja
+    Restriccion.VEGANO -> IconosCookify.brote
+    Restriccion.SOLO_PESCADO -> IconosCookify.pescado
 }
 
 private const val MAX_DIGITOS_PRESUPUESTO = 7

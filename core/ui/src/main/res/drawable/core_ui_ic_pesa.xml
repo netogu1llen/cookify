@@ -1,0 +1,17 @@
+<!--
+    Mancuerna, para "Alto en proteina".
+    Antes ese antojo compartia la balanza con "Bajo en calorias", que es justo el
+    antojo contrario: dos opciones opuestas se veian identicas en la misma lista.
+
+    Los discos son gruesos a proposito: al lado de la balanza, que es una silueta
+    maciza, una mancuerna de trazo fino se veia como de otro set de iconos.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M1.5,9L4,9L4,15L1.5,15ZM4,6L8,6L8,18L4,18ZM8,10L16,10L16,14L8,14ZM16,6L20,6L20,18L16,18ZM20,9L22.5,9L22.5,15L20,15Z" />
+</vector>

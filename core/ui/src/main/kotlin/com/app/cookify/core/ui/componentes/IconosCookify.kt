@@ -38,6 +38,12 @@ object IconosCookify {
     @DrawableRes val horno = R.drawable.core_ui_ic_horno
     @DrawableRes val hoja = R.drawable.core_ui_ic_hoja
     @DrawableRes val balanza = R.drawable.core_ui_ic_balanza
+    @DrawableRes val pesa = R.drawable.core_ui_ic_pesa
+    @DrawableRes val pescado = R.drawable.core_ui_ic_pescado
+    @DrawableRes val brote = R.drawable.core_ui_ic_brote
+    @DrawableRes val estufa = R.drawable.core_ui_ic_estufa
+    @DrawableRes val airfryer = R.drawable.core_ui_ic_airfryer
+    @DrawableRes val hornoElectrico = R.drawable.core_ui_ic_horno_electrico
 }
 
 /**
