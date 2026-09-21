@@ -148,7 +148,7 @@ code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; f
       <div><div style="font-size:25px;font-weight:700;color:#FF7A3D;letter-spacing:-.6px">237,8%</div>
         <div style="font-size:10.5px;color:#8E8792;margin-top:3px;line-height:1.35">de diferencia por la misma<br>canasta según el supermercado</div></div>
       <div><div style="font-size:25px;font-weight:700;color:#FF7A3D;letter-spacing:-.6px">69</div>
-        <div style="font-size:10.5px;color:#8E8792;margin-top:3px;line-height:1.35">recetas chilenas ya<br>cargadas y funcionando</div></div>
+        <div style="font-size:10.5px;color:#8E8792;margin-top:3px;line-height:1.35">recetas chilenas<br>en el catálogo</div></div>
     </div>
   </div>
   <div style="position:absolute;left:1.1in;right:1.1in;bottom:2.35in;text-align:center">
@@ -180,7 +180,7 @@ code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; f
 
     <li class="mayor"><span class="t">2 · La propuesta</span><span class="p"></span><span class="n">6</span></li>
     <li class="menor"><span class="t">2.1 La promesa</span><span class="p"></span><span class="n">6</span></li>
-    <li class="menor"><span class="t">2.2 El producto hoy</span><span class="p"></span><span class="n">7</span></li>
+    <li class="menor"><span class="t">2.2 El producto</span><span class="p"></span><span class="n">7</span></li>
 
     <li class="mayor"><span class="t">3 · Arquitectura de información</span><span class="p"></span><span class="n">8</span></li>
 
@@ -231,12 +231,9 @@ code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; f
   arquitectura lo sostiene y qué decisiones de tecnología se tomaron, con sus costos
   asumidos por escrito.</p>
 
-  <p>Una aclaración sobre el estado del proyecto. La aplicación descrita <strong>no es una
-  maqueta</strong>: el recorrido completo está construido y funcionando, con un recetario
-  de 69 platos chilenos, un motor de planificación probado y persistencia local. Las
-  imágenes de este documento son capturas de la aplicación corriendo en un dispositivo, no
-  diseños. Lo que queda comprometido para los hitos siguientes está señalado como tal en
-  cada sección donde aparece.</p>
+  <p>Una aclaración sobre el alcance: lo que queda comprometido para los hitos siguientes
+  está señalado como tal en cada sección donde aparece, para que se pueda distinguir de lo
+  que el documento describe en presente.</p>
 
   <div class="caja">
     <div class="rotulo">Cómo leer este documento</div>
@@ -410,9 +407,9 @@ code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; f
 
 <section class="hoja">
   <div class="corrido"><span class="m">Cook<i>ify</i></span><span>2 · La propuesta</span></div>
-  <h2 style="margin-top:0">2.2 El producto hoy</h2>
-  <p>Todo lo que se ve en estas páginas está construido y funcionando. Las imágenes son
-  capturas de la aplicación corriendo, tomadas en una sola sesión.</p>
+  <h2 style="margin-top:0">2.2 El producto</h2>
+  <p>El recorrido completo, de la portada vacía hasta la semana instalada en ella. Las ocho
+  pantallas salieron de una misma sesión de uso.</p>
 
   <div class="capturas">
     <figure><img src="../capturas/01-portada-vacia.png" alt=""></figure>
@@ -436,14 +433,14 @@ code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; f
 
   <h3>Estado por componente</h3>
   <table>
-    <tr><th>Componente</th><th>Estado</th></tr>
-    <tr><td>Recorrido completo, de la portada vacía a la semana guardada</td><td>Funcionando</td></tr>
-    <tr><td>Recetario de 69 platos chilenos y 98 ingredientes con precio</td><td>Cargado</td></tr>
-    <tr><td>Motor de planificación determinista, probado con JUnit</td><td>Funcionando</td></tr>
-    <tr><td>Persistencia local en Room 3, sobrevive al cierre</td><td>Funcionando</td></tr>
-    <tr><td>Manejo de presupuesto insuficiente y de catálogo insuficiente</td><td>Funcionando</td></tr>
-    <tr><td>Servicio de precios reales por cadena</td><td>Comprometido · Hito 2</td></tr>
-    <tr><td>Lista de compras consolidada de la semana</td><td>Comprometido · Hito 2</td></tr>
+    <tr><th>Componente</th><th>Entrega</th></tr>
+    <tr><td>Recorrido completo, de la portada vacía a la semana guardada</td><td>Hito 1</td></tr>
+    <tr><td>Recetario de 69 platos chilenos y 98 ingredientes con precio</td><td>Hito 1</td></tr>
+    <tr><td>Motor de planificación determinista, probado con JUnit</td><td>Hito 1</td></tr>
+    <tr><td>Persistencia local en Room 3, sobrevive al cierre</td><td>Hito 1</td></tr>
+    <tr><td>Manejo de presupuesto insuficiente y de catálogo insuficiente</td><td>Hito 1</td></tr>
+    <tr><td>Servicio de precios reales por cadena</td><td>Hito 2</td></tr>
+    <tr><td>Lista de compras consolidada de la semana</td><td>Hito 2</td></tr>
   </table>
 
   <div class="folio"><span>Cookify · Propuesta</span><span>7</span></div>
@@ -513,8 +510,8 @@ code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; f
 
   <figure>
     <img src="../arquitectura.png" alt="Diagrama de arquitectura">
-    <figcaption><b>Figura 2.</b> Arquitectura cliente–servidor en capas. En ámbar sólido, lo
-    construido y funcionando; en azul punteado, lo comprometido para el Hito 2. Los nombres
+    <figcaption><b>Figura 2.</b> Arquitectura cliente–servidor en capas. En ámbar sólido, lo que ya
+    existe; en azul punteado, lo comprometido para el Hito 2. Los nombres
     son los de los módulos y clases del repositorio.</figcaption>
   </figure>
 
@@ -901,7 +898,7 @@ code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; f
 
   <div class="caja">
     <div class="rotulo">Una deuda que se declara</div>
-    <p>Una revisión de usabilidad hecha sobre la aplicación funcionando detectó que la
+    <p>Una revisión de usabilidad detectó que la
     pantalla de armado anuncia «Armando tu lista de compras» y esa lista todavía no existe en
     ninguna pantalla. Se deja consignado aquí en lugar de esconderlo: es la primera deuda que
     el Hito 3 salda.</p>
@@ -926,11 +923,9 @@ code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; f
   orden, y esa es exactamente la primera pregunta que el producto hace.</p>
 
   <h2>Lo que distingue esta propuesta</h2>
-  <p>Al cierre del Hito 1 la aplicación <strong>ya funciona de punta a punta</strong>. No es
-  una maqueta navegable: es un recetario de 69 platos, un motor de planificación determinista
-  con pruebas, persistencia real y manejo de los casos en que el presupuesto no alcanza. Las
-  capturas de este documento salieron de una sesión de uso, no de una herramienta de
-  diseño.</p>
+  <p>Al cierre del Hito 1 hay un recetario de 69 platos chilenos, un motor de planificación
+  determinista con pruebas, persistencia local y un camino resuelto para cuando el
+  presupuesto no alcanza.</p>
 
   <p>Y la decisión arquitectónica central —que el precio necesita un servidor— <strong>no se
   tomó porque un servidor se vea bien en un diagrama</strong>. Se tomó después de medir que
