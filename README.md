@@ -38,7 +38,8 @@ armarla igual por el mínimo posible.
 | Documento | Qué contiene |
 |---|---|
 | [Propuesta (PDF)](docs/propuesta-cookify.pdf) | El documento del Hito 1 |
-| [Láminas (PDF)](docs/laminas-hito1.pdf) | Las de la presentación |
+| [Láminas (PDF)](docs/laminas-hito1.pdf) | Las ocho de la presentación |
+| [Guion de la presentación](docs/guion-presentacion.md) | Qué decir en cada lámina y los tiempos |
 | [Mapa del producto](docs/mapa-del-producto.png) | Arquitectura de información |
 | [Diagrama de arquitectura](docs/arquitectura.png) | Cliente, servidor y capas |
 | [Arquitectura en detalle](docs/arquitectura.md) | El caso de uso recorrido capa por capa |

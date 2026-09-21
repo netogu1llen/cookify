@@ -1,0 +1,129 @@
+<meta charset="utf-8">
+<title>Arquitectura · versión para proyectar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Archivo:wght@400;500;600;700&display=swap">
+<style>
+/*
+ * Version apaisada del diagrama de arquitectura, para la lamina 6.
+ *
+ * No es el mismo archivo que el del documento y no deberia serlo: el del documento
+ * se lee a treinta centimetros y puede listar cada clase; este se lee proyectado al
+ * fondo de una sala, asi que lleva menos piezas y tipografia mas grande.
+ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 2400px; padding: 40px 44px;
+  background: #fff; font-family: "Archivo", "Segoe UI", system-ui, sans-serif; color: #17161A;
+}
+.tablero { display: flex; align-items: stretch; gap: 0; }
+.lado { flex: 1; border-radius: 20px; padding: 26px 28px 28px; }
+.cliente  { background: #FFF6F1; border: 3px solid #F3C9B4; }
+.servidor { background: #F3F7FC; border: 3px dashed #A9C3E2; }
+
+.cab { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+.cab h2 { font-family: "Bricolage Grotesque", sans-serif; font-size: 40px; letter-spacing: -1px; }
+.cab .tec { font-size: 21px; color: #6B6472; }
+.cab .sello { margin-left: auto; font-size: 17px; font-weight: 700; letter-spacing: 1.4px;
+              text-transform: uppercase; padding: 8px 18px; border-radius: 999px; color: #fff; }
+.sello.ok { background: #E2622A; } .sello.h2 { background: #2D6CB5; }
+
+.capa { background: #fff; border: 2px solid #E4DEE6; border-radius: 14px;
+        padding: 16px 20px; margin-bottom: 13px; }
+.capa:last-child { margin-bottom: 0; }
+.capa .n { font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; margin-bottom: 4px; }
+.capa .r { font-size: 19px; color: #55505C; line-height: 1.32; margin-bottom: 10px; }
+.piezas { display: flex; flex-wrap: wrap; gap: 8px; }
+.p { font-family: ui-monospace, Consolas, monospace; font-size: 17px; font-weight: 600;
+     background: #F5F2F6; border: 1px solid #E4DEE6; border-radius: 8px; padding: 6px 10px; color: #3B3640; }
+.p.mod { background: #FFEDE3; border-color: #F3C9B4; color: #A6441A; }
+.servidor .p.mod { background: #E4EEF9; border-color: #A9C3E2; color: #1F5591; }
+
+.puente { flex: 0 0 172px; display: flex; flex-direction: column;
+          align-items: center; justify-content: center; gap: 12px; padding: 0 10px; }
+.puente .fl { font-size: 48px; color: #E2622A; line-height: .8; letter-spacing: -10px; }
+.puente .et { font-family: ui-monospace, Consolas, monospace; font-size: 16px;
+              font-weight: 700; color: #3B3640; text-align: center; line-height: 1.35; }
+.puente .nt { font-size: 15px; color: #877F8C; text-align: center; line-height: 1.3; }
+</style>
+
+<div class="tablero">
+  <div class="lado cliente">
+    <div class="cab">
+      <h2>Cliente</h2><span class="tec">Android · Kotlin · Compose</span>
+      <span class="sello ok">Construido</span>
+    </div>
+
+    <div class="capa">
+      <div class="n">Presentación</div>
+      <div class="r">Dibuja y recibe gestos. No calcula nada.</div>
+      <div class="piezas">
+        <span class="p mod">:app</span><span class="p mod">:feature:onboarding</span>
+        <span class="p mod">:feature:planning</span><span class="p mod">:feature:week</span>
+        <span class="p mod">:feature:home</span><span class="p">ViewModel + StateFlow</span>
+      </div>
+    </div>
+
+    <div class="capa">
+      <div class="n">Dominio <span style="font-size:18px;font-weight:400;color:#877F8C">· Kotlin puro, sin Android</span></div>
+      <div class="r">Decide qué se come y cuánto cuesta.</div>
+      <div class="piezas">
+        <span class="p mod">:core:domain</span><span class="p">GenerarPlanSemanalUseCase</span>
+        <span class="p">CalculadoraCostos</span><span class="p mod">:core:model</span>
+      </div>
+    </div>
+
+    <div class="capa">
+      <div class="n">Datos</div>
+      <div class="r">Única capa que sabe de dónde sale el dato.</div>
+      <div class="piezas">
+        <span class="p mod">:core:data</span><span class="p">CatalogoLocalDataSource</span>
+        <span class="p">PrecioRepositoryImpl</span>
+      </div>
+    </div>
+
+    <div class="capa">
+      <div class="n">Persistencia</div>
+      <div class="r">Room 3 y el recetario dentro del APK.</div>
+      <div class="piezas">
+        <span class="p mod">:core:database</span><span class="p">semanas_guardadas</span>
+        <span class="p">precios_cache</span><span class="p">recetas.json</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="puente">
+    <div class="fl">▶▶</div>
+    <div class="et">HTTPS · JSON<br>GET /precios</div>
+    <div class="nt">Una descarga cada 7 días,<br>no una por semana armada</div>
+  </div>
+
+  <div class="lado servidor">
+    <div class="cab">
+      <h2>Servidor</h2><span class="tec">Ktor · comparte :core:model</span>
+      <span class="sello h2">Hito 2</span>
+    </div>
+
+    <div class="capa">
+      <div class="n">API</div>
+      <div class="r">Devuelve ingrediente → precio por gramo.</div>
+      <div class="piezas"><span class="p mod">GET /precios</span><span class="p">GET /salud</span></div>
+    </div>
+
+    <div class="capa">
+      <div class="n">Normalización <span style="font-size:18px;font-weight:400;color:#877F8C">· el trabajo real</span></div>
+      <div class="r">«Arroz Tucapel 1 kg · $2.540» → «arroz · $2,54/g».</div>
+      <div class="piezas"><span class="p">TamanoEnvase</span><span class="p">MapeadorIngrediente</span></div>
+    </div>
+
+    <div class="capa">
+      <div class="n">Recolección</div>
+      <div class="r">Lee categorías, no búsquedas: la categoría de verduras solo trae verduras.</div>
+      <div class="piezas"><span class="p">RecolectorJumbo</span><span class="p">RecolectorSantaIsabel</span></div>
+    </div>
+
+    <div class="capa">
+      <div class="n">Persistencia</div>
+      <div class="r">Guarda cada corrida: hay historia de precios.</div>
+      <div class="piezas"><span class="p">precios</span><span class="p">corridas_de_sincronizacion</span></div>
+    </div>
+  </div>
+</div>
