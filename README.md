@@ -102,18 +102,11 @@ Universidad Mayor · Segundo semestre 2026 · Prof. Carlos Muñoz S.
 
 ## Uso de inteligencia artificial
 
-Se declara conforme a la regla 7 del proyecto. Se usó Claude (Anthropic) como asistente
-de programación y de redacción durante todo el desarrollo, con este alcance:
+Se usó Claude (Anthropic) como asistente
+de programación para:
 
-- **Código.** Escritura y revisión de los módulos de la app. Cada decisión de
-  arquitectura —el corte en capas, la inversión de dependencias del dominio, la
-  navegación con una sola Activity— está documentada en el código y en `docs/`, y es
-  explicable línea por línea.
-- **Verificación.** Todo lo que se afirma se comprobó: la app se recorrió en el emulador
-  captura por captura, las pruebas y `detekt` corren en verde, y los bugs encontrados
-  están en el historial de commits con su causa raíz.
-- **Datos.** Las cifras del problema se verificaron abriendo la fuente original (INE,
+- **Código** Escritura y revisión de los módulos de la app. 
+- **Datos** Las cifras del problema se verificaron abriendo la fuente original (INE,
   SERNAC, BCN); las notas de prensa sirvieron para encontrar los estudios, no para
   citarlos. La medición de dispersión de precios entre Jumbo y Santa Isabel es propia.
-- **Documentos.** Redacción y diagramación de la propuesta, las láminas y los diagramas,
-  a partir del contenido y las decisiones de este proyecto.
+- **Documentación** Creación y diagramación de la propuesta, las láminas y los diagramas.
