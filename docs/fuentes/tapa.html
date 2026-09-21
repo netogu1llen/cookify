@@ -1,0 +1,122 @@
+<meta charset="utf-8">
+<title>Cookify · Tapa</title>
+<style>
+  /*
+   * Tapa del documento de propuesta. Se imprime a PDF con:
+   *   msedge --headless=new --print-to-pdf=tapa.pdf --no-pdf-header-footer
+   * Tamano carta, sin margenes: la tapa sangra hasta el borde.
+   */
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    width: 8.5in; height: 11in;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: #0B0B0E;
+    color: #F5F1F0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Resplandor ambar detras del logo. Da profundidad sin usar una foto. */
+  .halo {
+    position: absolute; top: -2.2in; left: 50%; transform: translateX(-50%);
+    width: 9in; height: 7in; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(255,122,61,0.34), rgba(255,122,61,0.07) 58%, transparent 74%);
+  }
+
+  /* Tira de las doce categorias de plato: la paleta real del producto. */
+  .tira { position: absolute; top: 0; left: 0; right: 0; height: 7px; display: flex; }
+  .tira i { flex: 1; }
+
+  .contenido { position: relative; padding: 1.5in 1.1in 0; text-align: center; }
+
+  .logo { width: 1.5in; height: 1.5in; border-radius: 0.34in; display: block; margin: 0 auto 0.42in; }
+
+  .marca { font-size: 68px; font-weight: 800; letter-spacing: -2.4px; line-height: 1; }
+  .marca span { color: #FF7A3D; }
+
+  .promesa {
+    margin: 0.3in auto 0; max-width: 5.2in;
+    font-size: 16.5px; line-height: 1.5; color: #C9C2CC; font-weight: 300;
+  }
+  .promesa b { color: #F5F1F0; font-weight: 600; }
+
+  .cifras {
+    display: flex; justify-content: center; gap: 0.42in;
+    margin: 0.58in auto 0; padding-top: 0.34in;
+    border-top: 1px solid rgba(255,255,255,0.11);
+    max-width: 5.6in;
+  }
+  .cifra .n { font-size: 25px; font-weight: 700; color: #FF7A3D; letter-spacing: -0.6px; }
+  .cifra .t { font-size: 10.5px; color: #8E8792; margin-top: 3px; line-height: 1.35; }
+
+  .titulo {
+    position: absolute; left: 1.1in; right: 1.1in; bottom: 2.35in; text-align: center;
+  }
+  .titulo .kicker {
+    font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase;
+    color: #FF7A3D; font-weight: 700; margin-bottom: 9px;
+  }
+  .titulo h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.3px; color: #F5F1F0; }
+
+  .pie {
+    position: absolute; left: 1.1in; right: 1.1in; bottom: 0.85in;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-top: 0.2in; border-top: 1px solid rgba(255,255,255,0.11);
+    font-size: 11.5px; color: #8E8792; line-height: 1.6; text-align: left;
+  }
+  .pie b { color: #F5F1F0; font-weight: 600; display: block; font-size: 13px; }
+  .pie .der { text-align: right; }
+</style>
+
+<div class="halo"></div>
+<div class="tira">
+  <i style="background:#D98F45"></i><i style="background:#D2685E"></i><i style="background:#E09BAE"></i>
+  <i style="background:#63B9D8"></i><i style="background:#E8896B"></i><i style="background:#F0CE5C"></i>
+  <i style="background:#C08A5E"></i><i style="background:#7FC26A"></i><i style="background:#DFB579"></i>
+  <i style="background:#C9C3B6"></i><i style="background:#E0A82E"></i><i style="background:#A9BFAE"></i>
+</div>
+
+<div class="contenido">
+  <img class="logo" src="../logo-cookify.png" alt="Cookify">
+  <div class="marca">Cook<span>ify</span></div>
+
+  <p class="promesa">
+    Para quien cocina en casa con un presupuesto contado, Cookify arma
+    <b>una semana de almuerzos que cabe en lo que puede gastar</b>, con el precio real
+    del supermercado donde compra.
+  </p>
+
+  <div class="cifras">
+    <div class="cifra">
+      <div class="n">$307.947</div>
+      <div class="t">gasta al mes en comida<br>el hogar chileno promedio</div>
+    </div>
+    <div class="cifra">
+      <div class="n">237,8%</div>
+      <div class="t">de diferencia por la misma<br>canasta según el supermercado</div>
+    </div>
+    <div class="cifra">
+      <div class="n">69</div>
+      <div class="t">recetas chilenas ya<br>cargadas y funcionando</div>
+    </div>
+  </div>
+</div>
+
+<div class="titulo">
+  <div class="kicker">Documento de propuesta · Hito 1</div>
+  <h1>Proyecto semestral · Arquitectura de Desarrollo (Móvil y Web)</h1>
+</div>
+
+<div class="pie">
+  <div>
+    <b>Ernesto Guillén Guerrero</b>
+    300050336
+  </div>
+  <div class="der">
+    <b>INGT1003</b>
+    Escuela de Ingeniería Civil · Universidad Mayor<br>
+    Segundo semestre 2026
+  </div>
+</div>

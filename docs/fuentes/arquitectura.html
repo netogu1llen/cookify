@@ -1,0 +1,249 @@
+<meta charset="utf-8">
+<title>Arquitectura Cookify</title>
+<style>
+  /*
+   * Fuente del diagrama de arquitectura. Se renderiza a PNG con:
+   *   msedge --headless=new --screenshot=arquitectura.png --window-size=1500,1900
+   * Los nombres de los componentes son los reales del repositorio. Si un modulo
+   * cambia de nombre en el codigo, cambia aqui: el diagrama no es un dibujo aparte.
+   */
+  :root {
+    --tinta: #16151a;
+    --tinta-media: #55505c;
+    --tinta-suave: #8a8490;
+    --marca: #E2622A;
+    --marca-clara: #FFF1EA;
+    --linea: #ded8e0;
+    --papel: #ffffff;
+    --cliente: #FFF7F3;
+    --servidor: #F2F6FB;
+    --azul: #2D6CB5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 36px 40px;
+    background: var(--papel);
+    font: 400 14px/1.45 "Segoe UI", system-ui, sans-serif;
+    color: var(--tinta);
+    width: 1500px;
+  }
+  h1 { font-size: 27px; margin: 0 0 3px; letter-spacing: -0.4px; }
+  .sub { color: var(--tinta-suave); font-size: 14.5px; margin: 0 0 22px; }
+
+  .bloque { border-radius: 16px; padding: 18px 20px 20px; margin-bottom: 0; }
+  .bloque.cliente { background: var(--cliente); border: 2px solid #F3C9B4; }
+  .bloque.servidor { background: var(--servidor); border: 2px dashed #A9C3E2; }
+
+  .cabecera { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+  .cabecera h2 { font-size: 17px; margin: 0; letter-spacing: 0.2px; }
+  .cabecera .tec { font-size: 13px; color: var(--tinta-media); }
+  .pill {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 999px; margin-left: auto;
+  }
+  .pill.hoy { background: var(--marca); color: #fff; }
+  .pill.h2 { background: var(--azul); color: #fff; }
+
+  .capa {
+    display: grid; grid-template-columns: 178px 1fr 268px;
+    gap: 16px; align-items: center;
+    background: #fff; border: 1px solid var(--linea); border-radius: 11px;
+    padding: 12px 14px; margin-bottom: 9px;
+  }
+  .capa:last-child { margin-bottom: 0; }
+  .capa .nombre { font-weight: 700; font-size: 14.5px; }
+  .capa .nombre small { display: block; font-weight: 400; font-size: 12px; color: var(--tinta-suave); margin-top: 2px; }
+  .capa .resp { font-size: 12.5px; color: var(--tinta-media); border-left: 3px solid var(--marca-clara); padding-left: 11px; }
+  .servidor .capa .resp { border-left-color: #DCE8F5; }
+
+  .piezas { display: flex; flex-wrap: wrap; gap: 5px; }
+  .pieza {
+    font: 600 11.5px/1 ui-monospace, "Cascadia Mono", Consolas, monospace;
+    background: #F6F3F7; border: 1px solid var(--linea); border-radius: 6px;
+    padding: 5px 7px; white-space: nowrap; color: #3b3640;
+  }
+  .pieza.mod { background: var(--marca-clara); border-color: #F3C9B4; color: #A6441A; }
+  .servidor .pieza.mod { background: #E7F0FA; border-color: #A9C3E2; color: #1F5591; }
+
+  .enlace { text-align: center; padding: 11px 0 12px; }
+  .enlace .flecha { font-size: 19px; color: var(--marca); line-height: 1; }
+  .servidor-in .flecha { color: var(--azul); }
+  .enlace .etq { font: 600 12.5px ui-monospace, Consolas, monospace; color: var(--tinta-media); margin-top: 3px; }
+  .enlace .nota { font-size: 12px; color: var(--tinta-suave); margin-top: 2px; }
+
+  .externo {
+    background: #FAFAFB; border: 1px solid var(--linea); border-radius: 11px;
+    padding: 12px 16px; text-align: center; font-size: 13px; color: var(--tinta-media);
+  }
+  .externo b { color: var(--tinta); }
+
+  .leyenda {
+    margin-top: 20px; display: flex; gap: 26px; align-items: center;
+    font-size: 12.5px; color: var(--tinta-media);
+    border-top: 1px solid var(--linea); padding-top: 13px;
+  }
+  .muestra { display: inline-block; width: 26px; height: 13px; border-radius: 4px; vertical-align: -2px; margin-right: 7px; }
+</style>
+
+<h1>Arquitectura de Cookify</h1>
+<p class="sub">Cliente–servidor en capas. Los nombres son los reales del repositorio
+<b>github.com/netogu1llen/cookify</b>.</p>
+
+<div class="bloque cliente">
+  <div class="cabecera">
+    <h2>Cliente</h2>
+    <span class="tec">Android nativo · Kotlin 2.3 · Jetpack Compose · minSdk 24</span>
+    <span class="pill hoy">Construido</span>
+  </div>
+
+  <div class="capa">
+    <div class="nombre">Presentación<small>Pantallas y estado de UI</small></div>
+    <div class="piezas">
+      <span class="pieza mod">:app</span>
+      <span class="pieza">MainActivity</span>
+      <span class="pieza">NavDisplay</span>
+      <span class="pieza">Ruta</span>
+      <span class="pieza mod">:feature:onboarding</span>
+      <span class="pieza mod">:feature:planning</span>
+      <span class="pieza mod">:feature:week</span>
+      <span class="pieza mod">:feature:home</span>
+      <span class="pieza">OnboardingViewModel</span>
+      <span class="pieza">ArmadoViewModel</span>
+      <span class="pieza">SemanaViewModel</span>
+      <span class="pieza">DetalleViewModel</span>
+      <span class="pieza">HomeViewModel</span>
+      <span class="pieza mod">:core:ui</span>
+    </div>
+    <div class="resp">Dibuja y recibe gestos. No calcula nada: cada ViewModel expone un
+      <b>StateFlow</b> inmutable y manda los eventos de una sola vez por <b>Channel</b>.</div>
+  </div>
+
+  <div class="capa">
+    <div class="nombre">Dominio<small>Reglas de negocio, Kotlin puro</small></div>
+    <div class="piezas">
+      <span class="pieza mod">:core:domain</span>
+      <span class="pieza">GenerarPlanSemanalUseCase</span>
+      <span class="pieza">CalculadoraCostos</span>
+      <span class="pieza">SemanaRepository</span>
+      <span class="pieza">PrecioRepository</span>
+      <span class="pieza mod">:core:model</span>
+      <span class="pieza">SolicitudPlan</span>
+      <span class="pieza">PlanSemanal</span>
+      <span class="pieza">Receta</span>
+    </div>
+    <div class="resp">Decide qué se come y cuánto cuesta. <b>Sin una sola importación de
+      Android</b>, por eso se prueba con JUnit sin emulador. Define los repositorios como
+      interfaz: el dominio no sabe si el dato viene de disco o de la red.</div>
+  </div>
+
+  <div class="capa">
+    <div class="nombre">Datos<small>Implementa los repositorios</small></div>
+    <div class="piezas">
+      <span class="pieza mod">:core:data</span>
+      <span class="pieza">CatalogoLocalDataSource</span>
+      <span class="pieza">SemanaRepositoryLocal</span>
+      <span class="pieza">PrecioRepositoryImpl</span>
+      <span class="pieza">ClientePrecios</span>
+      <span class="pieza">DatosModule</span>
+    </div>
+    <div class="resp">Única capa que conoce el origen del dato. Resuelve el precio en
+      cascada: <b>caché fresca → caché vencida → valor del catálogo local</b>, para que la
+      semana se arme igual sin señal.</div>
+  </div>
+
+  <div class="capa">
+    <div class="nombre">Persistencia<small>Disco del teléfono</small></div>
+    <div class="piezas">
+      <span class="pieza mod">:core:database</span>
+      <span class="pieza">CookifyDatabase</span>
+      <span class="pieza">SemanaDao</span>
+      <span class="pieza">semanas_guardadas</span>
+      <span class="pieza">dias_semana_guardada</span>
+      <span class="pieza">precios_cache</span>
+      <span class="pieza">assets/recetas.json</span>
+      <span class="pieza">assets/ingredientes.json</span>
+    </div>
+    <div class="resp">Room 3 sobre SQLite para lo que el usuario guarda y para la caché de
+      precios. El recetario viaja dentro del APK: se lee una vez al abrir y queda en memoria.</div>
+  </div>
+</div>
+
+<div class="enlace">
+  <div class="flecha">▼ &nbsp; ▲</div>
+  <div class="etq">HTTPS · JSON · GET /precios?supermercado=JUMBO</div>
+  <div class="nota">Una descarga cada 7 días, no una por semana armada</div>
+</div>
+
+<div class="bloque servidor">
+  <div class="cabecera">
+    <h2>Servidor</h2>
+    <span class="tec">Servicio de precios · una instancia sirve a todos los clientes</span>
+    <span class="pill h2">Comprometido para el Hito 2</span>
+  </div>
+
+  <div class="capa">
+    <div class="nombre">API<small>Lo único que el cliente ve</small></div>
+    <div class="piezas">
+      <span class="pieza mod">GET /precios</span>
+      <span class="pieza mod">GET /precios/{supermercado}</span>
+      <span class="pieza">GET /salud</span>
+    </div>
+    <div class="resp">Devuelve un mapa <b>ingredienteId → precio por gramo</b> con su fecha
+      de actualización. El cliente nunca ve un producto del supermercado ni un scraper.</div>
+  </div>
+
+  <div class="capa">
+    <div class="nombre">Normalización<small>Donde está el trabajo real</small></div>
+    <div class="piezas">
+      <span class="pieza">TamanoEnvase</span>
+      <span class="pieza">MapeadorIngrediente</span>
+      <span class="pieza">fuentes_precios.json</span>
+    </div>
+    <div class="resp">Convierte «Arroz Tucapel 1 kg · $2.540» en «arroz · $2,54/g». Saca el
+      formato del nombre, descarta lo que se vende a granel sin peso y toma el percentil 25
+      de los candidatos de la categoría.</div>
+  </div>
+
+  <div class="capa">
+    <div class="nombre">Recolección<small>Programada, no a pedido</small></div>
+    <div class="piezas">
+      <span class="pieza">RecolectorJumbo</span>
+      <span class="pieza">RecolectorSantaIsabel</span>
+      <span class="pieza">ProgramadorDeSincronizacion</span>
+    </div>
+    <div class="resp">Lee las páginas de categoría de cada cadena. <b>Categorías y no
+      búsqueda</b>: buscar «cebolla» devuelve mermelada de cebolla y pretzels; la categoría
+      de verduras solo contiene verduras.</div>
+  </div>
+
+  <div class="capa">
+    <div class="nombre">Persistencia<small>Historia de precios</small></div>
+    <div class="piezas">
+      <span class="pieza">precios</span>
+      <span class="pieza">productos_observados</span>
+      <span class="pieza">corridas_de_sincronizacion</span>
+    </div>
+    <div class="resp">Guarda cada corrida en vez de sobrescribir. Permite responder «cuánto
+      subió el pollo este mes» sin volver a bajar nada.</div>
+  </div>
+</div>
+
+<div class="enlace servidor-in">
+  <div class="flecha">▼</div>
+  <div class="etq">HTTPS · HTML renderizado en el servidor</div>
+</div>
+
+<div class="externo">
+  <b>jumbo.cl</b> · páginas de categoría, productos en <code>data-gtm-impression</code>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <b>santaisabel.cl</b> · páginas de categoría, JSON de VTEX embebido
+  <br><span style="font-size:12px;color:var(--tinta-suave)">Ninguna de las dos cadenas
+  publica API. Verificado el 20-09-2026: <code>catalog_system</code> responde 404 e
+  <code>intelligent-search</code> también.</span>
+</div>
+
+<div class="leyenda">
+  <span><span class="muestra" style="background:var(--cliente);border:2px solid #F3C9B4"></span>Construido y funcionando hoy</span>
+  <span><span class="muestra" style="background:var(--servidor);border:2px dashed #A9C3E2"></span>Comprometido para el Hito 2</span>
+  <span><span class="pieza mod" style="padding:3px 6px">:modulo</span> módulo Gradle del repositorio</span>
+</div>
