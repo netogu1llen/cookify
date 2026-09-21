@@ -48,7 +48,11 @@ armarla igual por el mínimo posible.
 
 ## Prototipo navegable
 
-**Recorrido en el navegador:** _(enlace pendiente)_
+**Recorrido en el navegador:**
+[netogu1llen.github.io/cookify/fuentes/prototipo.html](https://netogu1llen.github.io/cookify/fuentes/prototipo.html)
+
+Catorce pantallas encadenadas de la app funcionando, con las zonas clickeables sobre los
+botones reales. No son maquetas: son capturas de una sola corrida en el emulador.
 
 **La app de verdad:** el APK de depuración está en
 [Releases](https://github.com/netogu1llen/cookify/releases). Se instala en cualquier
