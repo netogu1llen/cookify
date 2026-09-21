@@ -1,0 +1,287 @@
+<title>Recorrido de Cookify</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Archivo:wght@400;500;600&display=swap">
+<style>
+/*
+ * Una sola atmosfera, deliberada: la app es oscura y esta pagina la enmarca, no la
+ * reinterpreta. Por eso no hay tema claro; todos los colores se pintan explicitos
+ * para que la pagina se sostenga sobre cualquier fondo del visor.
+ */
+:root {
+  --fondo:      #0E0D11;
+  --superficie: #18161C;
+  --elevado:    #201D26;
+  --borde:      #2C2833;
+  --texto:      #F3EFF1;
+  --apagado:    #968E9B;
+  --tenue:      #6B6472;
+  --ambar:      #FF7A3D;
+  --ambar-hondo:#B94E20;
+  --lima:       #B9F227;
+
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --cuerpo:  "Archivo", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { background: var(--fondo); }
+body {
+  margin: 0;
+  padding-block: 28px 40px;
+  padding-inline: 20px;
+  font-family: var(--cuerpo);
+  color: var(--texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+.envoltura { max-width: 1120px; margin-inline: auto; }
+
+/* ---------- encabezado ---------- */
+.cabecera {
+  display: flex; align-items: center; gap: 14px;
+  padding-bottom: 20px; margin-bottom: 26px;
+  border-bottom: 1px solid var(--borde);
+  flex-wrap: wrap;
+}
+.cabecera img { width: 46px; height: 46px; border-radius: 11px; }
+.marca { font-family: var(--display); font-size: 27px; font-weight: 800; letter-spacing: -0.9px; line-height: 1; }
+.marca span { color: var(--ambar); }
+.lema { font-size: 13.5px; color: var(--apagado); line-height: 1.45; max-width: 46ch; }
+.credito { margin-left: auto; text-align: right; font-size: 12px; color: var(--tenue); line-height: 1.6; }
+.credito b { color: var(--apagado); font-weight: 600; }
+
+/* ---------- escenario ---------- */
+.escenario {
+  display: grid; grid-template-columns: minmax(0,auto) minmax(0,1fr);
+  gap: 44px; align-items: start;
+}
+
+.telefono { position: relative; width: 368px; max-width: 100%; justify-self: center; }
+.pantalla {
+  position: relative; width: 100%; aspect-ratio: 1080 / 2400;
+  border-radius: 26px; overflow: hidden;
+  background: #000;
+  border: 1px solid var(--borde);
+  box-shadow: 0 26px 60px rgba(0,0,0,.55);
+}
+.pantalla img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* La zona clickeable cae justo encima del boton real de esa pantalla. */
+.zona {
+  position: absolute; border-radius: 12px; cursor: pointer;
+  border: 2px solid transparent; background: transparent;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+.zona::after {
+  content: ""; position: absolute; inset: -5px; border-radius: 15px;
+  border: 2px solid var(--ambar); opacity: 0;
+  animation: latido 2.1s ease-in-out infinite;
+}
+@keyframes latido { 0%,100% { opacity: .30; transform: scale(1); } 50% { opacity: .85; transform: scale(1.012); } }
+.zona:hover { background: rgba(255,122,61,.13); }
+.zona:focus-visible { outline: 3px solid var(--lima); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .zona::after { animation: none; opacity: .5; } }
+
+.mando {
+  display: flex; align-items: center; gap: 10px; margin-top: 16px;
+}
+.mando button {
+  font-family: var(--cuerpo); font-size: 13.5px; font-weight: 600;
+  background: var(--elevado); color: var(--texto);
+  border: 1px solid var(--borde); border-radius: 999px;
+  padding: 9px 17px; cursor: pointer;
+}
+.mando button:hover:not(:disabled) { border-color: var(--ambar-hondo); color: var(--ambar); }
+.mando button:disabled { opacity: .35; cursor: default; }
+.mando .cuenta {
+  margin-left: auto; font-size: 12.5px; color: var(--tenue);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- panel ---------- */
+.panel { padding-top: 4px; }
+.paso-num {
+  font-family: var(--display); font-size: 12px; font-weight: 700;
+  letter-spacing: 2.2px; text-transform: uppercase; color: var(--ambar);
+  margin-bottom: 8px;
+}
+.panel h1 {
+  font-family: var(--display); font-size: 33px; font-weight: 700;
+  letter-spacing: -1px; margin: 0 0 12px; line-height: 1.1; text-wrap: balance;
+}
+.panel .nota { font-size: 15px; line-height: 1.6; color: var(--apagado); max-width: 52ch; margin: 0; }
+
+.respuestas { margin-top: 30px; }
+.respuestas h2 {
+  font-size: 11.5px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase;
+  color: var(--tenue); margin: 0 0 12px;
+}
+.respuestas ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--borde);
+                 border: 1px solid var(--borde); border-radius: 12px; overflow: hidden; }
+.respuestas li {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 11px 15px; background: var(--superficie); font-size: 13.5px;
+}
+.respuestas li .k { color: var(--tenue); }
+.respuestas li .v { color: var(--texto); font-weight: 600; text-align: right; }
+.respuestas li.nuevo .v { color: var(--ambar); }
+.respuestas .vacio { padding: 14px 15px; background: var(--superficie); font-size: 13.5px; color: var(--tenue); }
+
+/* ---------- tira de pasos ---------- */
+.tira { margin-top: 40px; border-top: 1px solid var(--borde); padding-top: 22px; }
+.tira h2 {
+  font-size: 11.5px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase;
+  color: var(--tenue); margin: 0 0 14px;
+}
+.tira ol { list-style: none; margin: 0; padding: 0 0 8px; display: flex; gap: 10px; overflow-x: auto; }
+.tira li { flex: 0 0 auto; }
+.tira button {
+  display: block; padding: 0; border: 1px solid var(--borde); background: #000;
+  border-radius: 10px; overflow: hidden; cursor: pointer; width: 62px;
+}
+.tira button img { width: 100%; display: block; opacity: .5; transition: opacity .18s; }
+.tira button:hover img { opacity: .85; }
+.tira button[aria-current="true"] { border-color: var(--ambar); }
+.tira button[aria-current="true"] img { opacity: 1; }
+.tira button:focus-visible { outline: 3px solid var(--lima); outline-offset: 2px; }
+
+.pie {
+  margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--borde);
+  font-size: 12.5px; color: var(--tenue); line-height: 1.7;
+}
+.pie a { color: var(--apagado); }
+
+@media (max-width: 900px) {
+  .escenario { grid-template-columns: 1fr; gap: 28px; }
+  .panel h1 { font-size: 27px; }
+  .credito { margin-left: 0; text-align: left; width: 100%; }
+}
+</style>
+
+<div class="envoltura">
+  <header class="cabecera">
+    <img src="" id="logo" alt="">
+    <div>
+      <div class="marca">Cook<span>ify</span></div>
+      <p class="lema">Una semana de almuerzos que cabe en lo que puedes gastar.</p>
+    </div>
+    <div class="credito">
+      <b>Prototipo navegable · Hito 1</b><br>
+      Capturas de la aplicación funcionando, no maquetas<br>
+      Ernesto Guillén Guerrero · INGT1003
+    </div>
+  </header>
+
+  <div class="escenario">
+    <div class="telefono">
+      <div class="pantalla">
+        <img id="captura" alt="">
+        <button class="zona" id="zona" aria-label="Continuar al siguiente paso"></button>
+      </div>
+      <div class="mando">
+        <button id="atras" type="button">← Anterior</button>
+        <button id="siguiente" type="button">Siguiente →</button>
+        <span class="cuenta"><b id="indice">1</b> / 14</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="paso-num" id="numero"></div>
+      <h1 id="titulo"></h1>
+      <p class="nota" id="nota"></p>
+
+      <div class="respuestas">
+        <h2>Lo que la app ya sabe</h2>
+        <ul id="lista"><li class="vacio">Todavía nada. Cada pregunta agrega una línea.</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <nav class="tira">
+    <h2>Las catorce pantallas del recorrido</h2>
+    <ol id="tira"></ol>
+  </nav>
+
+  <footer class="pie">
+    Toca la zona marcada de la pantalla para avanzar, o usa las flechas del teclado.
+    El código está en <a href="https://github.com/netogu1llen/cookify">github.com/netogu1llen/cookify</a>.
+  </footer>
+</div>
+
+<script>
+const LOGO = '/*LOGO*/';
+const PASOS = /*DATOS*/;
+let i = 0;
+
+const el = {
+  captura: document.getElementById('captura'),
+  zona: document.getElementById('zona'),
+  numero: document.getElementById('numero'),
+  titulo: document.getElementById('titulo'),
+  nota: document.getElementById('nota'),
+  lista: document.getElementById('lista'),
+  indice: document.getElementById('indice'),
+  atras: document.getElementById('atras'),
+  siguiente: document.getElementById('siguiente'),
+  tira: document.getElementById('tira'),
+  logo: document.getElementById('logo'),
+};
+
+el.logo.src = LOGO;
+el.logo.alt = 'Cookify';
+
+// tira de miniaturas
+PASOS.forEach((p, n) => {
+  const li = document.createElement('li');
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.title = (n + 1) + ' · ' + p.titulo;
+  b.setAttribute('aria-label', 'Ir al paso ' + (n + 1) + ': ' + p.titulo);
+  const im = document.createElement('img');
+  im.src = p.img; im.alt = '';
+  b.appendChild(im);
+  b.addEventListener('click', () => ir(n));
+  li.appendChild(b);
+  el.tira.appendChild(li);
+});
+
+function ir(n) {
+  i = Math.max(0, Math.min(PASOS.length - 1, n));
+  const p = PASOS[i];
+
+  el.captura.src = p.img;
+  el.captura.alt = 'Pantalla ' + (i + 1) + ': ' + p.titulo;
+  el.numero.textContent = 'Paso ' + (i + 1) + ' de ' + PASOS.length;
+  el.titulo.textContent = p.titulo;
+  el.nota.textContent = p.nota;
+  el.indice.textContent = i + 1;
+
+  const [x, y, w, h] = p.zona;
+  Object.assign(el.zona.style, {
+    left: x + '%', top: y + '%', width: w + '%', height: h + '%',
+    display: i === PASOS.length - 1 ? 'none' : 'block',
+  });
+
+  // lo que la app ya sabe, acumulado hasta aqui
+  const datos = PASOS.slice(0, i + 1).map(s => s.dato).filter(Boolean);
+  el.lista.innerHTML = datos.length
+    ? datos.map((d, n) =>
+        '<li' + (n === datos.length - 1 ? ' class="nuevo"' : '') +
+        '><span class="k">' + d[0] + '</span><span class="v">' + d[1] + '</span></li>').join('')
+    : '<li class="vacio">Todavía nada. Cada pregunta agrega una línea.</li>';
+
+  el.atras.disabled = i === 0;
+  el.siguiente.disabled = i === PASOS.length - 1;
+  [...el.tira.querySelectorAll('button')].forEach((b, n) =>
+    b.setAttribute('aria-current', String(n === i)));
+}
+
+el.zona.addEventListener('click', () => ir(i + 1));
+el.siguiente.addEventListener('click', () => ir(i + 1));
+el.atras.addEventListener('click', () => ir(i - 1));
+addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') ir(i + 1);
+  if (e.key === 'ArrowLeft') ir(i - 1);
+});
+
+ir(0);
+</script>

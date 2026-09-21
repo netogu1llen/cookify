@@ -9,8 +9,11 @@
   @page { size: letter; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
+  html { background: #0B0B0E; }
+
   body {
     width: 8.5in; height: 11in;
+    margin: 0 auto;
     font-family: "Segoe UI", system-ui, sans-serif;
     background: #0B0B0E;
     color: #F5F1F0;
@@ -25,9 +28,6 @@
     background: radial-gradient(closest-side, rgba(255,122,61,0.34), rgba(255,122,61,0.07) 58%, transparent 74%);
   }
 
-  /* Tira de las doce categorias de plato: la paleta real del producto. */
-  .tira { position: absolute; top: 0; left: 0; right: 0; height: 7px; display: flex; }
-  .tira i { flex: 1; }
 
   .contenido { position: relative; padding: 1.5in 1.1in 0; text-align: center; }
 
@@ -71,12 +71,6 @@
 </style>
 
 <div class="halo"></div>
-<div class="tira">
-  <i style="background:#D98F45"></i><i style="background:#D2685E"></i><i style="background:#E09BAE"></i>
-  <i style="background:#63B9D8"></i><i style="background:#E8896B"></i><i style="background:#F0CE5C"></i>
-  <i style="background:#C08A5E"></i><i style="background:#7FC26A"></i><i style="background:#DFB579"></i>
-  <i style="background:#C9C3B6"></i><i style="background:#E0A82E"></i><i style="background:#A9BFAE"></i>
-</div>
 
 <div class="contenido">
   <img class="logo" src="../logo-cookify.png" alt="Cookify">

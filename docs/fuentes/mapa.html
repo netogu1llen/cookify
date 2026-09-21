@@ -1,0 +1,217 @@
+<meta charset="utf-8">
+<title>Mapa del producto · Cookify</title>
+<style>
+  /*
+   * Fuente del mapa del producto (arquitectura de informacion).
+   * Se renderiza a PNG con Edge headless a 2x.
+   *
+   * Regla que ordena los nombres: aca va el vocabulario del usuario, no el del
+   * sistema. Cada caja dice lo que la pantalla dice en el telefono. Los nombres de
+   * clases y modulos viven en el diagrama de arquitectura, que es otro documento.
+   */
+  :root {
+    --tinta: #16151a; --media: #55505c; --suave: #8a8490;
+    --marca: #E2622A; --marca-suave: #FFF1EA; --borde: #e2dce4;
+    --verde: #3F7D3A; --verde-suave: #EEF6ED;
+    --rojo: #B0342A; --rojo-suave: #FDEEEC;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 34px 38px; background: #fff; width: 1660px;
+         font: 400 13.5px/1.4 "Segoe UI", system-ui, sans-serif; color: var(--tinta); }
+
+  h1 { font-size: 26px; margin: 0 0 3px; letter-spacing: -0.4px; }
+  .sub { color: var(--suave); font-size: 14px; margin: 0 0 24px; }
+
+  .flujo { display: flex; align-items: stretch; gap: 0; }
+
+  .paso { flex: 1; min-width: 0; }
+  .flecha { display: flex; align-items: center; padding: 0 9px; color: var(--marca);
+            font-size: 22px; font-weight: 300; }
+
+  .caja { border: 1.5px solid var(--borde); border-radius: 12px; overflow: hidden; height: 100%;
+          display: flex; flex-direction: column; }
+  .caja > header { padding: 11px 13px 10px; border-bottom: 1.5px solid var(--borde); }
+  .caja h2 { font-size: 15px; margin: 0; letter-spacing: -0.2px; }
+  .caja .rol { font-size: 11.5px; color: var(--suave); margin-top: 2px; }
+  .caja .cuerpo { padding: 11px 13px 13px; flex: 1; }
+
+  .nivel1 > header { background: var(--marca-suave); border-bottom-color: #F3C9B4; }
+  .nivel1 { border-color: #F3C9B4; }
+
+  ol, ul { margin: 0; padding: 0; list-style: none; }
+  li { font-size: 12.5px; padding: 3.5px 0; color: var(--media); display: flex; gap: 7px; }
+  li .n { color: var(--marca); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 12px; }
+  li .b { color: var(--suave); }
+
+  .ficha { background: #FAF8FB; border: 1px solid var(--borde); border-radius: 8px;
+           padding: 8px 10px; margin-top: 9px; font-size: 12px; color: var(--media); }
+  .ficha b { color: var(--tinta); display: block; margin-bottom: 3px; font-size: 12.5px; }
+
+  .salida { margin-top: 9px; font-size: 12px; padding: 7px 10px; border-radius: 8px; }
+  .salida.ok { background: var(--verde-suave); color: var(--verde); border: 1px solid #C9E2C6; }
+  .salida.no { background: var(--rojo-suave); color: var(--rojo); border: 1px solid #F3C8C3; }
+  .salida b { display: block; margin-bottom: 2px; }
+
+  .retorno { margin-top: 26px; display: flex; align-items: stretch; gap: 0; }
+  .retorno .hueco { flex: 1; }
+  .retorno .nota { flex: 1; display: flex; align-items: center; justify-content: center;
+                   font-size: 12.5px; color: var(--suave); text-align: center; padding: 0 10px; }
+  .guardada { border: 1.5px dashed #C9C2CC; border-radius: 12px; overflow: hidden; }
+  .guardada > header { background: #F7F5F8; padding: 11px 13px 10px; border-bottom: 1.5px dashed #C9C2CC; }
+
+  .leyenda { margin-top: 26px; border-top: 1px solid var(--borde); padding-top: 13px;
+             display: flex; gap: 30px; font-size: 12.5px; color: var(--media); align-items: center; }
+  .chip { display: inline-block; width: 24px; height: 12px; border-radius: 4px; vertical-align: -1px; margin-right: 7px; }
+</style>
+
+<h1>Mapa del producto</h1>
+<p class="sub">Arquitectura de información de Cookify. Cada caja es una pantalla y lleva el
+nombre que el usuario lee en el teléfono. Las flechas son las rutas de navegación reales.</p>
+
+<div class="flujo">
+
+  <!-- 1 · portada -->
+  <div class="paso">
+    <div class="caja nivel1">
+      <header>
+        <h2>Tus semanas</h2>
+        <div class="rol">Portada · lo primero al abrir</div>
+      </header>
+      <div class="cuerpo">
+        <ul>
+          <li><span class="b">·</span>Semanas guardadas, la más nueva arriba</li>
+          <li><span class="b">·</span>Nombre, costo, días, súper y personas</li>
+        </ul>
+        <div class="ficha">
+          <b>Sin semanas todavía</b>
+          «Arma tu primera semana de almuerzos y te decimos cuánto te va a costar en el súper.»
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flecha">▶</div>
+
+  <!-- 2 · onboarding -->
+  <div class="paso">
+    <div class="caja nivel1">
+      <header>
+        <h2>Armar una semana</h2>
+        <div class="rol">Siete preguntas, una por pantalla</div>
+      </header>
+      <div class="cuerpo">
+        <ol>
+          <li><span class="n">1</span>¿En qué súper compras?</li>
+          <li><span class="n">2</span>¿Para cuántas personas?</li>
+          <li><span class="n">3</span>¿Qué días vas a cocinar?</li>
+          <li><span class="n">4</span>¿Cuánto quieres gastar?</li>
+          <li><span class="n">5</span>¿Qué se te antoja? <span class="b">hasta 3</span></li>
+          <li><span class="n">6</span>¿Alguna restricción?</li>
+          <li><span class="n">7</span>¿Con qué cocinas?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="flecha">▶</div>
+
+  <!-- 3 · armado -->
+  <div class="paso">
+    <div class="caja nivel1">
+      <header>
+        <h2>Armando tu semana</h2>
+        <div class="rol">Espera con cuatro verificaciones</div>
+      </header>
+      <div class="cuerpo">
+        <ul>
+          <li><span class="b">·</span>Revisando el catálogo de tu súper</li>
+          <li><span class="b">·</span>Calzando platos con tu presupuesto</li>
+          <li><span class="b">·</span>Ordenando los almuerzos de tus días</li>
+          <li><span class="b">·</span>Armando tu lista de compras</li>
+        </ul>
+        <div class="salida no">
+          <b>Si no alcanza</b>
+          «Te faltan $9.000» o «Nos faltan recetas», con dos salidas: armar igual por el
+          mínimo, o volver a cambiar las respuestas.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flecha">▶</div>
+
+  <!-- 4 · semana -->
+  <div class="paso">
+    <div class="caja nivel1">
+      <header>
+        <h2>Tu semana</h2>
+        <div class="rol">El resultado</div>
+      </header>
+      <div class="cuerpo">
+        <ul>
+          <li><span class="b">·</span>Súper, personas y cantidad de almuerzos</li>
+          <li><span class="b">·</span>Cuánto cuesta y cuánto sobra del presupuesto</li>
+          <li><span class="b">·</span>Un almuerzo por día, de lunes a domingo</li>
+        </ul>
+        <div class="salida ok">
+          <b>Guardar semana</b>
+          Se le pone nombre y vuelve a la portada.
+        </div>
+        <div class="ficha">
+          <b>Regenerar</b>
+          Otra combinación con las mismas respuestas.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flecha">▶</div>
+
+  <!-- 5 · detalle -->
+  <div class="paso">
+    <div class="caja nivel1">
+      <header>
+        <h2>Detalle del plato</h2>
+        <div class="rol">Al tocar un día</div>
+      </header>
+      <div class="cuerpo">
+        <ul>
+          <li><span class="b">·</span>Tiempo, personas, costo y calorías</li>
+          <li><span class="b">·</span>Clasificación del plato</li>
+          <li><span class="b">·</span>Ingredientes ya escalados, agrupados por pasillo del súper</li>
+          <li><span class="b">·</span>Instrucciones numeradas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- segunda fila: la semana guardada -->
+<div class="retorno">
+  <div class="paso">
+    <div class="guardada">
+      <header>
+        <h2 style="font-size:15px;margin:0">Semana guardada</h2>
+        <div class="rol">Al tocar una tarjeta de la portada</div>
+      </header>
+      <div class="cuerpo" style="padding:11px 13px 13px">
+        <ul>
+          <li><span class="b">·</span>Lo mismo que «Tu semana», en modo lectura</li>
+          <li><span class="b">·</span>Lleva el nombre que le puso el usuario</li>
+          <li><span class="b">·</span>Borrar esta semana, con confirmación</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="nota" style="flex:4">
+    ▲ &nbsp; La portada abre cualquier semana guardada, y guardar una semana nueva devuelve a la portada.
+    &nbsp; Es el único ciclo cerrado del producto: todo lo demás avanza en una sola dirección.
+  </div>
+</div>
+
+<div class="leyenda">
+  <span><span class="chip" style="background:var(--marca-suave);border:1.5px solid #F3C9B4"></span>Recorrido principal</span>
+  <span><span class="chip" style="background:#F7F5F8;border:1.5px dashed #C9C2CC"></span>Se llega desde la portada</span>
+  <span><span class="chip" style="background:var(--rojo-suave);border:1px solid #F3C8C3"></span>Camino cuando no se puede cumplir</span>
+  <span><span class="chip" style="background:var(--verde-suave);border:1px solid #C9E2C6"></span>Acción que cierra el recorrido</span>
+</div>
