@@ -1,0 +1,25 @@
+<!--
+  Registro del servicio.
+
+  A la salida estandar y en una linea por evento: es lo que espera un
+  contenedor, y "docker compose logs" no sirve de nada si cada evento ocupa
+  quince lineas.
+
+  Netty en INFO deja fuera el ruido de cada conexion aceptada, que no dice
+  nada que el registro de la llamada no diga mejor.
+-->
+<configuration>
+    <appender name="CONSOLA" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %-28logger{0} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLA"/>
+    </root>
+
+    <logger name="io.netty" level="WARN"/>
+    <logger name="com.zaxxer.hikari" level="WARN"/>
+    <logger name="com.app.cookify.server" level="DEBUG"/>
+</configuration>
