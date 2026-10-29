@@ -1,0 +1,1359 @@
+{
+  "version": 2,
+  "actualizadoEn": "2026-10-29",
+  "nota": "Mapeo de cada ingrediente del catalogo a la categoria del sitio donde se lee su precio. Es la fuente de verdad de la tabla fuente_precio: tools/generar_semilla.py lo convierte en db/002_semilla.sql. 'medida' es la unidad canonica en que queda el precio publicado por la cadena una vez llevado kg a g y lt a ml; 'factor' es cuantas unidades base del catalogo entrega UNA de esas unidades canonicas, y el precio base sale de dividir por el. Verificado ingrediente por ingrediente contra jumbo.cl y santaisabel.cl con tools/verificar_fuentes.py.",
+  "notaFactor": "El factor es 1 cuando el catalogo y la cadena miden lo mismo. Deja de ser 1 cuando no: el catalogo cuenta dientes de ajo y la cadena vende cabezas (10), el catalogo cuenta paltas y la cadena vende kilos (1 g = 1/200 de palta = 0.005), el catalogo cuenta rebanadas de pan de molde y la cadena vende kilos (1 g = 1/25 de rebanada = 0.04).",
+  "inactivas": "tofu y soya_texturizada quedan sin fuente a proposito: no se venden en el catalogo en linea de ninguna de las dos cadenas. Su precio sigue siendo ESTIMADO y la app lo muestra como tal, que es preferible a inventar una categoria que no corresponde.",
+  "ajustesPorCadena": {
+    "SANTA_ISABEL": {
+      "albahaca": {
+        "categoria": "/frutas-y-verduras/verduras",
+        "medida": "un",
+        "factor": 1
+      },
+      "brocoli": {
+        "categoria": "/frutas-y-verduras/verduras",
+        "activa": false
+      },
+      "caldo_verduras": {
+        "medida": "g",
+        "factor": 0.1
+      },
+      "camaron": {
+        "categoria": "/carnes-y-pescados/camarones"
+      },
+      "camote": {
+        "categoria": "/frutas-y-verduras/verduras",
+        "activa": false
+      },
+      "choclo": {
+        "categoria": "/frutas-y-verduras/verduras",
+        "activa": false
+      },
+      "cilantro": {
+        "categoria": "/frutas-y-verduras/verduras",
+        "activa": false
+      },
+      "curry": {
+        "medida": "un",
+        "factor": 15
+      },
+      "huevo": {
+        "categoria": "/lacteos-huevos-y-congelados/huevos/huevos-tradicionales"
+      },
+      "leche_coco": {
+        "activa": false
+      },
+      "pasta_tomate": {
+        "activa": false
+      },
+      "pavo_molido": {
+        "categoria": "/carnes-y-pescados/pavo",
+        "activa": false
+      },
+      "perejil": {
+        "categoria": "/frutas-y-verduras/verduras",
+        "activa": false
+      },
+      "poroto_verde": {
+        "categoria": "/frutas-y-verduras/verduras",
+        "activa": false
+      },
+      "queso_crema": {
+        "categoria": "/quesos-y-fiambres/quesos/crema-y-untables"
+      },
+      "queso_gauda": {
+        "categoria": "/quesos-y-fiambres/quesos/gauda"
+      },
+      "vinagre": {
+        "categoria": "/despensa/aceites-sal-y-condimentos/sucedaneos-y-vinagres"
+      }
+    }
+  },
+  "fuentes": [
+    {
+      "ingredienteId": "cebolla",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "cebolla"
+      ],
+      "excluir": [
+        "cebollin",
+        "cebollín",
+        "morada",
+        "perla",
+        "polvo",
+        "frita",
+        "crispy",
+        "escalonia"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "ajo",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "ajo"
+      ],
+      "excluir": [
+        "pasta",
+        "molido",
+        "polvo",
+        "crema",
+        "picado"
+      ],
+      "medida": "un",
+      "factor": 10
+    },
+    {
+      "ingredienteId": "tomate",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "tomate"
+      ],
+      "excluir": [
+        "seco",
+        "deshidratado",
+        "cherry",
+        "confit",
+        "pelado",
+        "picado",
+        "salsa"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "papa",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "papa"
+      ],
+      "excluir": [
+        "papaya",
+        "camote",
+        "chip",
+        "frita",
+        "pure",
+        "dulce",
+        "cubo"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "zanahoria",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "zanahoria"
+      ],
+      "excluir": [
+        "baby"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "zapallo_italiano",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "zapallo italiano"
+      ],
+      "excluir": [],
+      "medida": "un",
+      "factor": 300
+    },
+    {
+      "ingredienteId": "zapallo",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "zapallo"
+      ],
+      "excluir": [
+        "italiano",
+        "semilla",
+        "cubo",
+        "pelado",
+        "cocido",
+        "halloween"
+      ],
+      "medida": "un",
+      "factor": 700
+    },
+    {
+      "ingredienteId": "pimiento_rojo",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "pimiento rojo",
+        "morron rojo",
+        "morrón rojo"
+      ],
+      "excluir": [
+        "seco"
+      ],
+      "medida": "un",
+      "factor": 200
+    },
+    {
+      "ingredienteId": "pimiento_verde",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "pimiento verde",
+        "morron verde",
+        "morrón verde"
+      ],
+      "excluir": [
+        "seco"
+      ],
+      "medida": "un",
+      "factor": 200
+    },
+    {
+      "ingredienteId": "lechuga",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "lechuga"
+      ],
+      "excluir": [
+        "mix",
+        "ensalada",
+        "hidroponic"
+      ],
+      "medida": "un",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "apio",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "apio"
+      ],
+      "excluir": [],
+      "medida": "un",
+      "factor": 800
+    },
+    {
+      "ingredienteId": "brocoli",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "brocoli",
+        "brócoli"
+      ],
+      "excluir": [
+        "congelado"
+      ],
+      "medida": "un",
+      "factor": 500
+    },
+    {
+      "ingredienteId": "coliflor",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "coliflor"
+      ],
+      "excluir": [
+        "congelado"
+      ],
+      "medida": "un",
+      "factor": 700
+    },
+    {
+      "ingredienteId": "espinaca",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "espinaca"
+      ],
+      "excluir": [
+        "baby"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "choclo",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "choclo"
+      ],
+      "excluir": [
+        "congelado",
+        "lata",
+        "conserva",
+        "grano",
+        "pastelera"
+      ],
+      "medida": "un",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "poroto_verde",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "poroto verde",
+        "porotos verdes"
+      ],
+      "excluir": [
+        "congelado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "champinon",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "champinon",
+        "champiñón",
+        "champiñon"
+      ],
+      "excluir": [
+        "conserva",
+        "lata"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "palta",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "palta"
+      ],
+      "excluir": [
+        "pulpa",
+        "guacamole"
+      ],
+      "medida": "g",
+      "factor": 0.005
+    },
+    {
+      "ingredienteId": "limon",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "limon",
+        "limón"
+      ],
+      "excluir": [
+        "jugo",
+        "sutil",
+        "aderezo"
+      ],
+      "medida": "g",
+      "factor": 0.008
+    },
+    {
+      "ingredienteId": "cilantro",
+      "categoria": "/frutas-y-verduras/verduras/hierbas-y-especias",
+      "terminos": [
+        "cilantro"
+      ],
+      "excluir": [
+        "seco",
+        "molido"
+      ],
+      "medida": "un",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "perejil",
+      "categoria": "/frutas-y-verduras/verduras/hierbas-y-especias",
+      "terminos": [
+        "perejil"
+      ],
+      "excluir": [
+        "seco",
+        "molido",
+        "organic",
+        "orgánic"
+      ],
+      "medida": "g",
+      "factor": 0.0333
+    },
+    {
+      "ingredienteId": "albahaca",
+      "categoria": "/frutas-y-verduras/verduras/hierbas-y-especias",
+      "terminos": [
+        "albahaca"
+      ],
+      "excluir": [
+        "seca",
+        "molida",
+        "pesto",
+        "organic",
+        "orgánic"
+      ],
+      "medida": "g",
+      "factor": 0.025
+    },
+    {
+      "ingredienteId": "jengibre",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "jengibre"
+      ],
+      "excluir": [
+        "molido",
+        "polvo",
+        "confitado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "betarraga",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "betarraga"
+      ],
+      "excluir": [
+        "cocida",
+        "cocido",
+        "conserva",
+        "rallada"
+      ],
+      "medida": "un",
+      "factor": 150
+    },
+    {
+      "ingredienteId": "pepino",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "pepino"
+      ],
+      "excluir": [
+        "pepinillo"
+      ],
+      "medida": "un",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "repollo",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "repollo"
+      ],
+      "excluir": [
+        "bruselas"
+      ],
+      "medida": "un",
+      "factor": 1000
+    },
+    {
+      "ingredienteId": "cebollin",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "cebollin",
+        "cebollín"
+      ],
+      "excluir": [],
+      "medida": "un",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "camote",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "camote",
+        "batata"
+      ],
+      "excluir": [
+        "zapallo"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "berenjena",
+      "categoria": "/frutas-y-verduras/verduras/verdura",
+      "terminos": [
+        "berenjena"
+      ],
+      "excluir": [],
+      "medida": "un",
+      "factor": 300
+    },
+    {
+      "ingredienteId": "porotos_verdes_congelados",
+      "categoria": "/lacteos-huevos-y-congelados/verduras-congeladas/choclos-arvejas-y-primaveras",
+      "terminos": [
+        "arveja"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "verduras_congeladas",
+      "categoria": "/lacteos-huevos-y-congelados/verduras-congeladas/sofritos-y-mix-de-verduras",
+      "terminos": [
+        "sofrito",
+        "salteado",
+        "mix oriental"
+      ],
+      "excluir": [
+        "pimenton",
+        "pimentón",
+        "ajo"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "papas_congeladas",
+      "categoria": "/lacteos-huevos-y-congelados/verduras-congeladas/papas",
+      "terminos": [
+        "papa"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "pechuga_pollo",
+      "categoria": "/carnes-y-pescados/pollo/filetes-y-pechugas-de-pollo",
+      "terminos": [
+        "pechuga",
+        "filetillo",
+        "filete"
+      ],
+      "excluir": [
+        "apanado",
+        "marinado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "trutro_pollo",
+      "categoria": "/carnes-y-pescados/pollo/alitas-y-trutros-de-pollo",
+      "terminos": [
+        "trutro"
+      ],
+      "excluir": [
+        "apanado",
+        "marinado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "carne_molida",
+      "categoria": "/carnes-y-pescados/vacuno/carne-molida-y-bistecs",
+      "terminos": [
+        "molida"
+      ],
+      "excluir": [
+        "pavo",
+        "pollo",
+        "cerdo"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "posta_rosada",
+      "categoria": "/carnes-y-pescados/vacuno",
+      "terminos": [
+        "posta rosada"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "lomo_liso",
+      "categoria": "/carnes-y-pescados/vacuno",
+      "terminos": [
+        "lomo liso"
+      ],
+      "excluir": [
+        "cerdo"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "asiento",
+      "categoria": "/carnes-y-pescados/vacuno",
+      "terminos": [
+        "asiento"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "costillar_cerdo",
+      "categoria": "/carnes-y-pescados/cerdo-y-cordero",
+      "terminos": [
+        "costillar",
+        "costillita"
+      ],
+      "excluir": [
+        "cordero",
+        "vacuno"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "chuleta_cerdo",
+      "categoria": "/carnes-y-pescados/cerdo-y-cordero",
+      "terminos": [
+        "chuleta"
+      ],
+      "excluir": [
+        "cordero"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "longaniza",
+      "categoria": "/quesos-y-fiambres/salchichas-y-parrilleros/longanizas-y-chorizos",
+      "terminos": [
+        "longaniza"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "pavo_molido",
+      "categoria": "/carnes-y-pescados/pavo/carne-molida-y-albondigas-de-pavo",
+      "terminos": [
+        "molida"
+      ],
+      "excluir": [
+        "albondiga"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "tocino",
+      "categoria": "/quesos-y-fiambres/fiambres/salames-y-tocinos",
+      "terminos": [
+        "tocino"
+      ],
+      "excluir": [
+        "salame"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "merluza",
+      "categoria": "/carnes-y-pescados/pescados",
+      "terminos": [
+        "merluza"
+      ],
+      "excluir": [
+        "apanada",
+        "apanado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "salmon",
+      "categoria": "/carnes-y-pescados/pescados",
+      "terminos": [
+        "salmon",
+        "salmón"
+      ],
+      "excluir": [
+        "ahumado",
+        "pate",
+        "paté"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "reineta",
+      "categoria": "/carnes-y-pescados/pescados",
+      "terminos": [
+        "reineta"
+      ],
+      "excluir": [
+        "apanada",
+        "apanado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "camaron",
+      "categoria": "/carnes-y-pescados/camarones",
+      "terminos": [
+        "camaron",
+        "camarón"
+      ],
+      "excluir": [
+        "apanado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "atun_lata",
+      "categoria": "/despensa/conservas/conservas-de-pescado",
+      "terminos": [
+        "atun",
+        "atún"
+      ],
+      "excluir": [
+        "ensalada",
+        "albondiga",
+        "albóndiga",
+        "pate",
+        "paté"
+      ],
+      "medida": "g",
+      "factor": 0.011
+    },
+    {
+      "ingredienteId": "jurel_lata",
+      "categoria": "/despensa/conservas/conservas-de-pescado",
+      "terminos": [
+        "jurel"
+      ],
+      "excluir": [
+        "ensalada"
+      ],
+      "medida": "g",
+      "factor": 0.011
+    },
+    {
+      "ingredienteId": "huevo",
+      "categoria": "/lacteos-huevos-y-congelados/huevos",
+      "terminos": [
+        "huevo"
+      ],
+      "excluir": [
+        "codorniz",
+        "polvo",
+        "liquido",
+        "líquido"
+      ],
+      "medida": "un",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "leche",
+      "categoria": "/lacteos-huevos-y-congelados/leches/leche-liquida",
+      "terminos": [
+        "leche"
+      ],
+      "excluir": [
+        "condensada",
+        "evaporada",
+        "polvo",
+        "coco",
+        "almendra",
+        "soya",
+        "arroz"
+      ],
+      "medida": "ml",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "queso_gauda",
+      "categoria": "/quesos-y-fiambres/quesos",
+      "terminos": [
+        "gauda"
+      ],
+      "excluir": [
+        "rallado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "queso_rallado",
+      "categoria": "/quesos-y-fiambres/quesos",
+      "terminos": [
+        "rallado"
+      ],
+      "excluir": [
+        "parmesano",
+        "grana",
+        "pecorino"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "mantequilla",
+      "categoria": "/lacteos-huevos-y-congelados/mantequillas-y-margarinas/mantequillas",
+      "terminos": [
+        "mantequilla"
+      ],
+      "excluir": [
+        "mani",
+        "maní"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "yogurt_natural",
+      "categoria": "/lacteos-huevos-y-congelados/yoghurt/yoghurt-natural-y-griego",
+      "terminos": [
+        "natural"
+      ],
+      "excluir": [
+        "azucar",
+        "azúcar"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "crema",
+      "categoria": "/despensa/harinas-postres-y-reposteria/cremas",
+      "terminos": [
+        "crema"
+      ],
+      "excluir": [
+        "chantilly",
+        "pastelera"
+      ],
+      "medida": "ml",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "queso_crema",
+      "categoria": "/quesos-y-fiambres/quesos",
+      "terminos": [
+        "queso crema",
+        "untable"
+      ],
+      "excluir": [
+        "gauda",
+        "rallado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "quesillo",
+      "categoria": "/quesos-y-fiambres/quesos/chacras-frescos-y-quesillos",
+      "terminos": [
+        "quesillo"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "arroz",
+      "categoria": "/despensa/arroz-quinoa-cuscus/arroz",
+      "terminos": [
+        "arroz"
+      ],
+      "excluir": [
+        "preparado",
+        "risotto"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "spaghetti",
+      "categoria": "/despensa/fideos-pastas-y-salsas/pastas-y-fideos",
+      "terminos": [
+        "spaghetti",
+        "espagueti",
+        "spaguetti"
+      ],
+      "excluir": [
+        "integral",
+        "sin gluten"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "fideos_cortos",
+      "categoria": "/despensa/fideos-pastas-y-salsas/pastas-y-fideos",
+      "terminos": [
+        "corbata",
+        "tornillo",
+        "codito",
+        "penne",
+        "mostachol",
+        "rigatoni"
+      ],
+      "excluir": [
+        "integral",
+        "sin gluten"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "lentejas",
+      "categoria": "/despensa/legumbres/lentejas",
+      "terminos": [
+        "lenteja"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "porotos",
+      "categoria": "/despensa/legumbres/porotos",
+      "terminos": [
+        "poroto"
+      ],
+      "excluir": [
+        "verde"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "garbanzos",
+      "categoria": "/despensa/legumbres/garbanzos-y-arvejas",
+      "terminos": [
+        "garbanzo"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "quinoa",
+      "categoria": "/despensa/arroz-quinoa-cuscus/quinoa-cuscus-y-semillas",
+      "terminos": [
+        "quinoa",
+        "quínoa"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "avena",
+      "categoria": "/despensa/cereales-avenas-y-barras/avena-y-granola",
+      "terminos": [
+        "avena"
+      ],
+      "excluir": [
+        "granola",
+        "barra",
+        "bebida"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "harina",
+      "categoria": "/despensa/harinas-postres-y-reposteria/harina-blanca",
+      "terminos": [
+        "harina"
+      ],
+      "excluir": [
+        "integral"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "couscous",
+      "categoria": "/despensa/arroz-quinoa-cuscus",
+      "terminos": [
+        "cous cous",
+        "couscous",
+        "cuscus",
+        "cúscus"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "aceite",
+      "categoria": "/despensa/aceites-sal-y-condimentos/aceite",
+      "terminos": [
+        "aceite"
+      ],
+      "excluir": [
+        "oliva",
+        "coco",
+        "sesamo",
+        "sésamo"
+      ],
+      "medida": "ml",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "aceite_oliva",
+      "categoria": "/despensa/aceites-sal-y-condimentos/aceites-de-oliva",
+      "terminos": [
+        "oliva"
+      ],
+      "excluir": [],
+      "medida": "ml",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "sal",
+      "categoria": "/despensa/aceites-sal-y-condimentos/sal",
+      "terminos": [
+        "sal"
+      ],
+      "excluir": [
+        "himalaya",
+        "escama",
+        "molinillo",
+        "light",
+        "biosal",
+        "pimienta",
+        "ajo",
+        "specia",
+        "mediterranea",
+        "mediterránea",
+        "seleccion",
+        "selección",
+        "apio",
+        "cebolla",
+        "condimento",
+        "rosada"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "pimienta",
+      "categoria": "/despensa/aceites-sal-y-condimentos/condimentos",
+      "terminos": [
+        "pimienta"
+      ],
+      "excluir": [
+        "limon",
+        "limón",
+        "cayena",
+        "mix",
+        "molinillo",
+        "pack",
+        "sazonador"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "comino",
+      "categoria": "/despensa/aceites-sal-y-condimentos/condimentos",
+      "terminos": [
+        "comino"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "oregano",
+      "categoria": "/despensa/aceites-sal-y-condimentos/condimentos",
+      "terminos": [
+        "oregano",
+        "orégano"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "paprika",
+      "categoria": "/despensa/aceites-sal-y-condimentos/condimentos",
+      "terminos": [
+        "paprika",
+        "pimenton",
+        "pimentón"
+      ],
+      "excluir": [
+        "ahumado"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "aji_color",
+      "categoria": "/despensa/aceites-sal-y-condimentos/condimentos",
+      "terminos": [
+        "aji de color",
+        "ají de color",
+        "aji color",
+        "ají color"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "curry",
+      "categoria": "/despensa/aceites-sal-y-condimentos/condimentos",
+      "terminos": [
+        "curry"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "canela",
+      "categoria": "/despensa/aceites-sal-y-condimentos/condimentos",
+      "terminos": [
+        "canela"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "azucar",
+      "categoria": "/despensa/azucar-y-endulzantes/azucar",
+      "terminos": [
+        "azucar",
+        "azúcar"
+      ],
+      "excluir": [
+        "flor",
+        "rubia"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "salsa_tomate",
+      "categoria": "/despensa/fideos-pastas-y-salsas/salsas-para-pastas",
+      "terminos": [
+        "tomate"
+      ],
+      "excluir": [
+        "pasta de tomate",
+        "concentrado"
+      ],
+      "medida": "ml",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "pasta_tomate",
+      "categoria": "/despensa/conservas/conservas-de-verduras",
+      "terminos": [
+        "pasta de tomate",
+        "concentrado de tomate",
+        "tomate pelado",
+        "tomate picado",
+        "tomates pelados"
+      ],
+      "excluir": [
+        "cherry",
+        "organico",
+        "orgánico"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "caldo_verduras",
+      "categoria": "/despensa/sopas-cremas-e-instantaneos/caldos",
+      "terminos": [
+        "verdura"
+      ],
+      "excluir": [],
+      "medida": "un",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "vinagre",
+      "categoria": "/despensa/aceites-sal-y-condimentos/vinagres-y-sucedaneos",
+      "terminos": [
+        "vinagre"
+      ],
+      "excluir": [],
+      "medida": "ml",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "mostaza",
+      "categoria": "/despensa/aderezos-y-salsas/mostazas",
+      "terminos": [
+        "mostaza"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "mayonesa",
+      "categoria": "/despensa/aderezos-y-salsas/mayonesa",
+      "terminos": [
+        "mayonesa"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "salsa_soya",
+      "categoria": "/despensa/aderezos-y-salsas/aderezos-salsas-soya-y-otros",
+      "terminos": [
+        "soya",
+        "soja"
+      ],
+      "excluir": [],
+      "medida": "ml",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "choclo_lata",
+      "categoria": "/despensa/conservas/conservas-de-verduras",
+      "terminos": [
+        "choclo"
+      ],
+      "excluir": [
+        "palmito",
+        "pastelera"
+      ],
+      "medida": "g",
+      "factor": 0.0055
+    },
+    {
+      "ingredienteId": "aceitunas",
+      "categoria": "/quesos-y-fiambres/aceitunas-pepinillos-y-otros/aceitunas",
+      "terminos": [
+        "aceituna"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "leche_coco",
+      "categoria": "/despensa/conservas",
+      "terminos": [
+        "leche de coco",
+        "crema de coco",
+        "crema coco"
+      ],
+      "excluir": [],
+      "medida": "ml",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "mantequilla_mani",
+      "categoria": "/despensa/mermeladas-miel-y-otros/mantequilla-de-mani-y-cremas-dulces",
+      "terminos": [
+        "mani",
+        "maní"
+      ],
+      "excluir": [
+        "chocolate",
+        "avellana"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "nueces",
+      "categoria": "/frutas-y-verduras/frutos-secos-y-semillas/frutos-secos",
+      "terminos": [
+        "nuez",
+        "nueces"
+      ],
+      "excluir": [
+        "castana",
+        "castaña"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "sesamo",
+      "categoria": "/despensa/aceites-sal-y-condimentos/condimentos",
+      "terminos": [
+        "sesamo",
+        "sésamo",
+        "ajonjoli",
+        "ajonjolí"
+      ],
+      "excluir": [
+        "mix"
+      ],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "miel",
+      "categoria": "/despensa/mermeladas-miel-y-otros/miel",
+      "terminos": [
+        "miel"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "tofu",
+      "categoria": "/lacteos-huevos-y-congelados/bebidas-vegetales",
+      "terminos": [
+        "tofu"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1,
+      "activa": false
+    },
+    {
+      "ingredienteId": "soya_texturizada",
+      "categoria": "/despensa/legumbres",
+      "terminos": [
+        "soya texturizada",
+        "proteina de soya",
+        "proteína de soya"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 1,
+      "activa": false
+    },
+    {
+      "ingredienteId": "tortilla",
+      "categoria": "/panaderia-y-pasteleria/masas-y-tortillas/tortillas",
+      "terminos": [
+        "tortilla"
+      ],
+      "excluir": [],
+      "medida": "un",
+      "factor": 1
+    },
+    {
+      "ingredienteId": "pan_molde",
+      "categoria": "/panaderia-y-pasteleria/panaderia-envasada/pan-de-molde",
+      "terminos": [
+        "molde"
+      ],
+      "excluir": [
+        "integral",
+        "sin gluten"
+      ],
+      "medida": "g",
+      "factor": 0.04
+    },
+    {
+      "ingredienteId": "hallulla",
+      "categoria": "/panaderia-y-pasteleria/panaderia-granel/pan-tradicional",
+      "terminos": [
+        "hallulla"
+      ],
+      "excluir": [],
+      "medida": "g",
+      "factor": 0.01
+    }
+  ]
+}
