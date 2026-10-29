@@ -1,6 +1,11 @@
 # Fase 11 — Precios reales desde el supermercado
 
-Estado: **diseño validado con datos en vivo, implementación pendiente.**
+> **Estado: construido en el Hito 2.** Este documento es el diseño de septiembre y se
+> conserva como está porque es el que la propuesta cita. Lo que efectivamente se
+> construyó, y los seis puntos en que el diseño cambió al implementarlo, está en
+> [el documento técnico](tecnico-cookify.pdf) y en [server/README.md](../server/README.md).
+> El cambio más grande: la cadena publica el precio por unidad de medida, así que el
+> parser de tamaño de envase de la sección «Normalización» nunca hizo falta.
 
 Hoy los precios salen de `ingredientes.json` (98 valores escritos a mano, base Líder)
 multiplicados por una constante por cadena (`Supermercado.multiplicador`: Jumbo 1,15,

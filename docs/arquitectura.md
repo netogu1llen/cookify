@@ -3,8 +3,10 @@
 ![Diagrama de arquitectura](arquitectura.png)
 
 Cookify es una aplicación **cliente–servidor en capas**. El cliente es una app Android
-nativa que hoy funciona completa y sin red; el servidor es un servicio de precios que se
-construye en el Hito 2 y que ya está justificado con mediciones propias.
+nativa que funciona completa y sin red; el servidor es un servicio de precios que ya está
+construido y corriendo, con su propio documento en
+[server/README.md](../server/README.md) y su contrato en
+[docs/api-cookify.md](api-cookify.md).
 
 La regla que ordena el diseño: **cada capa solo conoce la que tiene debajo, y el dominio
 no conoce a ninguna**. `:core:domain` no tiene una sola importación de Android, así que el
@@ -22,8 +24,10 @@ motor de planificación se prueba con JUnit en la JVM, sin emulador y en miliseg
 | Persistencia | `:core:database`, `assets/` | Guardar y leer | No transforma nada |
 
 El dominio define `SemanaRepository` y `PrecioRepository` como **interfaces**, y `:core:data`
-las implementa. Esa inversión es la que permite que el Hito 2 agregue el servidor **sin
-tocar el motor de planificación**: cambia quién responde el precio, no quién lo usa.
+las implementa. Esa inversión es la que permitió que el Hito 2 construyera el servidor **sin
+tocar el motor de planificación**: cambia quién responde el precio, no quién lo usa. Conectar
+la app al servicio, que es trabajo del Hito 3, es escribir una implementación nueva de
+`PrecioRepository` y registrarla en Hilt.
 
 ---
 
@@ -53,16 +57,17 @@ presupuesto. Es **determinista**: misma semilla, mismo plan.
 `recetas.json` e `ingredientes.json` una sola vez al abrir la app y los deja en memoria.
 Son de solo lectura, así que no pasan por Room.
 
-**5 · Datos → Red** *(Hito 2)* — Para cada ingrediente, `PrecioRepositoryImpl` resuelve el
-precio en cascada:
+**5 · Datos → Red** *(el servicio existe; conectarlo es el Hito 3)* — Para cada ingrediente,
+`PrecioRepositoryImpl` resuelve el precio en cascada:
 
 ```
 caché fresca (< 7 días)  →  caché vencida  →  valor de ingredientes.json
 ```
 
-Si hay red y la caché venció, `ClientePrecios` pide `GET /precios?supermercado=JUMBO` **en
-segundo plano** y guarda el resultado en la tabla `precios_cache`. El respaldo al catálogo
-local no es opcional: **sin él no se puede armar una semana sin señal**.
+Si hay red y la caché venció, `ClientePrecios` pide
+`GET /api/v1/precios?supermercado=JUMBO` **en segundo plano** y guarda el resultado en la
+tabla `precios_cache`. El respaldo al catálogo local no es opcional: **sin él no se puede
+armar una semana sin señal**.
 
 **6 · Dominio** — `CalculadoraCostos` escala cada ingrediente por el número de personas y
 **redondea hacia arriba lo que se vende por unidad**: media palta no existe en el
@@ -84,10 +89,14 @@ La portada se actualiza sola, sin que nadie le avise.
 
 ## Por qué hay un servidor
 
-La decisión no salió de un requisito académico sino de una medición. Se comparó el precio
-de los **17 productos idénticos** presentes el mismo día en Jumbo y en Santa Isabel: la
-diferencia va de **−9,1% a +57,4% según el producto, no según la cadena**. No existe un
-multiplicador por supermercado, así que el precio hay que **medirlo**, no estimarlo.
+La decisión no salió de un requisito académico sino de una medición. En el Hito 1 se
+comparó el precio de los **17 productos idénticos** presentes el mismo día en Jumbo y en
+Santa Isabel: la diferencia iba de **−9,1% a +57,4% según el producto, no según la cadena**.
+
+El Hito 2 amplió esa medición a **2.608 productos** de las dos cadenas, con el mismo
+resultado y más fuerte: el desvío contra los precios de referencia tiene una mediana de
++23% y un rango de −65% a +313%. No existe un multiplicador por supermercado, así que el
+precio hay que **medirlo**, no estimarlo.
 
 Medido el costo de hacerlo desde el teléfono:
 

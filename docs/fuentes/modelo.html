@@ -1,0 +1,226 @@
+<meta charset="utf-8">
+<title>Cookify · Modelo de datos</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Archivo:ital,wght@0,400;0,500;0,600;0,700&display=swap">
+<style>
+/*
+ * Diagrama del modelo de datos del servicio de precios. Se exporta con:
+ *   msedge --headless=new --screenshot=db/modelo.png --window-size=1500,1180 \
+ *          --hide-scrollbars docs/fuentes/modelo.html
+ *
+ * Se dibuja con HTML y no con una herramienta de diagramas por una razon
+ * practica: las columnas y las restricciones se copian del esquema y hay que
+ * poder actualizarlas cuando el esquema cambie, sin reabrir un editor grafico.
+ */
+:root {
+  --papel: #FDFCFB;  --tinta: #17161A;  --media: #4E4952;  --suave: #877F8C;
+  --linea: #E6E0E6;  --ambar: #D75A20;  --ambar-suave: #FDF2EC;
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --cuerpo: "Archivo", system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: var(--cuerpo); background: var(--papel); color: var(--tinta);
+       width: 1500px; padding: 46px 52px 40px; }
+
+h1 { font-family: var(--display); font-size: 30px; font-weight: 700; letter-spacing: -.8px; }
+.sub { color: var(--media); font-size: 14.5px; margin-top: 7px; max-width: 72em; line-height: 1.5; }
+.marca { font-family: var(--display); font-size: 13px; font-weight: 700; letter-spacing: 1.6px;
+         text-transform: uppercase; color: var(--ambar); margin-bottom: 10px; }
+
+.lienzo { position: relative; margin-top: 44px; height: 760px; }
+
+/* ---- una tabla ---- */
+.tabla { position: absolute; width: 326px; background: #fff; border: 1px solid var(--linea);
+         border-radius: 11px; box-shadow: 0 2px 10px rgba(23,22,26,.07); overflow: hidden; }
+.tabla > header { background: var(--tinta); color: #F5F1F0; padding: 9px 13px;
+                  font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: -.2px;
+                  display: flex; justify-content: space-between; align-items: baseline; }
+.tabla > header span { font-family: var(--cuerpo); font-size: 10.5px; font-weight: 400;
+                       color: #9A939F; letter-spacing: .4px; text-transform: uppercase; }
+.tabla.eje > header { background: var(--ambar); }
+.tabla.eje > header span { color: #FBE2D5; }
+.tabla.vista { border-style: dashed; border-color: var(--ambar); }
+.tabla.vista > header { background: var(--ambar-suave); color: var(--ambar); }
+.tabla.vista > header span { color: #B9755A; }
+
+.col { display: flex; align-items: baseline; gap: 7px; padding: 4.5px 13px;
+       font-size: 11.8px; border-bottom: 1px solid #F2EDF2; }
+.col:last-child { border-bottom: 0; }
+.col .n { font-family: ui-monospace, Consolas, monospace; font-size: 11.6px; }
+.col .t { margin-left: auto; color: var(--suave); font-size: 10.4px; white-space: nowrap; }
+.col .llave { font-size: 9.6px; font-weight: 700; letter-spacing: .5px; color: var(--ambar);
+              border: 1px solid #F0C9B4; border-radius: 4px; padding: 0 3.5px; }
+.col.pk .n { font-weight: 700; }
+.col.ck { background: #FCFAFC; }
+.col.ck .n { color: var(--media); }
+
+.nota { position: absolute; width: 326px; font-size: 11.6px; color: var(--media);
+        line-height: 1.5; background: var(--ambar-suave); border-left: 3px solid var(--ambar);
+        border-radius: 0 8px 8px 0; padding: 9px 12px; }
+.nota b { color: var(--tinta); font-weight: 600; }
+
+svg.cables { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.cardinal { font-family: var(--cuerpo); font-size: 11px; fill: var(--media); font-weight: 600; }
+
+.pie { margin-top: 26px; padding-top: 14px; border-top: 1px solid var(--linea);
+       display: flex; justify-content: space-between; font-size: 11.5px; color: var(--suave); }
+.leyenda { display: flex; gap: 20px; align-items: center; }
+.leyenda i { display: inline-block; width: 13px; height: 13px; border-radius: 3px;
+             vertical-align: -2px; margin-right: 5px; }
+</style>
+
+<div class="marca">Cookify · Hito 2</div>
+<h1>Modelo de datos del servicio de precios</h1>
+<p class="sub">
+  PostgreSQL 18. Cuatro tablas y una vista. El esquema completo, con sus comentarios y
+  todas sus restricciones, está en <code>db/001_esquema.sql</code>, que es la única fuente
+  de verdad: el servicio no crea tablas al arrancar.
+</p>
+
+<div class="lienzo">
+  <svg class="cables">
+    <defs>
+      <marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+              orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#877F8C"/>
+      </marker>
+    </defs>
+
+    <!-- supermercado -> fuente_precio -->
+    <path d="M 326 140 L 480 140" fill="none" stroke="#877F8C" stroke-width="1.4"
+          marker-end="url(#punta)"/>
+    <text class="cardinal" x="386" y="132">1 · N</text>
+
+    <!-- ingrediente -> fuente_precio -->
+    <path d="M 326 500 L 404 500 L 404 300 L 480 300" fill="none" stroke="#877F8C"
+          stroke-width="1.4" marker-end="url(#punta)"/>
+    <text class="cardinal" x="414" y="396">1 · N</text>
+
+    <!-- supermercado -> recoleccion -->
+    <path d="M 326 196 L 364 196 L 364 560 L 480 560" fill="none" stroke="#877F8C"
+          stroke-width="1.4" marker-end="url(#punta)"/>
+    <text class="cardinal" x="374" y="552">1 · N</text>
+
+    <!-- supermercado -> precio, por arriba -->
+    <path d="M 170 52 L 170 20 L 1142 20 L 1142 152" fill="none" stroke="#877F8C"
+          stroke-width="1.4" marker-end="url(#punta)"/>
+    <text class="cardinal" x="640" y="14">1 · N</text>
+
+    <!-- ingrediente -> precio, por abajo y a la derecha -->
+    <path d="M 326 660 L 940 660 L 940 360 L 972 360" fill="none" stroke="#877F8C"
+          stroke-width="1.4" marker-end="url(#punta)"/>
+    <text class="cardinal" x="640" y="652">1 · N</text>
+
+    <!-- recoleccion -> precio, admite nulo -->
+    <path d="M 806 528 L 900 528 L 900 430 L 972 430" fill="none" stroke="#877F8C"
+          stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#punta)"/>
+    <text class="cardinal" x="820" y="520">0 · N</text>
+
+    <!-- precio -> precio_vigente -->
+    <path d="M 1142 478 L 1142 642" fill="none" stroke="#D75A20" stroke-width="1.4"
+          stroke-dasharray="5 4" marker-end="url(#punta)"/>
+    <text class="cardinal" x="1152" y="566" style="fill:#D75A20">la última de cada par</text>
+  </svg>
+
+  <!-- ══ supermercado ══ -->
+  <div class="tabla" style="left:0;top:60px">
+    <header>supermercado <span>6 filas</span></header>
+    <div class="col pk"><span class="llave">PK</span><span class="n">codigo</span><span class="t">text</span></div>
+    <div class="col"><span class="n">etiqueta</span><span class="t">text</span></div>
+    <div class="col"><span class="n">multiplicador_estimado</span><span class="t">numeric(4,2)</span></div>
+    <div class="col"><span class="n">soporta_medicion</span><span class="t">boolean</span></div>
+    <div class="col"><span class="n">sitio</span><span class="t">text</span></div>
+  </div>
+  <div class="nota" style="left:0;top:248px">
+    <b>soporta_medicion</b> separa las dos cadenas con recolector de las cuatro que siguen con
+    precio estimado. Es lo que deja a la app decir «medido» o «estimado» sin prometer una
+    precisión que no tiene.
+  </div>
+
+  <!-- ══ ingrediente ══ -->
+  <div class="tabla eje" style="left:0;top:420px">
+    <header>ingrediente <span>98 filas</span></header>
+    <div class="col pk"><span class="llave">PK</span><span class="n">id</span><span class="t">text</span></div>
+    <div class="col"><span class="n">nombre</span><span class="t">text</span></div>
+    <div class="col"><span class="n">pasillo</span><span class="t">text</span></div>
+    <div class="col"><span class="n">unidad</span><span class="t">text</span></div>
+    <div class="col"><span class="n">precio_base_clp</span><span class="t">numeric(10,4)</span></div>
+    <div class="col"><span class="n">creado_en</span><span class="t">timestamptz</span></div>
+    <div class="col"><span class="n">actualizado_en</span><span class="t">timestamptz</span></div>
+    <div class="col ck"><span class="n">check id ~ '^[a-z0-9_]{2,48}$'</span></div>
+    <div class="col ck"><span class="n">check unidad in ('g','ml','un')</span></div>
+    <div class="col ck"><span class="n">check precio_base_clp &gt; 0</span></div>
+  </div>
+
+  <!-- ══ fuente_precio ══ -->
+  <div class="tabla eje" style="left:480px;top:60px">
+    <header>fuente_precio <span>196 filas · 183 activas</span></header>
+    <div class="col pk"><span class="llave">PK</span><span class="n">id</span><span class="t">bigserial</span></div>
+    <div class="col"><span class="llave">FK</span><span class="n">supermercado_codigo</span><span class="t">text</span></div>
+    <div class="col"><span class="llave">FK</span><span class="n">ingrediente_id</span><span class="t">text</span></div>
+    <div class="col"><span class="n">categoria_ruta</span><span class="t">text</span></div>
+    <div class="col"><span class="n">terminos</span><span class="t">text[]</span></div>
+    <div class="col"><span class="n">excluir</span><span class="t">text[]</span></div>
+    <div class="col"><span class="n">medida_esperada</span><span class="t">text</span></div>
+    <div class="col"><span class="n">unidades_base_por_medida</span><span class="t">numeric(10,4)</span></div>
+    <div class="col"><span class="n">activa</span><span class="t">boolean</span></div>
+    <div class="col ck"><span class="llave">UQ</span><span class="n">(supermercado, ingrediente)</span></div>
+  </div>
+  <div class="nota" style="left:480px;top:366px">
+    Un par cadena-ingrediente tiene <b>a lo más una</b> fuente: con dos, el precio dependería
+    de cuál se leyó primero. <b>unidades_base_por_medida</b> resuelve que el catálogo cuente
+    dientes de ajo y la cadena venda cabezas.
+  </div>
+
+  <!-- ══ recoleccion ══ -->
+  <div class="tabla" style="left:480px;top:500px">
+    <header>recoleccion <span>una por corrida</span></header>
+    <div class="col pk"><span class="llave">PK</span><span class="n">id</span><span class="t">bigserial</span></div>
+    <div class="col"><span class="llave">FK</span><span class="n">supermercado_codigo</span><span class="t">text</span></div>
+    <div class="col"><span class="n">estado</span><span class="t">text</span></div>
+    <div class="col"><span class="n">iniciada_en · terminada_en</span><span class="t">timestamptz</span></div>
+    <div class="col"><span class="n">categorias_pedidas · leidas</span><span class="t">integer</span></div>
+    <div class="col"><span class="n">productos_leidos</span><span class="t">integer</span></div>
+    <div class="col"><span class="n">precios_escritos</span><span class="t">integer</span></div>
+    <div class="col"><span class="n">detalle</span><span class="t">text</span></div>
+  </div>
+
+  <!-- ══ precio ══ -->
+  <div class="tabla eje" style="left:972px;top:160px">
+    <header>precio <span>historia, no estado</span></header>
+    <div class="col pk"><span class="llave">PK</span><span class="n">id</span><span class="t">bigserial</span></div>
+    <div class="col"><span class="llave">FK</span><span class="n">supermercado_codigo</span><span class="t">text</span></div>
+    <div class="col"><span class="llave">FK</span><span class="n">ingrediente_id</span><span class="t">text</span></div>
+    <div class="col"><span class="llave">FK</span><span class="n">recoleccion_id</span><span class="t">bigint · nulo</span></div>
+    <div class="col"><span class="n">precio_clp_por_unidad</span><span class="t">numeric(10,4)</span></div>
+    <div class="col"><span class="n">unidad</span><span class="t">text</span></div>
+    <div class="col"><span class="n">origen</span><span class="t">MEDIDO · ESTIMADO</span></div>
+    <div class="col"><span class="n">candidatos</span><span class="t">integer</span></div>
+    <div class="col"><span class="n">medido_en</span><span class="t">timestamptz</span></div>
+    <div class="col ck"><span class="llave">UQ</span><span class="n">(super, ingrediente, medido_en)</span></div>
+    <div class="col ck"><span class="n">check precio_clp_por_unidad &gt; 0</span></div>
+  </div>
+
+  <!-- ══ precio_vigente ══ -->
+  <div class="tabla vista" style="left:972px;top:642px">
+    <header>precio_vigente <span>vista</span></header>
+    <div class="col"><span class="n">distinct on (supermercado, ingrediente)</span></div>
+    <div class="col"><span class="n">order by medido_en desc</span></div>
+  </div>
+
+  <div class="nota" style="left:972px;top:500px">
+    Cada medición se <b>inserta</b>; ninguna se sobrescribe. Así se puede responder cuánto
+    costaba la cebolla hace tres semanas y auditar un precio raro contra la recolección que
+    lo produjo. El precio que la app usa sale de la vista.
+  </div>
+</div>
+
+<div class="pie">
+  <div class="leyenda">
+    <span><i style="background:#D75A20"></i>tabla del eje del servicio</span>
+    <span><i style="background:#17161A"></i>tabla de apoyo</span>
+    <span><i style="background:#FDF2EC;border:1px dashed #D75A20"></i>vista</span>
+    <span>— · — referencia que admite nulo</span>
+  </div>
+  <div>db/001_esquema.sql · PostgreSQL 18</div>
+</div>

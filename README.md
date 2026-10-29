@@ -31,12 +31,38 @@ armarla igual por el mínimo posible.
 | Catálogo | 69 recetas chilenas · 98 ingredientes con precio |
 | Persistencia | Room 3, las semanas sobreviven al cierre |
 | Motor de planificación | determinista, probado con JUnit |
-| Servicio de precios | 🔜 comprometido para el Hito 2 |
+| Servicio de precios | ✅ 22 rutas, PostgreSQL, recolector contra Jumbo y Santa Isabel |
+| Precios medidos | 183 fuentes verificadas una por una · 4.934 productos leídos |
+| La app conectada al servicio | 🔜 Hito 3 |
+
+## El servicio de precios
+
+El back end que mide el precio en el supermercado en lugar de estimarlo.
+Kotlin · Ktor 3.2 · PostgreSQL 18 · JDBC con HikariCP.
+
+```bash
+cp .env.example .env            # y completar tres valores
+docker compose up -d db         # base creada y sembrada, sin pasos manuales
+./gradlew -p server test        # 33 pruebas, sin base ni red
+./gradlew -p server run         # el servicio
+
+curl -s http://localhost:8090/salud
+```
+
+Las instrucciones completas están en [server/README.md](server/README.md) y el contrato
+de la interfaz en [docs/api-cookify.md](docs/api-cookify.md).
 
 ## Documentos
 
 | Documento | Qué contiene |
 |---|---|
+| **Hito 2** | |
+| [Documento técnico (PDF)](docs/tecnico-cookify.pdf) | 27 páginas: cambios, contrato, capas, datos, decisiones |
+| [Contrato de la API](docs/api-cookify.md) | Las 22 rutas con cuerpos, códigos y versionado |
+| [Instrucciones del servicio](server/README.md) | Cómo levantarlo en otro equipo |
+| [Modelo de datos](db/modelo.png) | Cuatro tablas y una vista |
+| [Colección de Postman](postman/cookify-api.postman_collection.json) | 35 peticiones listas para importar |
+| **Hito 1** | |
 | [Propuesta (PDF)](docs/propuesta-cookify.pdf) | El documento del Hito 1 |
 | [Láminas (PDF)](docs/laminas-hito1.pdf) | Las ocho de la presentación |
 | [Guion de la presentación](docs/guion-presentacion.md) | Qué decir en cada lámina y los tiempos |
@@ -89,7 +115,21 @@ Android, por eso el motor de planificación se prueba en la JVM sin emulador.
 :core:common             utilidades compartidas
 ```
 
-El detalle está en [docs/arquitectura.md](docs/arquitectura.md).
+El servidor es un build de Gradle aparte, dentro del mismo repositorio, también en capas:
+
+```
+server/                  servicio de precios · Kotlin puro de JVM
+  ruteo/                 HTTP: parámetros, cuerpos, códigos
+  negocio/               las reglas, el normalizador y el recolector
+  datos/                 el único lugar con SQL
+  datos/externo/         el único lugar que habla con jumbo.cl
+db/                      esquema, semilla y snapshot de precios medidos
+postman/                 la colección del cliente de pruebas
+tools/                   generadores y verificadores
+```
+
+El detalle está en [docs/arquitectura.md](docs/arquitectura.md) y, para el servicio,
+en [server/README.md](server/README.md).
 
 ## Quién
 
@@ -105,8 +145,13 @@ Universidad Mayor · Segundo semestre 2026 · Prof. Carlos Muñoz S.
 Se usó Claude (Anthropic) como asistente
 de programación para:
 
-- **Código** Escritura y revisión de los módulos de la app. 
+- **Código** Escritura y revisión de los módulos de la app y del servicio de precios.
 - **Datos** Las cifras del problema se verificaron abriendo la fuente original (INE,
   SERNAC, BCN); las notas de prensa sirvieron para encontrar los estudios, no para
   citarlos. La medición de dispersión de precios entre Jumbo y Santa Isabel es propia.
-- **Documentación** Creación y diagramación de la propuesta, las láminas y los diagramas.
+- **Documentación** Creación y diagramación de la propuesta, el documento técnico, las
+  láminas y los diagramas.
+- **Verificación** El mapeo de las 196 fuentes de precio se revisó ingrediente por
+  ingrediente contra el sitio real con `tools/verificar_fuentes.py`, y las correcciones
+  salieron de esa salida, no de suponer. El contrato de la interfaz se comprueba con 46
+  verificaciones automáticas y la capa de negocio con 33 pruebas.
