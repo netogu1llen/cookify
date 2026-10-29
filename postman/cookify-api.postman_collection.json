@@ -1,0 +1,1064 @@
+{
+  "info": {
+    "_postman_id": "cookify-precios-v1",
+    "name": "Cookify · API de precios v1",
+    "description": "Servicio de precios de Cookify, Hito 2 de INGT1003.\n\nAntes de correr nada hay que definir dos variables: baseUrl, que por omision es http://localhost:8090, y apiKey, que es el valor de COOKIFY_API_KEY del archivo .env.\n\nLa clave NO viene en este archivo y no debe escribirse aqui: este archivo esta en el repositorio y el repositorio es publico. Va en un entorno de Postman, que no se versiona.\n\nLa carpeta «Demostracion» esta en el orden en que se ejecuta en la presentacion, de principio a fin. «Errores» es la otra mitad del trabajo de un servicio: responder bien cuando algo falla. «Catalogo completo» tiene el resto de las rutas del contrato.\n\nEl contrato completo esta en docs/api-cookify.md.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8090",
+      "description": "Raiz del servicio, sin barra al final."
+    },
+    {
+      "key": "apiKey",
+      "value": "",
+      "description": "COOKIFY_API_KEY del .env. Dejar vacio aqui y definirlo en un entorno de Postman."
+    }
+  ],
+  "item": [
+    {
+      "name": "1 · Demostracion en vivo",
+      "description": "En este orden, de principio a fin.",
+      "item": [
+        {
+          "name": "0 · El servicio esta arriba",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/salud"
+            },
+            "description": "Primero que todo: el servicio responde y la base responde. Si esto falla, no sigue nada."
+          }
+        },
+        {
+          "name": "1 · Crear un ingrediente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes"
+            },
+            "description": "Crear. Responde 201 y la cabecera Location con la ruta del recurso nuevo. Guarda el id en una variable para los pasos siguientes.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"cebolla_morada\",\n  \"nombre\": \"Cebolla morada\",\n  \"pasillo\": \"VERDULERIA\",\n  \"unidad\": \"g\",\n  \"precioBaseClp\": 1.9\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "2 · Leer el que se acaba de crear",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes/cebolla_morada"
+            },
+            "description": "Leer. Es la prueba de que el dato quedo guardado y no solo aceptado: la respuesta trae creadoEn, que lo puso la base."
+          }
+        },
+        {
+          "name": "3 · Actualizar su precio",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes/cebolla_morada"
+            },
+            "description": "Actualizar. Responde el recurso completo ya modificado, con actualizadoEn distinto de creadoEn.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Cebolla morada grande\",\n  \"pasillo\": \"VERDULERIA\",\n  \"unidad\": \"g\",\n  \"precioBaseClp\": 2.4\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "4 · Borrarlo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 204', function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes/cebolla_morada"
+            },
+            "description": "Borrar. 204 sin cuerpo: el estado ya lo dice todo."
+          }
+        },
+        {
+          "name": "5 · Confirmar que ya no esta",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 404', function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes/cebolla_morada"
+            },
+            "description": "El cierre de las cuatro operaciones: lo que se borro, se borro."
+          }
+        },
+        {
+          "name": "6 · Disparar una recoleccion de Jumbo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 202', function () {",
+                  "    pm.response.to.have.status(202);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/recolecciones"
+            },
+            "description": "202 y no 201: la corrida arranca en segundo plano y la respuesta llega antes de que termine. El Location apunta a donde se sigue su avance.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supermercado\": \"JUMBO\",\n  \"ingredientes\": [\n    \"cebolla\",\n    \"papa\",\n    \"lentejas\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "7 · Seguir la recoleccion",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/recolecciones?supermercado=JUMBO"
+            },
+            "description": "El estado de la corrida, con categorias leidas, productos leidos y precios escritos. Se repite hasta que deja de decir EN_CURSO."
+          }
+        },
+        {
+          "name": "8 · Los precios medidos que quedaron",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/precios?supermercado=JUMBO&origen=MEDIDO"
+            },
+            "description": "El resultado: precio por gramo, por mililitro o por unidad, con cuantos productos se consideraron para cada uno. Esto es lo que consume la app."
+          }
+        },
+        {
+          "name": "9 · Los estimados, para comparar",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/precios?supermercado=TOTTUS&origen=ESTIMADO"
+            },
+            "description": "La otra mitad del argumento: en las cuatro cadenas sin recolector el precio sigue siendo ESTIMADO, y el servicio lo dice en lugar de disimularlo."
+          }
+        }
+      ]
+    },
+    {
+      "name": "2 · Errores",
+      "description": "Un error nunca viaja con codigo 200.",
+      "item": [
+        {
+          "name": "401 · Escribir sin la clave",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 401', function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes"
+            },
+            "description": "Sin la cabecera X-API-Key no se escribe. La lectura es abierta.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"cebolla_morada\",\n  \"nombre\": \"Cebolla morada\",\n  \"pasillo\": \"VERDULERIA\",\n  \"unidad\": \"g\",\n  \"precioBaseClp\": 1.9\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "401 · Escribir con la clave equivocada",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 401', function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "esta-clave-no-corresponde"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes"
+            },
+            "description": "Mismo codigo que cuando falta: distinguirlos le confirma a quien prueba claves que el formato era el correcto.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"cebolla_morada\",\n  \"nombre\": \"Cebolla morada\",\n  \"pasillo\": \"VERDULERIA\",\n  \"unidad\": \"g\",\n  \"precioBaseClp\": 1.9\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "400 · Cuerpo con tres campos malos",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 400', function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes"
+            },
+            "description": "El error nombra los campos uno por uno en 'detalles'. Quien manda tres campos malos se entera de los tres, no del primero.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"MAL ID\",\n  \"nombre\": \"\",\n  \"pasillo\": \"FERRETERIA\",\n  \"unidad\": \"kg\",\n  \"precioBaseClp\": -5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "400 · Cuerpo que no es JSON",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 400', function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes"
+            },
+            "description": "El cuerpo no se puede interpretar y el servicio lo dice con 400, no con 500.",
+            "body": {
+              "mode": "raw",
+              "raw": "esto no es json",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "409 · Crear dos veces el mismo ingrediente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 409', function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes"
+            },
+            "description": "No reemplaza en silencio: quien manda el segundo POST cree que esta creando algo.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"cebolla\",\n  \"nombre\": \"Cebolla\",\n  \"pasillo\": \"VERDULERIA\",\n  \"unidad\": \"g\",\n  \"precioBaseClp\": 1.3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "409 · Dos fuentes para el mismo par",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 409', function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/fuentes"
+            },
+            "description": "Con dos fuentes para la misma cadena y el mismo ingrediente, el precio dependeria de cual se leyo primero.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supermercado\": \"JUMBO\",\n  \"ingredienteId\": \"cebolla\",\n  \"categoriaRuta\": \"/frutas-y-verduras/verduras/verdura\",\n  \"terminos\": [\n    \"cebolla\"\n  ],\n  \"medidaEsperada\": \"g\",\n  \"unidadesBasePorMedida\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "409 · Recolectar en una cadena sin recolector",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 409', function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/recolecciones"
+            },
+            "description": "Tottus no entrega el catalogo renderizado en el servidor. El servicio lo dice en lugar de intentarlo y devolver una lista vacia.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supermercado\": \"TOTTUS\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "404 · Un ingrediente que no existe",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 404', function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes/unicornio"
+            }
+          }
+        },
+        {
+          "name": "404 · Una fuente con un ingrediente que no existe",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 404', function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/fuentes"
+            },
+            "description": "404 y no 400: el cuerpo esta bien formado, lo que no existe es a lo que apunta.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supermercado\": \"JUMBO\",\n  \"ingredienteId\": \"unicornio\",\n  \"categoriaRuta\": \"/x\",\n  \"medidaEsperada\": \"g\",\n  \"unidadesBasePorMedida\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "400 · Pedir los vigentes sin decir la cadena",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 400', function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/precios"
+            },
+            "description": "El precio vigente es siempre de una cadena. Sin ella la pregunta no tiene respuesta, y el servicio no elige una por su cuenta."
+          }
+        },
+        {
+          "name": "400 · Una pagina que no existe",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 400', function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes?pagina=0"
+            }
+          }
+        },
+        {
+          "name": "400 · Una pagina mas grande que el tope",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 400', function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes?tamano=500"
+            },
+            "description": "El tope es 200: sin el, un solo GET puede arrastrar la tabla completa."
+          }
+        }
+      ]
+    },
+    {
+      "name": "3 · Catalogo completo de rutas",
+      "description": "El resto del contrato, solo lectura.",
+      "item": [
+        {
+          "name": "Supermercados",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/supermercados"
+            }
+          }
+        },
+        {
+          "name": "Un supermercado",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/supermercados/SANTA_ISABEL"
+            }
+          }
+        },
+        {
+          "name": "Ingredientes paginados",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes?pagina=1&tamano=10"
+            }
+          }
+        },
+        {
+          "name": "Ingredientes de un pasillo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes?pasillo=ABARROTES"
+            }
+          }
+        },
+        {
+          "name": "Ingredientes por nombre, sin tildes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes?q=brocoli"
+            }
+          }
+        },
+        {
+          "name": "Un ingrediente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ingredientes/lentejas"
+            }
+          }
+        },
+        {
+          "name": "Fuentes de una cadena",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/fuentes?supermercado=JUMBO&tamano=200"
+            }
+          }
+        },
+        {
+          "name": "Fuentes inactivas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/fuentes?activa=false"
+            }
+          }
+        },
+        {
+          "name": "Fuente de un ingrediente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/fuentes?ingredienteId=ajo"
+            }
+          }
+        },
+        {
+          "name": "Precios vigentes de Jumbo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/precios?supermercado=JUMBO"
+            }
+          }
+        },
+        {
+          "name": "Precio de un solo ingrediente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/precios?supermercado=JUMBO&ingredienteId=cebolla"
+            }
+          }
+        },
+        {
+          "name": "Historia de un precio",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/precios?historia=true&ingredienteId=cebolla&tamano=20"
+            }
+          }
+        },
+        {
+          "name": "Recolecciones",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/recolecciones"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
