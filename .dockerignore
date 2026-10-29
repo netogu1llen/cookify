@@ -1,0 +1,22 @@
+# Lo que NO entra al contexto de construccion de la imagen del servicio.
+#
+# Importa de verdad: sin esto el contexto incluiria la app Android completa,
+# su cache de Gradle y el historial de git, y cada "docker compose build"
+# empezaria enviando cientos de megas al demonio de Docker.
+#
+# La regla es al reves de lo habitual: se excluye todo y despues se deja pasar
+# solo lo que la imagen necesita.
+*
+
+!gradlew
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!server/settings.gradle.kts
+!server/build.gradle.kts
+!server/gradle/libs.versions.toml
+!server/src/**
+
+# Y de lo que si pasa, nada que sea resultado de compilar en el equipo.
+server/build
+server/.gradle
+**/.env

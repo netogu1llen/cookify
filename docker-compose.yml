@@ -1,0 +1,72 @@
+# ============================================================================
+# Cookify · base de datos y servicio de precios
+#
+#   cp .env.example .env     y editar los valores
+#   docker compose up -d db  levanta solo PostgreSQL (lo habitual al desarrollar)
+#   docker compose up -d     levanta la base y el servicio ya empaquetado
+#
+# La primera vez que el contenedor de la base arranca ejecuta en orden todos los
+# .sql de ./db, asi que la base queda creada y sembrada sin pasos manuales. Esos
+# scripts NO se vuelven a ejecutar si el volumen ya existe; para partir de cero:
+#
+#   docker compose down -v && docker compose up -d db
+# ============================================================================
+
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: cookify_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-cookify}
+      POSTGRES_USER: ${POSTGRES_USER:-cookify}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?falta POSTGRES_PASSWORD en .env}
+      # Que el ordenamiento y los mensajes no dependan del equipo que levanta.
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    ports:
+      - "${POSTGRES_PORT:-5434}:5432"
+    volumes:
+      - cookify_datos:/var/lib/postgresql/data
+      # Solo lectura: el contenedor no tiene por que poder tocar el repositorio.
+      - ./db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-cookify} -d ${POSTGRES_DB:-cookify}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  servicio:
+    build:
+      # La raiz, porque el wrapper de Gradle vive ahi. Lo que entra al contexto
+      # lo limita .dockerignore.
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: cookify_api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Dentro de la red de compose la base se llama "db", no localhost.
+      COOKIFY_DB_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-cookify}
+      COOKIFY_DB_USUARIO: ${POSTGRES_USER:-cookify}
+      COOKIFY_DB_CLAVE: ${POSTGRES_PASSWORD:?falta POSTGRES_PASSWORD en .env}
+      COOKIFY_PUERTO: 8080
+      COOKIFY_API_KEY: ${COOKIFY_API_KEY:?falta COOKIFY_API_KEY en .env}
+      COOKIFY_RECOLECTOR_PAGINAS: ${COOKIFY_RECOLECTOR_PAGINAS:-4}
+      COOKIFY_RECOLECTOR_PAUSA_MS: ${COOKIFY_RECOLECTOR_PAUSA_MS:-400}
+    ports:
+      - "${COOKIFY_PUERTO:-8090}:8080"
+    healthcheck:
+      # Con el wget de busybox, que la imagen de Alpine ya trae: agregar curl
+      # solo para esto seria sumar superficie a la imagen de produccion. Se pide
+      # el cuerpo y no --spider porque --spider manda HEAD, y wget devuelve
+      # error si la ruta no responde a ese verbo.
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8080/salud"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+
+volumes:
+  cookify_datos:

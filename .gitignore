@@ -19,3 +19,12 @@ local.properties
 build/
 .kotlin/
 .cxx/
+
+# Configuracion local del servicio: NUNCA se versiona (ver .env.example)
+.env
+
+# Cache de los generadores en Python
+__pycache__/
+
+# Material de ensayo de la presentacion: no se versiona
+docs/guion-hito2.md
