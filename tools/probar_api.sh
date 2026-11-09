@@ -6,7 +6,10 @@
 # Uso:  set -a && . ./.env && set +a && bash tools/probar_api.sh
 set -u
 
-BASE="http://localhost:${COOKIFY_PUERTO:-8090}"
+# Por omision el servicio local. Con COOKIFY_BASE_URL se apunta a otro lado, que
+# es lo que permite correr la misma bateria contra el despliegue publico:
+#   COOKIFY_BASE_URL=https://cookifies.duckdns.org bash tools/probar_api.sh
+BASE="${COOKIFY_BASE_URL:-http://localhost:${COOKIFY_PUERTO:-8090}}"
 API="$BASE/api/v1"
 CLAVE="${COOKIFY_API_KEY:?falta COOKIFY_API_KEY: cargar el .env antes de correr esto}"
 

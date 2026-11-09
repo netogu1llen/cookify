@@ -68,6 +68,51 @@ volumen exista, editar `db/001_esquema.sql` no cambia nada.
 
 ---
 
+## Está publicado
+
+**https://cookifies.duckdns.org** · certificado de Let's Encrypt, renovado solo.
+
+```bash
+curl -s https://cookifies.duckdns.org/salud
+# {"estado":"arriba","version":"1.0.0","baseDeDatos":"responde"}
+```
+
+Corre en una instancia ARM de Oracle Cloud en Querétaro, en tres contenedores:
+PostgreSQL, el servicio y Caddy delante terminando el TLS. Los tres con
+`restart: unless-stopped`, así que vuelven solos si la máquina se reinicia.
+
+### Levantarlo en otro servidor
+
+```bash
+git clone https://github.com/netogu1llen/cookify.git && cd cookify
+cp .env.example .env            # completar las claves y COOKIFY_DOMINIO
+docker compose -f docker-compose.yml -f docker-compose.produccion.yml up -d
+```
+
+El sobrescrito de producción hace dos cosas: deja de publicar el puerto del
+servicio al exterior —solo Caddy lo alcanza, por la red interna— y levanta Caddy
+en el 80 y el 443. El certificado lo pide y lo renueva Caddy contra Let's
+Encrypt, sin tarea programada que mantener.
+
+Tres condiciones para que funcione a la primera:
+
+| | |
+|---|---|
+| `COOKIFY_DOMINIO` resuelve a esa máquina | Let's Encrypt no emite para una IP pelada |
+| Los puertos 80 y 443 libres y abiertos | el 80 lo necesita el desafío de ACME |
+| El cortafuegos deja pasar | en Oracle son **dos**: la lista de seguridad de la VCN y las reglas de `iptables` dentro de la instancia |
+
+### Probar el despliegue
+
+La misma batería del contrato corre contra la dirección pública:
+
+```bash
+COOKIFY_BASE_URL=https://cookifies.duckdns.org bash tools/probar_api.sh
+# ok: 48   fallos: 0
+```
+
+---
+
 ## La API
 
 El contrato completo, con cada ruta, cada cuerpo y cada código de estado, está

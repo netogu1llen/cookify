@@ -49,6 +49,13 @@ docker compose up -d db         # base creada y sembrada, sin pasos manuales
 curl -s http://localhost:8090/salud
 ```
 
+**Está publicado en https://cookifies.duckdns.org**, sobre una instancia ARM de
+Oracle Cloud, en tres contenedores con TLS de Let's Encrypt:
+
+```bash
+curl -s https://cookifies.duckdns.org/api/v1/precios?supermercado=JUMBO
+```
+
 Las instrucciones completas están en [server/README.md](server/README.md) y el contrato
 de la interfaz en [docs/api-cookify.md](docs/api-cookify.md).
 

@@ -1,0 +1,50 @@
+# ============================================================================
+# Cookify · sobrescrito de producción
+#
+# Se aplica encima de docker-compose.yml y cambia dos cosas: el servicio deja de
+# publicar su puerto al exterior, y aparece Caddy delante para terminar el TLS.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.produccion.yml up -d
+#
+# Por qué Caddy y no exponer el servicio directo: Android bloquea el tráfico sin
+# cifrar desde la API 28, así que la app necesita https. Caddy pide y renueva el
+# certificado de Let's Encrypt solo, sin tarea programada ni intervención, con la
+# única condición de que COOKIFY_DOMINIO apunte a esta máquina y el puerto 80
+# esté libre para el desafío.
+#
+# El servicio NO habla https por su cuenta a propósito: terminar el TLS en el
+# borde es una responsabilidad distinta de servir precios, y mezclarlas obligaría
+# a meter certificados dentro de la imagen del servicio.
+# ============================================================================
+
+services:
+  servicio:
+    # Deja de publicarse al exterior: ahora solo Caddy lo alcanza, por la red
+    # interna de compose. Sin esto quedarían dos puertas a lo mismo, una de
+    # ellas sin cifrar.
+    ports: !reset []
+    expose:
+      - "8080"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: cookify_caddy
+    restart: unless-stopped
+    depends_on:
+      servicio:
+        condition: service_healthy
+    environment:
+      COOKIFY_DOMINIO: ${COOKIFY_DOMINIO:?falta COOKIFY_DOMINIO en .env}
+    ports:
+      - "80:80"    # lo necesita el desafío de Let's Encrypt, y redirige a https
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      # Los certificados sobreviven a recrear el contenedor. Sin este volumen,
+      # cada reinicio pediría uno nuevo y Let's Encrypt limita cuántos emite.
+      - caddy_datos:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_datos:
+  caddy_config:

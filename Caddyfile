@@ -1,0 +1,43 @@
+# ============================================================================
+# Cookify · borde público del servicio de precios
+#
+# Caddy termina el TLS y pasa la petición al servicio por la red interna de
+# compose. El certificado lo pide y lo renueva solo contra Let's Encrypt; no hay
+# tarea programada que mantener ni certificado que se venza sin avisar.
+#
+# El dominio viene del entorno para que este archivo no tenga nada que cambiar
+# entre una máquina y otra.
+# ============================================================================
+
+{$COOKIFY_DOMINIO} {
+	# El servicio escucha siempre en 8080 dentro de su contenedor.
+	reverse_proxy servicio:8080 {
+		# Sin esto el servicio registra todas las peticiones como venidas de
+		# Caddy, y se pierde de dónde vino cada una.
+		header_up X-Real-IP {remote_host}
+	}
+
+	encode gzip
+
+	# Las respuestas de precios son JSON y pueden pasar de 100 KB con los 98
+	# ingredientes; comprimir importa en un teléfono con datos móviles.
+	header {
+		# El servicio no sirve HTML ni ejecuta nada del navegador, pero estas
+		# tres cabeceras cuestan nada y cierran clases enteras de problema.
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy no-referrer
+		# Le dice al navegador que nunca vuelva a intentar por http.
+		Strict-Transport-Security "max-age=31536000"
+		# Que no se anuncie qué servidor hay detrás.
+		-Server
+	}
+
+	log {
+		output stdout
+		format console
+		# Solo errores: el registro de cada lectura de precios no dice nada que
+		# el del servicio no diga mejor, y llena el disco.
+		level ERROR
+	}
+}
