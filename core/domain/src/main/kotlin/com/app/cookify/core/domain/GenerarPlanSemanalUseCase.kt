@@ -25,7 +25,9 @@ class GenerarPlanSemanalUseCase @Inject constructor(
     ): ResultadoPlan = PlanificadorSemanal.planificar(
         solicitud = solicitud,
         recetas = catalogo.recetas(),
-        ingredientes = precios.ingredientes(),
+        // Los precios ya vienen en la cadena que el usuario eligio; el
+        // planificador no sabe de supermercados.
+        ingredientes = precios.precios(solicitud.supermercado).ingredientes,
         semilla = semilla,
     )
 }

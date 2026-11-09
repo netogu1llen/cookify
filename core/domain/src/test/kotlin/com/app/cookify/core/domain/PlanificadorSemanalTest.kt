@@ -163,11 +163,20 @@ class PlanificadorSemanalTest {
         assertThat(paraCuatro.costoTotalClp).isEqualTo(paraDos.costoTotalClp * 2)
     }
 
+    /**
+     * Esta prueba afirmaba lo contrario hasta el Hito 3, cuando el planificador
+     * aplicaba el multiplicador de la cadena sobre un precio base unico.
+     *
+     * Ahora los precios llegan ya expresados en la cadena, asi que el
+     * planificador es indiferente a cual sea: con los mismos precios, el mismo
+     * total. Si alguien vuelve a meter el multiplicador aqui, el precio medido
+     * se contaria dos veces y esta prueba lo atrapa.
+     */
     @Test
-    fun `el supermercado mas caro sube el total`() {
+    fun `el planificador ya no depende del supermercado, porque el precio llega resuelto`() {
         val lider = exito(solicitud(dias = 3, supermercado = Supermercado.LIDER), semilla = 7L)
         val jumbo = exito(solicitud(dias = 3, supermercado = Supermercado.JUMBO), semilla = 7L)
-        assertThat(jumbo.costoTotalClp).isGreaterThan(lider.costoTotalClp)
+        assertThat(jumbo.costoTotalClp).isEqualTo(lider.costoTotalClp)
     }
 
     @Test

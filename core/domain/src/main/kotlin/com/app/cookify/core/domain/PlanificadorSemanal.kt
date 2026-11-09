@@ -58,7 +58,6 @@ object PlanificadorSemanal {
                         receta = receta,
                         ingredientes = ingredientes,
                         personas = solicitud.personas,
-                        supermercado = solicitud.supermercado,
                     ),
                     puntaje = puntuar(receta, solicitud.antojos),
                 )

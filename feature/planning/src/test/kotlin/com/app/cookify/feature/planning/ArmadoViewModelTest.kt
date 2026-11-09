@@ -11,6 +11,7 @@ import com.app.cookify.core.model.DiaSemana
 import com.app.cookify.core.model.Ingrediente
 import com.app.cookify.core.model.IngredienteReceta
 import com.app.cookify.core.model.Pasillo
+import com.app.cookify.core.model.PreciosDeCadena
 import com.app.cookify.core.model.Receta
 import com.app.cookify.core.model.Restriccion
 import com.app.cookify.core.model.SolicitudPlan
@@ -188,8 +189,8 @@ class ArmadoViewModelTest {
     }
 
     private class PreciosFalsos(private val mapa: Map<String, Ingrediente>) : PrecioRepository {
-        override suspend fun ingredientes() = mapa
-        override suspend fun actualizadoEn() = "2026-01-01"
+        override suspend fun precios(supermercado: Supermercado) =
+            PreciosDeCadena.estimados(supermercado, mapa)
     }
 
     private companion object {

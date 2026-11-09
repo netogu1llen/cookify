@@ -4,7 +4,6 @@ import com.app.cookify.core.model.Ingrediente
 import com.app.cookify.core.model.IngredienteCalculado
 import com.app.cookify.core.model.IngredienteReceta
 import com.app.cookify.core.model.Receta
-import com.app.cookify.core.model.Supermercado
 import com.app.cookify.core.model.Unidad
 import kotlin.math.ceil
 import kotlin.math.roundToInt
@@ -12,9 +11,13 @@ import kotlin.math.roundToInt
 /**
  * Traduce una receta a pesos chilenos.
  *
- * Los precios del catalogo estan en la base de Lider y por unidad base (1 g, 1 ml,
- * 1 unidad). El supermercado elegido solo aplica un multiplicador: la app estima, no
- * cotiza precios reales.
+ * Los precios que recibe ya vienen expresados en la cadena que el usuario eligio y
+ * por unidad base (1 g, 1 ml, 1 unidad), asi que esta calculadora **no aplica
+ * ningun multiplicador por supermercado**. Antes lo hacia, cuando el catalogo traia
+ * un unico precio en la base de Lider; con precios medidos ese multiplicador los
+ * contaria dos veces. Quien estima es ahora PrecioRepository, no esta clase.
+ *
+ * Consecuencia visible: la calculadora ya no recibe el supermercado. No lo necesita.
  *
  * Los ingredientes marcados como opcionales no suman al costo, porque el presupuesto
  * tiene que reflejar lo que el usuario si o si va a comprar.
@@ -28,7 +31,6 @@ object CalculadoraCostos {
         receta: Receta,
         ingredientes: Map<String, Ingrediente>,
         personas: Int,
-        supermercado: Supermercado,
     ): Int {
         val bruto = receta.ingredientes
             .filterNot { it.opcional }
@@ -37,7 +39,7 @@ object CalculadoraCostos {
                     ?: error("Ingrediente '${linea.ingredienteId}' de la receta '${receta.id}' no esta en el catalogo")
                 ingrediente.precioClpPorUnidad * cantidadTotal(linea, ingrediente, personas)
             }
-        return redondear(bruto * supermercado.multiplicadorPrecio)
+        return redondear(bruto)
     }
 
     /**
@@ -48,16 +50,13 @@ object CalculadoraCostos {
         receta: Receta,
         ingredientes: Map<String, Ingrediente>,
         personas: Int,
-        supermercado: Supermercado,
     ): List<IngredienteCalculado> = receta.ingredientes.map { linea ->
         val ingrediente = ingredientes.getValue(linea.ingredienteId)
         val cantidadTotal = cantidadTotal(linea, ingrediente, personas)
         IngredienteCalculado(
             ingrediente = ingrediente,
             cantidadTotal = cantidadTotal,
-            costoClp = redondear(
-                ingrediente.precioClpPorUnidad * cantidadTotal * supermercado.multiplicadorPrecio,
-            ),
+            costoClp = redondear(ingrediente.precioClpPorUnidad * cantidadTotal),
             opcional = linea.opcional,
         )
     }

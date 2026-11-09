@@ -31,6 +31,16 @@ data class DetalleUiState(
     val personas: Int = 1,
     val costoClp: Int = 0,
     val ingredientesPorPasillo: List<GrupoPasillo> = emptyList(),
+    /**
+     * Si el costo sale de precios medidos en la cadena o de una estimación.
+     *
+     * La pantalla lo dice en voz alta. Prometer una precisión que no se tiene es
+     * peor que admitir la estimación, y en cuatro de las seis cadenas no hay
+     * forma de medir.
+     */
+    val precioMedido: Boolean = false,
+    /** Cuándo se midió el lote, en ISO 8601. Nulo si el precio es estimado. */
+    val preciosMedidosEn: String? = null,
 )
 
 @Immutable
@@ -62,12 +72,12 @@ class DetalleViewModel @Inject constructor(
                 return@launch
             }
 
-            val ingredientes = precios.ingredientes()
+            val deLaCadena = precios.precios(supermercado)
+            val ingredientes = deLaCadena.ingredientes
             val calculados = CalculadoraCostos.ingredientesCalculados(
                 receta = receta,
                 ingredientes = ingredientes,
                 personas = personas,
-                supermercado = supermercado,
             )
 
             _estado.value = DetalleUiState(
@@ -78,8 +88,9 @@ class DetalleViewModel @Inject constructor(
                     receta = receta,
                     ingredientes = ingredientes,
                     personas = personas,
-                    supermercado = supermercado,
                 ),
+                precioMedido = deLaCadena.mayoriaMedida,
+                preciosMedidosEn = deLaCadena.medidoEn,
                 // Agrupados por pasillo y en el orden del enum, que es el orden en que
                 // se recorre el supermercado: la lista sirve para comprar, no solo para
                 // leer.

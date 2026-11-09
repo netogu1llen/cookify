@@ -1,9 +1,10 @@
 package com.app.cookify.core.domain
 
-import com.app.cookify.core.model.Ingrediente
 import com.app.cookify.core.model.PlanSemanal
+import com.app.cookify.core.model.PreciosDeCadena
 import com.app.cookify.core.model.Receta
 import com.app.cookify.core.model.SemanaGuardada
+import com.app.cookify.core.model.Supermercado
 import kotlinx.coroutines.flow.Flow
 
 /** Fuente de las recetas. Hoy es el JSON empaquetado en assets. */
@@ -16,18 +17,22 @@ interface CatalogoRepository {
  * Fuente de los precios, deliberadamente separada del catalogo de recetas.
  *
  * Las recetas son estables; los precios no. Teniendolos detras de su propia
- * interfaz, cambiar de "JSON empaquetado" a "JSON remoto con cache" o a una
- * fuente oficial es escribir una implementacion nueva, no refactorizar la app.
+ * interfaz, cambiar de "JSON empaquetado" a "servicio remoto con cache" es
+ * escribir una implementacion nueva, no refactorizar la app.
  *
- * Los precios devueltos son la base de referencia (Lider). El multiplicador por
- * supermercado lo aplica CalculadoraCostos, no esta capa.
+ * Los precios que devuelve ya estan expresados **en la cadena pedida**, y cada
+ * uno viene diciendo si se midio o se estimo. Quien calcula no aplica ningun
+ * multiplicador: eso es ahora asunto de la implementacion que estima.
  */
 interface PrecioRepository {
-    /** Ingredientes indexados por id. */
-    suspend fun ingredientes(): Map<String, Ingrediente>
-
-    /** Cuando se actualizaron los precios, para poder mostrarlo en Ajustes. */
-    suspend fun actualizadoEn(): String
+    /**
+     * Los precios de [supermercado], con su procedencia.
+     *
+     * Nunca falla por falta de red: la implementacion remota cae a su cache y,
+     * si tampoco la hay, al catalogo empaquetado. Sin ese respaldo no se podria
+     * armar una semana sin señal.
+     */
+    suspend fun precios(supermercado: Supermercado): PreciosDeCadena
 }
 
 /**
