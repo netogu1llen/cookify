@@ -26,7 +26,12 @@ services:
     ports:
       - "${POSTGRES_PORT:-5434}:5432"
     volumes:
-      - cookify_datos:/var/lib/postgresql/data
+      # En /var/lib/postgresql y no en /var/lib/postgresql/data: desde la version
+      # 18 la imagen guarda los datos en un subdirectorio por version mayor, para
+      # que "pg_upgrade --link" no cruce el borde del montaje. Montado en la ruta
+      # vieja, el volumen queda sin usar y los datos terminan en la capa efimera
+      # del contenedor: se pierden al recrearlo y nada avisa.
+      - cookify_datos:/var/lib/postgresql
       # Solo lectura: el contenedor no tiene por que poder tocar el repositorio.
       - ./db:/docker-entrypoint-initdb.d:ro
     healthcheck:

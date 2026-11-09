@@ -1,0 +1,29 @@
+# Normalización de fin de línea.
+#
+# Sin esto, un archivo editado en Windows sale con CRLF y al copiarlo a un
+# servidor Linux el intérprete falla con errores crípticos: «$'\r': command not
+# found». Pasó al desplegar el servicio, con tools/probar_api.sh.
+#
+# Los archivos que un sistema Unix ejecuta o interpreta se guardan y se extraen
+# siempre con LF, en cualquier sistema operativo.
+
+* text=auto
+
+*.sh        text eol=lf
+*.sql       text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+Dockerfile  text eol=lf
+Caddyfile   text eol=lf
+.env.example text eol=lf
+gradlew     text eol=lf
+
+*.bat       text eol=crlf
+
+# Binarios: que git no intente convertir nada.
+*.png   binary
+*.jpg   binary
+*.pdf   binary
+*.apk   binary
+*.jar   binary
+*.webm  binary
