@@ -2,6 +2,7 @@ package com.app.cookify.feature.week
 
 import androidx.compose.runtime.Immutable
 import com.app.cookify.core.model.PlanSemanal
+import com.app.cookify.core.ui.componentes.EstadoPrecios
 
 /**
  * La semana armada, lista para mostrarse.
@@ -29,6 +30,14 @@ data class SemanaUiState(
      * recien armada todavia no tiene nombre y se anuncia como "Tu semana".
      */
     val nombre: String? = null,
+    /**
+     * De dónde salieron los precios con que se costeó esta semana.
+     *
+     * Solo tiene sentido en una semana recién armada. Una reabierta desde la
+     * home guarda el costo con que se armó, y anunciar la procedencia de los
+     * precios de hoy sobre un costo de hace dos semanas seria mentir.
+     */
+    val precios: EstadoPrecios? = null,
 ) {
     /**
      * Se muestra la semana igual cuando no cabe en el presupuesto, con la barra en

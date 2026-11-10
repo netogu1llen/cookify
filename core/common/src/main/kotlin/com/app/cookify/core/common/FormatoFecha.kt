@@ -15,6 +15,9 @@ private val MESES = arrayOf(
     "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
 )
 
+/** El año se muestra con dos dígitos: "09/11/26", no "09/11/2026". */
+private const val SIGLO = 100
+
 /** "4 de septiembre". */
 fun Long.aFechaLegible(): String {
     val fecha = Instant.ofEpochMilli(this).atZone(ZoneId.systemDefault()).toLocalDate()
@@ -29,3 +32,26 @@ fun Long.aFechaLegible(): String {
  * en una tarea.
  */
 fun nombrePorDefectoSemana(instante: Long): String = "Semana del ${instante.aFechaLegible()}"
+
+/**
+ * Una fecha ISO 8601 del servicio como "09/11/26 19:50", en hora local.
+ *
+ * En hora local y no en la que vino: el servicio responde en UTC, y decirle a
+ * alguien en Chile que su precio se midió a las 22:50 cuando eran las 19:50 lo
+ * hace dudar del dato entero.
+ *
+ * Devuelve nulo si el texto no se puede interpretar, para que quien la use
+ * decida qué mostrar en vez de enseñar una fecha inventada.
+ */
+fun String?.aFechaHoraCorta(): String? {
+    if (this.isNullOrBlank()) return null
+    val instante = runCatching { Instant.parse(this) }.getOrNull() ?: return null
+    val local = instante.atZone(ZoneId.systemDefault())
+    return "%02d/%02d/%02d %02d:%02d".format(
+        local.dayOfMonth,
+        local.monthValue,
+        local.year % SIGLO,
+        local.hour,
+        local.minute,
+    )
+}

@@ -41,6 +41,8 @@ data class DetalleUiState(
     val precioMedido: Boolean = false,
     /** Cuándo se midió el lote, en ISO 8601. Nulo si el precio es estimado. */
     val preciosMedidosEn: String? = null,
+    /** Si el último intento de alcanzar el servicio de precios falló. */
+    val sinConexion: Boolean = false,
 )
 
 @Immutable
@@ -91,6 +93,7 @@ class DetalleViewModel @Inject constructor(
                 ),
                 precioMedido = deLaCadena.mayoriaMedida,
                 preciosMedidosEn = deLaCadena.medidoEn,
+                sinConexion = deLaCadena.sinConexion,
                 // Agrupados por pasillo y en el orden del enum, que es el orden en que
                 // se recorre el supermercado: la lista sirve para comprar, no solo para
                 // leer.

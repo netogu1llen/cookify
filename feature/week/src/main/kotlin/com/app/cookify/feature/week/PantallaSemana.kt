@@ -37,6 +37,8 @@ import com.app.cookify.core.model.PlanSemanal
 import com.app.cookify.core.model.SolicitudPlan
 import com.app.cookify.core.model.Supermercado
 import com.app.cookify.core.ui.componentes.BarraPresupuesto
+import com.app.cookify.core.ui.componentes.EstadoPrecios
+import com.app.cookify.core.ui.componentes.SelloDePrecios
 import com.app.cookify.core.ui.componentes.BotonPrimario
 import com.app.cookify.core.ui.componentes.BotonSecundario
 import com.app.cookify.core.ui.componentes.Etiqueta
@@ -183,6 +185,7 @@ internal fun ContenidoSemana(
                     ListaSemana(
                         plan = plan,
                         titulo = estado.nombre ?: "Tu semana",
+                        precios = estado.precios,
                         onAbrirReceta = acciones.abrirReceta,
                         modifier = Modifier.weight(1f),
                     )
@@ -214,6 +217,7 @@ internal fun ContenidoSemana(
 private fun ListaSemana(
     plan: PlanSemanal,
     titulo: String,
+    precios: EstadoPrecios?,
     onAbrirReceta: (String, Int, Supermercado) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -227,7 +231,7 @@ private fun ListaSemana(
         verticalArrangement = Arrangement.spacedBy(Espaciado.s),
     ) {
         item(key = "encabezado") {
-            Encabezado(plan = plan, titulo = titulo)
+            Encabezado(plan = plan, titulo = titulo, precios = precios)
         }
 
         items(plan.almuerzos, key = { it.dia.name }) { almuerzo ->
@@ -246,7 +250,7 @@ private fun ListaSemana(
 }
 
 @Composable
-private fun Encabezado(plan: PlanSemanal, titulo: String) {
+private fun Encabezado(plan: PlanSemanal, titulo: String, precios: EstadoPrecios?) {
     val solicitud = plan.solicitud
     val platos = plan.almuerzos.size
 
@@ -282,6 +286,13 @@ private fun Encabezado(plan: PlanSemanal, titulo: String) {
                     presupuestoClp = solicitud.presupuestoClp,
                 )
             }
+        }
+
+        // Debajo de la barra de presupuesto: explica con que precios se calculo
+        // el total que la barra acaba de mostrar. Es nulo en una semana reabierta
+        // desde la home, porque ese costo es el del dia en que se guardo.
+        if (precios != null) {
+            SelloDePrecios(precios)
         }
     }
 }

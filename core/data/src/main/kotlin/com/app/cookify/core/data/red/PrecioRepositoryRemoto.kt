@@ -5,6 +5,7 @@ import com.app.cookify.core.database.PrecioCacheEntity
 import com.app.cookify.core.domain.PrecioRepository
 import com.app.cookify.core.model.OrigenPrecio
 import com.app.cookify.core.model.PreciosDeCadena
+import com.app.cookify.core.model.Procedencia
 import com.app.cookify.core.model.Supermercado
 import javax.inject.Inject
 import javax.inject.Qualifier
@@ -51,7 +52,9 @@ internal class PrecioRepositoryRemoto @Inject constructor(
 
         val guardadoEn = cache.guardadoEn(supermercado.name)
         if (guardadoEn != null && estaFresca(guardadoEn)) {
-            desdeCache(supermercado, estimados)?.let { return it }
+            // Con la caché fresca ni se intenta la red, asi que no se sabe si
+            // hay conexion ni hace falta: sinConexion queda en falso.
+            desdeCache(supermercado, estimados, sinConexion = false)?.let { return it }
         }
 
         // Si la red falla no se le cuenta al usuario: quien está armando su
@@ -67,8 +70,8 @@ internal class PrecioRepositoryRemoto @Inject constructor(
         // vacía, que para la app es lo mismo: no hay precios nuevos. La caché
         // vencida todavía sirve —un precio medido hace un mes vale más que uno
         // estimado hoy— y solo si tampoco la hay se estima.
-        desdeCache(supermercado, estimados)?.let { return it }
-        return estimados
+        desdeCache(supermercado, estimados, sinConexion = true)?.let { return it }
+        return estimados.copy(sinConexion = true)
     }
 
     private fun estaFresca(guardadoEn: Long): Boolean =
@@ -77,6 +80,7 @@ internal class PrecioRepositoryRemoto @Inject constructor(
     private suspend fun desdeCache(
         supermercado: Supermercado,
         estimados: PreciosDeCadena,
+        sinConexion: Boolean,
     ): PreciosDeCadena? {
         val filas = cache.deSupermercado(supermercado.name)
         if (filas.isEmpty()) return null
@@ -85,6 +89,8 @@ internal class PrecioRepositoryRemoto @Inject constructor(
             medidos = filas.associate { it.ingredienteId to it.precioClpPorUnidad },
             origenes = filas.associate { it.ingredienteId to origenDe(it.origen) },
             medidoEn = filas.mapNotNull { it.medidoEn }.maxOrNull(),
+            procedencia = Procedencia.CACHE,
+            sinConexion = sinConexion,
         )
     }
 
@@ -98,6 +104,8 @@ internal class PrecioRepositoryRemoto @Inject constructor(
             medidos = dto.datos.associate { it.ingredienteId to it.precioClpPorUnidad },
             origenes = dto.datos.associate { it.ingredienteId to origenDe(it.origen) },
             medidoEn = dto.actualizadoEn,
+            procedencia = Procedencia.SERVICIO,
+            sinConexion = false,
         )
     }
 
@@ -114,6 +122,8 @@ internal class PrecioRepositoryRemoto @Inject constructor(
         medidos: Map<String, Double>,
         origenes: Map<String, OrigenPrecio>,
         medidoEn: String?,
+        procedencia: Procedencia,
+        sinConexion: Boolean,
     ): PreciosDeCadena {
         val usables = medidos.filterValues { it > 0 }
         return base.copy(
@@ -128,6 +138,8 @@ internal class PrecioRepositoryRemoto @Inject constructor(
                 }
             },
             medidoEn = medidoEn?.takeIf { it.isNotBlank() },
+            procedencia = procedencia,
+            sinConexion = sinConexion,
         )
     }
 

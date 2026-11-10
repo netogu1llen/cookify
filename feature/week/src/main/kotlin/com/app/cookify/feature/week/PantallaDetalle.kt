@@ -36,7 +36,9 @@ import com.app.cookify.core.ui.componentes.DatoResumen
 import com.app.cookify.core.ui.componentes.Etiqueta
 import com.app.cookify.core.ui.componentes.IconoCookify
 import com.app.cookify.core.ui.componentes.IconosCookify
+import com.app.cookify.core.ui.componentes.EstadoPrecios
 import com.app.cookify.core.ui.componentes.IlustracionPlato
+import com.app.cookify.core.ui.componentes.SelloDePrecios
 import com.app.cookify.core.ui.theme.Espaciado
 
 /**
@@ -124,6 +126,19 @@ private fun CuerpoDetalle(receta: Receta, estado: DetalleUiState) {
     ) {
         item(key = "titulo") { Titulo(receta) }
         item(key = "datos") { FilaDatos(receta, estado) }
+
+        // Justo debajo del costo y no al final de la pantalla: explica el número
+        // que acaba de leerse, y ahí es donde surge la pregunta de si es exacto.
+        item(key = "sello") {
+            SelloDePrecios(
+                EstadoPrecios(
+                    medidos = estado.precioMedido,
+                    medidosEn = estado.preciosMedidosEn,
+                    sinConexion = estado.sinConexion,
+                )
+            )
+        }
+
         item(key = "etiquetas") { Clasificacion(receta) }
 
         item(key = "tituloIngredientes") {

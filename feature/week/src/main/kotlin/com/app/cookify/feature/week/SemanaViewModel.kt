@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.cookify.core.common.nombrePorDefectoSemana
 import com.app.cookify.core.domain.GenerarPlanSemanalUseCase
+import com.app.cookify.core.domain.PrecioRepository
 import com.app.cookify.core.domain.SemanaRepository
 import com.app.cookify.core.model.ResultadoPlan
 import com.app.cookify.core.model.SolicitudPlan
+import com.app.cookify.core.ui.componentes.EstadoPrecios
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlin.random.Random
@@ -32,6 +34,7 @@ import kotlinx.coroutines.launch
 class SemanaViewModel @Inject constructor(
     private val generarPlan: GenerarPlanSemanalUseCase,
     private val semanas: SemanaRepository,
+    private val precios: PrecioRepository,
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -130,10 +133,23 @@ class SemanaViewModel @Inject constructor(
 
         viewModelScope.launch {
             val resultado = generarPlan(solicitud, semilla)
+            // Se vuelve a preguntar por los precios solo para saber de donde
+            // salieron. No cuesta una peticion mas: el motor acaba de pedirlos,
+            // asi que la cache esta fresca y esto es una lectura local.
+            val deLaCadena = precios.precios(solicitud.supermercado)
+            val sello = EstadoPrecios(
+                medidos = deLaCadena.mayoriaMedida,
+                medidosEn = deLaCadena.medidoEn,
+                sinConexion = deLaCadena.sinConexion,
+            )
             _estado.update { actual ->
                 when (resultado) {
-                    is ResultadoPlan.Exito ->
-                        actual.copy(cargando = false, plan = resultado.plan, error = null)
+                    is ResultadoPlan.Exito -> actual.copy(
+                        cargando = false,
+                        plan = resultado.plan,
+                        error = null,
+                        precios = sello,
+                    )
 
                     // Se llega acá solo cuando el usuario aceptó seguir sabiendo que no
                     // alcanzaba: se muestra la semana más barata con la barra en rojo.
@@ -141,6 +157,7 @@ class SemanaViewModel @Inject constructor(
                         cargando = false,
                         plan = resultado.planMasBarato,
                         error = null,
+                        precios = sello,
                     )
 
                     is ResultadoPlan.SinRecetasSuficientes ->

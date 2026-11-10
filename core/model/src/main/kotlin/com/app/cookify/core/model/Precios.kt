@@ -17,6 +17,24 @@ enum class OrigenPrecio {
 }
 
 /**
+ * De dónde salió el lote de precios.
+ *
+ * No es lo mismo que [OrigenPrecio], que habla de **un** precio. Esto habla del
+ * lote entero y existe para que la pantalla pueda explicar por qué el precio es
+ * el que es, en lugar de mostrar un número sin contexto.
+ */
+enum class Procedencia {
+    /** Recién traído del servicio. */
+    SERVICIO,
+
+    /** De lo que la app guardó la última vez que pudo. */
+    CACHE,
+
+    /** Del catálogo empaquetado en la app: no hubo servicio ni nada guardado. */
+    CATALOGO,
+}
+
+/**
  * Los precios de los ingredientes **en una cadena concreta**.
  *
  * El precio de cada [Ingrediente] de [ingredientes] ya está expresado en esa
@@ -37,6 +55,16 @@ data class PreciosDeCadena(
      * esta cadena viene medido, que es el caso de las cuatro sin recolector.
      */
     val medidoEn: String? = null,
+    /** De dónde salió este lote. */
+    val procedencia: Procedencia = Procedencia.CATALOGO,
+    /**
+     * Si el último intento de hablar con el servicio falló.
+     *
+     * Es distinto de no haberlo intentado: con la caché fresca ni se intenta, y
+     * eso no es estar sin conexión. Solo es verdadero cuando se intentó y no se
+     * pudo, que es lo único que justifica decírselo al usuario.
+     */
+    val sinConexion: Boolean = false,
 ) {
     /** Cuántos de los precios vienen medidos y no estimados. */
     val medidos: Int get() = origen.count { it.value == OrigenPrecio.MEDIDO }
@@ -80,6 +108,7 @@ data class PreciosDeCadena(
                 // Nulo a propósito: nada de esto se midió. La fecha del catálogo
                 // es cuándo se escribieron los valores a mano, que es otra cosa.
                 medidoEn = null,
+                procedencia = Procedencia.CATALOGO,
             )
         }
     }
