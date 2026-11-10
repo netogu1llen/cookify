@@ -84,19 +84,6 @@ internal fun ContenidoHome(
                 .fillMaxSize()
                 .padding(relleno),
         ) {
-            IconButton(
-                onClick = onAjustes,
-                modifier = Modifier
-                    .align(Alignment.TopEnd)
-                    .padding(end = Espaciado.xs, top = Espaciado.xs),
-            ) {
-                IconoCookify(
-                    icono = IconosCookify.engranaje,
-                    descripcion = "Estado del servicio de precios",
-                    tinte = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-
             when {
                 // Sin nada mientras carga: un spinner que aparece y desaparece en
                 // 50 ms se ve como un defecto, no como progreso.
@@ -114,6 +101,23 @@ internal fun ContenidoHome(
                     semanas = estado.semanas,
                     onNuevaSemana = onNuevaSemana,
                     onAbrirSemana = onAbrirSemana,
+                )
+            }
+
+            // El engranaje va después del contenido y no antes: en un Box el
+            // orden es el de apilado, y la lista de semanas, que llena la
+            // pantalla, quedaba encima y se comia el toque. Se veía el icono
+            // pero no pasaba nada al tocarlo.
+            IconButton(
+                onClick = onAjustes,
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(end = Espaciado.xs, top = Espaciado.xs),
+            ) {
+                IconoCookify(
+                    icono = IconosCookify.engranaje,
+                    descripcion = "Estado del servicio de precios",
+                    tinte = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
         }
