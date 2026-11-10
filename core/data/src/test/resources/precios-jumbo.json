@@ -1,0 +1,107 @@
+{
+  "supermercado": "JUMBO",
+  "actualizadoEn": "2026-11-09T22:50:09.857044Z",
+  "cantidad": 10,
+  "datos": [
+    {
+      "id": 867,
+      "ingredienteId": "aceite",
+      "precioClpPorUnidad": 3.189,
+      "unidad": "ml",
+      "origen": "MEDIDO",
+      "candidatos": 31,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    },
+    {
+      "id": 868,
+      "ingredienteId": "aceite_oliva",
+      "precioClpPorUnidad": 16.04,
+      "unidad": "ml",
+      "origen": "MEDIDO",
+      "candidatos": 72,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    },
+    {
+      "id": 941,
+      "ingredienteId": "aceitunas",
+      "precioClpPorUnidad": 13.55,
+      "unidad": "g",
+      "origen": "MEDIDO",
+      "candidatos": 46,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    },
+    {
+      "id": 869,
+      "ingredienteId": "aji_color",
+      "precioClpPorUnidad": 12.3,
+      "unidad": "g",
+      "origen": "MEDIDO",
+      "candidatos": 3,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    },
+    {
+      "id": 905,
+      "ingredienteId": "ajo",
+      "precioClpPorUnidad": 50.8,
+      "unidad": "un",
+      "origen": "MEDIDO",
+      "candidatos": 4,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    },
+    {
+      "id": 903,
+      "ingredienteId": "albahaca",
+      "precioClpPorUnidad": 1320.0,
+      "unidad": "un",
+      "origen": "MEDIDO",
+      "candidatos": 1,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    },
+    {
+      "id": 906,
+      "ingredienteId": "apio",
+      "precioClpPorUnidad": 1.875,
+      "unidad": "g",
+      "origen": "MEDIDO",
+      "candidatos": 2,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    },
+    {
+      "id": 883,
+      "ingredienteId": "arroz",
+      "precioClpPorUnidad": 2.13,
+      "unidad": "g",
+      "origen": "MEDIDO",
+      "candidatos": 29,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    },
+    {
+      "id": 863,
+      "ingredienteId": "asiento",
+      "precioClpPorUnidad": 19.09,
+      "unidad": "g",
+      "origen": "MEDIDO",
+      "candidatos": 3,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    },
+    {
+      "id": 887,
+      "ingredienteId": "atun_lata",
+      "precioClpPorUnidad": 1288.7273,
+      "unidad": "un",
+      "origen": "MEDIDO",
+      "candidatos": 38,
+      "recoleccionId": 1,
+      "medidoEn": "2026-11-09T22:50:09.857044Z"
+    }
+  ]
+}

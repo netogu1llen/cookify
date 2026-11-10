@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--
+        El único permiso que la app pide, y solo para traer los precios del
+        servicio. Si se deniega o no hay red, la app sigue funcionando con el
+        catálogo empaquetado: la red mejora la precisión, no la habilita.
+
+        No se declara usesCleartextTraffic: el servicio es https y dejarlo en
+        falso (el valor por omisión desde la API 28) impide que un descuido
+        mande precios por una conexión sin cifrar.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".CookifyApplication"
         android:allowBackup="true"
