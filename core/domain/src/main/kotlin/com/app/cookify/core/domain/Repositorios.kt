@@ -2,6 +2,8 @@ package com.app.cookify.core.domain
 
 import com.app.cookify.core.model.PlanSemanal
 import com.app.cookify.core.model.PreciosDeCadena
+import com.app.cookify.core.model.PreciosGuardados
+import com.app.cookify.core.model.PruebaDeConexion
 import com.app.cookify.core.model.Receta
 import com.app.cookify.core.model.SemanaGuardada
 import com.app.cookify.core.model.Supermercado
@@ -33,6 +35,36 @@ interface PrecioRepository {
      * armar una semana sin señal.
      */
     suspend fun precios(supermercado: Supermercado): PreciosDeCadena
+}
+
+/**
+ * El estado del servicio de precios, para poder diagnosticarlo desde la app.
+ *
+ * Es una interfaz aparte de [PrecioRepository] a proposito: aquella responde
+ * *cuanto cuesta*, que es lo que la app necesita para funcionar. Esta responde
+ * *de donde salio ese numero*, que es lo que una persona necesita para confiar
+ * en el. Son dos preguntas distintas y solo la segunda justifica salir a la red
+ * sin que nadie lo haya pedido.
+ */
+interface ServicioRepository {
+
+    /** La direccion del servicio con que se compilo esta version de la app. */
+    val direccion: String
+
+    /** Pregunta al servicio si esta arriba, midiendo cuanto tarda el viaje. */
+    suspend fun probarConexion(): PruebaDeConexion
+
+    /** Lo que la app tiene guardado, cadena por cadena. */
+    suspend fun preciosGuardados(): List<PreciosGuardados>
+
+    /**
+     * Borra los precios guardados.
+     *
+     * Sirve para forzar que la proxima semana vuelva a pedirlos al servicio, que
+     * es como se comprueba de verdad que la conexion funciona. No borra nada del
+     * usuario: las semanas guardadas no se tocan.
+     */
+    suspend fun olvidarPreciosGuardados()
 }
 
 /**

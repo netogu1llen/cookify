@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -49,6 +50,7 @@ import com.app.cookify.core.ui.theme.Espaciado
 fun PantallaHome(
     onNuevaSemana: () -> Unit,
     onAbrirSemana: (id: Long) -> Unit,
+    onAjustes: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -58,6 +60,7 @@ fun PantallaHome(
         estado = estado,
         onNuevaSemana = onNuevaSemana,
         onAbrirSemana = onAbrirSemana,
+        onAjustes = onAjustes,
         modifier = modifier,
     )
 }
@@ -68,6 +71,7 @@ internal fun ContenidoHome(
     estado: HomeUiState,
     onNuevaSemana: () -> Unit,
     onAbrirSemana: (Long) -> Unit,
+    onAjustes: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -80,6 +84,19 @@ internal fun ContenidoHome(
                 .fillMaxSize()
                 .padding(relleno),
         ) {
+            IconButton(
+                onClick = onAjustes,
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(end = Espaciado.xs, top = Espaciado.xs),
+            ) {
+                IconoCookify(
+                    icono = IconosCookify.engranaje,
+                    descripcion = "Estado del servicio de precios",
+                    tinte = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+
             when {
                 // Sin nada mientras carga: un spinner que aparece y desaparece en
                 // 50 ms se ve como un defecto, no como progreso.

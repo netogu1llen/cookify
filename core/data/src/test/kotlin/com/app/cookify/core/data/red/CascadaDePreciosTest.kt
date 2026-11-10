@@ -240,6 +240,20 @@ class CascadaDePreciosTest {
             filas += precios
             escrituras += precios
         }
+
+        override suspend fun resumen() = filas.groupBy { it.supermercado }.map { (cadena, suyas) ->
+            com.app.cookify.core.database.ResumenCache(
+                supermercado = cadena,
+                total = suyas.size,
+                medidos = suyas.count { it.origen == "MEDIDO" },
+                medidoEn = suyas.mapNotNull { it.medidoEn }.maxOrNull(),
+                guardadoEn = suyas.minOfOrNull { it.guardadoEn },
+            )
+        }
+
+        override suspend fun borrarTodo() {
+            filas.clear()
+        }
     }
 
     private companion object {

@@ -40,6 +40,7 @@ dependencies {
     implementation(projects.core.domain)
     implementation(projects.core.common)
 
+    implementation(projects.feature.ajustes)
     implementation(projects.feature.home)
     implementation(projects.feature.onboarding)
     implementation(projects.feature.planning)

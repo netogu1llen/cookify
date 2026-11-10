@@ -46,6 +46,7 @@ object IconosCookify {
     @DrawableRes val hornoElectrico = R.drawable.core_ui_ic_horno_electrico
     @DrawableRes val sinConexion = R.drawable.core_ui_ic_sin_conexion
     @DrawableRes val etiquetaPrecio = R.drawable.core_ui_ic_etiqueta_precio
+    @DrawableRes val engranaje = R.drawable.core_ui_ic_engranaje
 }
 
 /**

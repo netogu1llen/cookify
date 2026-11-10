@@ -24,6 +24,10 @@ sealed interface Ruta : NavKey {
     @Serializable
     data object Onboarding : Ruta
 
+    /** Estado del servicio de precios: a quien le habla la app y si lo alcanza. */
+    @Serializable
+    data object Ajustes : Ruta
+
     @Serializable
     data class Armado(val solicitud: SolicitudPlan) : Ruta
 

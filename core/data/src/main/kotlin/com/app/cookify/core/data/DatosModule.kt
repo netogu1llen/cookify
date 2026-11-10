@@ -2,9 +2,11 @@ package com.app.cookify.core.data
 
 import com.app.cookify.core.data.red.PrecioRepositoryRemoto
 import com.app.cookify.core.data.red.Respaldo
+import com.app.cookify.core.data.red.ServicioRepositoryRed
 import com.app.cookify.core.domain.CatalogoRepository
 import com.app.cookify.core.domain.PrecioRepository
 import com.app.cookify.core.domain.SemanaRepository
+import com.app.cookify.core.domain.ServicioRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -41,4 +43,8 @@ internal abstract class DatosModule {
     @Binds
     @Singleton
     abstract fun semanaRepository(impl: SemanaRepositoryLocal): SemanaRepository
+
+    @Binds
+    @Singleton
+    abstract fun servicioRepository(impl: ServicioRepositoryRed): ServicioRepository
 }

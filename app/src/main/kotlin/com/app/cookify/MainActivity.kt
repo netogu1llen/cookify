@@ -10,6 +10,7 @@ import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDe
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavEntryDecorator
 import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.runtime.rememberNavBackStack
@@ -22,6 +23,7 @@ import com.app.cookify.feature.planning.PantallaArmado
 import com.app.cookify.feature.week.PantallaDetalle
 import com.app.cookify.feature.week.PantallaSemana
 import com.app.cookify.feature.week.PantallaSemanaGuardada
+import com.app.cookify.feature.ajustes.PantallaAjustes
 import com.app.cookify.navegacion.Ruta
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -67,12 +69,27 @@ private fun CookifyApp() {
         backStack = backStack,
         onBack = { backStack.removeLastOrNull() },
         entryDecorators = decoradoresDeEntrada(),
-        entryProvider = entryProvider<NavKey> {
-            entry<Ruta.Home> {
+        entryProvider = entryProvider { destinos(backStack) },
+    )
+}
+
+/**
+ * Las pantallas y a donde lleva cada accion.
+ *
+ * Separado del shell de navegacion para que agregar una pantalla no haga crecer
+ * la funcion que arma el NavDisplay.
+ */
+private fun EntryProviderScope<NavKey>.destinos(backStack: NavBackStack<NavKey>) {
+    entry<Ruta.Home> {
                 PantallaHome(
                     onNuevaSemana = { backStack.add(Ruta.Onboarding) },
                     onAbrirSemana = { id -> backStack.add(Ruta.SemanaGuardada(id)) },
+                    onAjustes = { backStack.add(Ruta.Ajustes) },
                 )
+            }
+
+            entry<Ruta.Ajustes> {
+                PantallaAjustes(onVolver = { backStack.removeLastOrNull() })
             }
 
             entry<Ruta.Onboarding> {
@@ -128,8 +145,6 @@ private fun CookifyApp() {
                     onVolver = { backStack.removeLastOrNull() },
                 )
             }
-        },
-    )
 }
 
 /**

@@ -55,3 +55,21 @@ fun String?.aFechaHoraCorta(): String? {
         local.minute,
     )
 }
+
+/**
+ * Lo mismo, pero desde un instante en milisegundos.
+ *
+ * El servicio responde texto ISO y la caché guarda milisegundos, así que hacen
+ * falta las dos entradas. El formato de salida es el mismo para que en pantalla
+ * "medido en el súper" y "traído al teléfono" se puedan comparar de un vistazo.
+ */
+fun Long.aFechaHoraCorta(): String {
+    val local = Instant.ofEpochMilli(this).atZone(ZoneId.systemDefault())
+    return "%02d/%02d/%02d %02d:%02d".format(
+        local.dayOfMonth,
+        local.monthValue,
+        local.year % SIGLO,
+        local.hour,
+        local.minute,
+    )
+}

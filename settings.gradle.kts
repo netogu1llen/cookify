@@ -50,6 +50,7 @@ include(":feature:onboarding")
 include(":feature:planning")
 include(":feature:week")
 include(":feature:home")
+include(":feature:ajustes") // Estado del servicio de precios y diagnostico
 
 // Architecture guardrail: features must not depend on other features.
 // Uses ProjectDependency.path (getDependencyProject() was removed in Gradle 9).
