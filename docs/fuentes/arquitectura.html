@@ -3,7 +3,14 @@
 <style>
   /*
    * Fuente del diagrama de arquitectura. Se renderiza a PNG con:
-   *   msedge --headless=new --screenshot=arquitectura.png --window-size=1500,1900
+   *   msedge --headless=new --disable-gpu --hide-scrollbars
+   *     --force-device-scale-factor=2 --window-size=1500,1916
+   *     --screenshot=docs/arquitectura.png
+   *     file:///.../docs/fuentes/arquitectura.html
+   *
+   * El alto esta medido, no elegido a ojo: con uno mas corto aparece la barra
+   * de desplazamiento, que angosta el cuerpo, estira el contenido y corta la
+   * leyenda. Si se agregan piezas hay que volver a medir donde termina la tinta.
    * Los nombres de los componentes son los reales del repositorio. Si un modulo
    * cambia de nombre en el codigo, cambia aqui: el diagrama no es un dibujo aparte.
    */
@@ -83,16 +90,26 @@
     border-top: 1px solid var(--linea); padding-top: 13px;
   }
   .muestra { display: inline-block; width: 26px; height: 13px; border-radius: 4px; vertical-align: -2px; margin-right: 7px; }
+
+  .despliegue {
+    background: #F2F6FB; border: 1px solid #A9C3E2; border-radius: 11px;
+    padding: 12px 16px; text-align: center; font-size: 13px; color: var(--tinta-media);
+    margin-bottom: 0;
+  }
+  .despliegue b { color: var(--tinta); }
+  .despliegue .menor { font-size: 12px; color: var(--tinta-suave); }
+  code { font: 600 12px ui-monospace, Consolas, monospace; color: #3b3640; }
 </style>
 
 <h1>Arquitectura de Cookify</h1>
-<p class="sub">Cliente–servidor en capas. Los nombres son los reales del repositorio
-<b>github.com/netogu1llen/cookify</b>.</p>
+<p class="sub">Cliente–servidor en capas, al cierre del Hito 3. Los nombres son los reales
+del repositorio <b>github.com/netogu1llen/cookify</b>: si un módulo cambia de nombre en el
+código, cambia aquí.</p>
 
 <div class="bloque cliente">
   <div class="cabecera">
     <h2>Cliente</h2>
-    <span class="tec">Android nativo · Kotlin 2.3 · Jetpack Compose · minSdk 24</span>
+    <span class="tec">Android nativo · Kotlin 2.3 · Jetpack Compose · Navigation3 · minSdk 24 · targetSdk 37</span>
     <span class="pill hoy">Construido</span>
   </div>
 
@@ -107,15 +124,19 @@
       <span class="pieza mod">:feature:planning</span>
       <span class="pieza mod">:feature:week</span>
       <span class="pieza mod">:feature:home</span>
+      <span class="pieza mod">:feature:ajustes</span>
       <span class="pieza">OnboardingViewModel</span>
       <span class="pieza">ArmadoViewModel</span>
       <span class="pieza">SemanaViewModel</span>
       <span class="pieza">DetalleViewModel</span>
       <span class="pieza">HomeViewModel</span>
+      <span class="pieza">AjustesViewModel</span>
       <span class="pieza mod">:core:ui</span>
+      <span class="pieza">SelloDePrecios</span>
     </div>
     <div class="resp">Dibuja y recibe gestos. No calcula nada: cada ViewModel expone un
-      <b>StateFlow</b> inmutable y manda los eventos de una sola vez por <b>Channel</b>.</div>
+      <b>StateFlow</b> inmutable y manda los eventos de una sola vez por <b>Channel</b>.
+      El sello —medido o estimado, con su fecha— solo pinta lo que el dominio ya resolvió.</div>
   </div>
 
   <div class="capa">
@@ -123,17 +144,22 @@
     <div class="piezas">
       <span class="pieza mod">:core:domain</span>
       <span class="pieza">GenerarPlanSemanalUseCase</span>
+      <span class="pieza">PlanificadorSemanal</span>
       <span class="pieza">CalculadoraCostos</span>
       <span class="pieza">SemanaRepository</span>
       <span class="pieza">PrecioRepository</span>
+      <span class="pieza">CatalogoRepository</span>
+      <span class="pieza">ServicioRepository</span>
       <span class="pieza mod">:core:model</span>
       <span class="pieza">SolicitudPlan</span>
       <span class="pieza">PlanSemanal</span>
       <span class="pieza">Receta</span>
+      <span class="pieza">PreciosDeCadena</span>
     </div>
     <div class="resp">Decide qué se come y cuánto cuesta. <b>Sin una sola importación de
       Android</b>, por eso se prueba con JUnit sin emulador. Define los repositorios como
-      interfaz: el dominio no sabe si el dato viene de disco o de la red.</div>
+      interfaz: el dominio no sabe si el dato viene de disco o de la red. <code>PreciosDeCadena</code>
+      llega con el precio ya resuelto por cadena y diciendo si se midió o se estimó.</div>
   </div>
 
   <div class="capa">
@@ -142,21 +168,26 @@
       <span class="pieza mod">:core:data</span>
       <span class="pieza">CatalogoLocalDataSource</span>
       <span class="pieza">SemanaRepositoryLocal</span>
-      <span class="pieza">PrecioRepositoryImpl</span>
+      <span class="pieza">PrecioRepositoryLocal</span>
+      <span class="pieza">PrecioRepositoryRemoto</span>
       <span class="pieza">ClientePrecios</span>
+      <span class="pieza">ServicioRepositoryRed</span>
+      <span class="pieza">RedModule</span>
       <span class="pieza">DatosModule</span>
     </div>
-    <div class="resp">Única capa que conoce el origen del dato. Resuelve el precio en
-      cascada: <b>caché fresca → caché vencida → valor del catálogo local</b>, para que la
-      semana se arme igual sin señal.</div>
+    <div class="resp">Única capa que conoce el origen del dato.
+      <code>PrecioRepositoryRemoto</code> decora al local y resuelve el precio en cascada:
+      <b>caché fresca (7 días) → servicio → caché vencida → catálogo del APK</b>. La semana
+      se arma igual sin señal, y la pantalla dice con cuál de los cuatro se armó.</div>
   </div>
 
   <div class="capa">
     <div class="nombre">Persistencia<small>Disco del teléfono</small></div>
     <div class="piezas">
       <span class="pieza mod">:core:database</span>
-      <span class="pieza">CookifyDatabase</span>
+      <span class="pieza">CookifyDatabase v2</span>
       <span class="pieza">SemanaDao</span>
+      <span class="pieza">PrecioCacheDao</span>
       <span class="pieza">semanas_guardadas</span>
       <span class="pieza">dias_semana_guardada</span>
       <span class="pieza">precios_cache</span>
@@ -164,73 +195,116 @@
       <span class="pieza">assets/ingredientes.json</span>
     </div>
     <div class="resp">Room 3 sobre SQLite para lo que el usuario guarda y para la caché de
-      precios. El recetario viaja dentro del APK: se lee una vez al abrir y queda en memoria.</div>
+      precios. La <b>AutoMigration 1→2</b> agregó la caché sin borrar las semanas ya
+      guardadas. El recetario —69 recetas, 98 ingredientes— viaja dentro del APK: se lee una
+      vez al abrir y queda en memoria.</div>
   </div>
 </div>
 
 <div class="enlace">
   <div class="flecha">▼ &nbsp; ▲</div>
-  <div class="etq">HTTPS · JSON · GET /precios?supermercado=JUMBO</div>
-  <div class="nota">Una descarga cada 7 días, no una por semana armada</div>
+  <div class="etq">HTTPS · JSON · GET /api/v1/precios?supermercado=JUMBO</div>
+  <div class="nota">Una descarga cada 7 días por cadena, no una por semana armada.
+    Solo lectura: la app nunca escribe en el servicio.</div>
 </div>
 
 <div class="bloque servidor">
   <div class="cabecera">
     <h2>Servidor</h2>
-    <span class="tec">Servicio de precios · una instancia sirve a todos los clientes</span>
-    <span class="pill h2">Comprometido para el Hito 2</span>
+    <span class="tec">Servicio de precios · Kotlin 2.3 · Ktor 3.2 · JVM 21 · una instancia sirve a todos los clientes</span>
+    <span class="pill hoy">Construido y publicado</span>
   </div>
 
   <div class="capa">
-    <div class="nombre">API<small>Lo único que el cliente ve</small></div>
+    <div class="nombre">Ruteo<small>Lo único que el cliente ve</small></div>
     <div class="piezas">
-      <span class="pieza mod">GET /precios</span>
-      <span class="pieza mod">GET /precios/{supermercado}</span>
+      <span class="pieza mod">ruteo/</span>
+      <span class="pieza">GET /api/v1/precios</span>
       <span class="pieza">GET /salud</span>
+      <span class="pieza">ingredientes</span>
+      <span class="pieza">fuentes</span>
+      <span class="pieza">supermercados</span>
+      <span class="pieza">recolecciones</span>
+      <span class="pieza">StatusPages</span>
+      <span class="pieza">Validador</span>
     </div>
-    <div class="resp">Devuelve un mapa <b>ingredienteId → precio por gramo</b> con su fecha
-      de actualización. El cliente nunca ve un producto del supermercado ni un scraper.</div>
+    <div class="resp">HTTP y nada más: parámetros, cuerpos y códigos. <b>22 rutas</b> bajo
+      <code>/api/v1</code>, cinco recursos y la salud. La lectura es abierta; escribir exige
+      <code>X-API-Key</code>. <b>Ningún error viaja con código 200</b>: StatusPages traduce
+      cada <code>ErrorDelServicio</code> en un solo lugar.</div>
   </div>
 
   <div class="capa">
-    <div class="nombre">Normalización<small>Donde está el trabajo real</small></div>
+    <div class="nombre">Negocio<small>Las reglas, sin HTTP ni SQL</small></div>
     <div class="piezas">
-      <span class="pieza">TamanoEnvase</span>
-      <span class="pieza">MapeadorIngrediente</span>
-      <span class="pieza">fuentes_precios.json</span>
+      <span class="pieza mod">negocio/</span>
+      <span class="pieza">SupermercadoServicio</span>
+      <span class="pieza">IngredienteServicio</span>
+      <span class="pieza">FuenteServicio</span>
+      <span class="pieza">PrecioServicio</span>
+      <span class="pieza">RecolectorServicio</span>
+      <span class="pieza">SaludServicio</span>
+      <span class="pieza">Normalizador</span>
     </div>
-    <div class="resp">Convierte «Arroz Tucapel 1 kg · $2.540» en «arroz · $2,54/g». Saca el
-      formato del nombre, descarta lo que se vende a granel sin peso y toma el percentil 25
-      de los candidatos de la categoría.</div>
+    <div class="resp">El <code>Normalizador</code> convierte «Arroz Tucapel 1 kg · $2.540» en
+      «arroz · $2,54/g»: saca el formato del nombre, descarta lo que se vende a granel sin
+      peso y toma el percentil 25 de los candidatos de la categoría. El recolector lee
+      <b>categorías y no búsqueda</b>: buscar «cebolla» devuelve mermelada de cebolla y
+      pretzels; la categoría de verduras solo trae verduras.</div>
   </div>
 
   <div class="capa">
-    <div class="nombre">Recolección<small>Programada, no a pedido</small></div>
+    <div class="nombre">Datos<small>El único lugar con SQL</small></div>
     <div class="piezas">
-      <span class="pieza">RecolectorJumbo</span>
-      <span class="pieza">RecolectorSantaIsabel</span>
-      <span class="pieza">ProgramadorDeSincronizacion</span>
+      <span class="pieza mod">datos/</span>
+      <span class="pieza">FuenteDeDatos</span>
+      <span class="pieza">HikariCP</span>
+      <span class="pieza">SupermercadoDao</span>
+      <span class="pieza">IngredienteDao</span>
+      <span class="pieza">FuenteDao</span>
+      <span class="pieza">PrecioDao</span>
+      <span class="pieza">RecoleccionDao</span>
+      <span class="pieza mod">datos/externo/</span>
+      <span class="pieza">ClienteCadena</span>
+      <span class="pieza">ParserCatalogo</span>
     </div>
-    <div class="resp">Lee las páginas de categoría de cada cadena. <b>Categorías y no
-      búsqueda</b>: buscar «cebolla» devuelve mermelada de cebolla y pretzels; la categoría
-      de verduras solo contiene verduras.</div>
+    <div class="resp">JDBC sin ORM, y el único paquete que habla con jumbo.cl. Cada operación
+      corre dentro de una transacción que abre la capa de negocio, no el DAO: así una regla
+      que toca dos tablas sigue siendo atómica.</div>
   </div>
 
   <div class="capa">
-    <div class="nombre">Persistencia<small>Historia de precios</small></div>
+    <div class="nombre">Persistencia<small>PostgreSQL 18 · historia de precios</small></div>
     <div class="piezas">
-      <span class="pieza">precios</span>
-      <span class="pieza">productos_observados</span>
-      <span class="pieza">corridas_de_sincronizacion</span>
+      <span class="pieza">supermercado</span>
+      <span class="pieza">ingrediente</span>
+      <span class="pieza">fuente_precio</span>
+      <span class="pieza">precio</span>
+      <span class="pieza">recoleccion</span>
+      <span class="pieza">precio_vigente</span>
+      <span class="pieza mod">db/001_esquema.sql</span>
+      <span class="pieza mod">db/002_semilla.sql</span>
+      <span class="pieza mod">db/003_snapshot_precios.sql</span>
     </div>
-    <div class="resp">Guarda cada corrida en vez de sobrescribir. Permite responder «cuánto
-      subió el pollo este mes» sin volver a bajar nada.</div>
+    <div class="resp">Cinco tablas y una vista. Guarda <b>cada corrida</b> en vez de
+      sobrescribir, así se puede responder «cuánto subió el pollo este mes» sin volver a
+      bajar nada. El esquema no lo crea el código: los scripts de <code>db/</code> son la
+      única fuente de verdad. <b>183 precios medidos</b> de 196 fuentes mapeadas.</div>
   </div>
+</div>
+
+<div class="despliegue">
+  <b>Despliegue</b> · tres contenedores con <code>docker compose</code> sobre una instancia
+  ARM de Oracle Cloud · <b>Caddy</b> delante, con certificado de Let's Encrypt que se renueva
+  solo · publicado en <b>https://cookifies.duckdns.org</b>
+  <br><span class="menor">Las credenciales viven en <code>.env</code>, fuera del repositorio;
+  lo que se versiona es <code>.env.example</code>. El servicio no arranca si falta alguna.</span>
 </div>
 
 <div class="enlace servidor-in">
   <div class="flecha">▼</div>
   <div class="etq">HTTPS · HTML renderizado en el servidor</div>
+  <div class="nota">Pausa de 400 ms entre peticiones: sin ella Santa Isabel responde 502</div>
 </div>
 
 <div class="externo">
@@ -243,7 +317,7 @@
 </div>
 
 <div class="leyenda">
-  <span><span class="muestra" style="background:var(--cliente);border:2px solid #F3C9B4"></span>Construido y funcionando hoy</span>
-  <span><span class="muestra" style="background:var(--servidor);border:2px dashed #A9C3E2"></span>Comprometido para el Hito 2</span>
-  <span><span class="pieza mod" style="padding:3px 6px">:modulo</span> módulo Gradle del repositorio</span>
+  <span><span class="muestra" style="background:var(--cliente);border:2px solid #F3C9B4"></span>Cliente Android</span>
+  <span><span class="muestra" style="background:var(--servidor);border:2px dashed #A9C3E2"></span>Servicio publicado</span>
+  <span><span class="pieza mod" style="padding:3px 6px">:modulo</span> módulo Gradle o paquete del repositorio</span>
 </div>

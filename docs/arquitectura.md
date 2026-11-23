@@ -25,9 +25,10 @@ motor de planificación se prueba con JUnit en la JVM, sin emulador y en miliseg
 
 El dominio define `SemanaRepository` y `PrecioRepository` como **interfaces**, y `:core:data`
 las implementa. Esa inversión es la que permitió que el Hito 2 construyera el servidor **sin
-tocar el motor de planificación**: cambia quién responde el precio, no quién lo usa. Conectar
-la app al servicio, que es trabajo del Hito 3, es escribir una implementación nueva de
-`PrecioRepository` y registrarla en Hilt.
+tocar el motor de planificación**: cambia quién responde el precio, no quién lo usa. Y es la
+que hizo que conectar la app al servicio, en el Hito 3, fuera escribir una implementación más
+—`PrecioRepositoryRemoto`, que decora a la local— y cambiar qué se registra en Hilt. El motor
+de planificación no se tocó.
 
 ---
 
@@ -57,17 +58,29 @@ presupuesto. Es **determinista**: misma semilla, mismo plan.
 `recetas.json` e `ingredientes.json` una sola vez al abrir la app y los deja en memoria.
 Son de solo lectura, así que no pasan por Room.
 
-**5 · Datos → Red** *(el servicio existe; conectarlo es el Hito 3)* — Para cada ingrediente,
-`PrecioRepositoryImpl` resuelve el precio en cascada:
+**5 · Datos → Red** — `PrecioRepositoryRemoto` resuelve el precio de la cadena en cascada,
+y se queda con el primer escalón que responda:
 
 ```
-caché fresca (< 7 días)  →  caché vencida  →  valor de ingredientes.json
+caché fresca (< 7 días)  →  servicio  →  caché vencida  →  valor de ingredientes.json
 ```
 
-Si hay red y la caché venció, `ClientePrecios` pide
-`GET /api/v1/precios?supermercado=JUMBO` **en segundo plano** y guarda el resultado en la
-tabla `precios_cache`. El respaldo al catálogo local no es opcional: **sin él no se puede
-armar una semana sin señal**.
+Con la caché fresca **ni se intenta la red**. Si venció, `ClientePrecios` pide
+`GET /api/v1/precios?supermercado=JUMBO` y, si llega, guarda el resultado en la tabla
+`precios_cache`. Si el servicio está caído o responde una lista vacía —que para la app es
+lo mismo— se usa la caché vencida: un precio medido hace un mes vale más que uno estimado
+hoy. El respaldo al catálogo local no es opcional: **sin él no se puede armar una semana
+sin señal**.
+
+El catálogo empaquetado manda en qué ingredientes existen y en qué unidad se miden; el
+servicio solo aporta el precio. Un precio que no venga, o que venga en cero, deja al
+ingrediente con su estimación en vez de sacarlo del mapa: el motor fallaría al costear una
+receta que lo use. Las dos reglas salieron de pruebas que fallaron, no de suponerlas.
+
+Cada `PreciosDeCadena` llega marcada con su procedencia —`SERVICIO`, `CACHE` o `CATALOGO`—,
+la fecha en que se midió y si hubo conexión. Eso es lo que la pantalla muestra como
+«Precios medidos en el súper · 09/11/26 22:50» o «Sin conexión · Precios estimados»: la app
+no afirma una precisión que no tiene.
 
 **6 · Dominio** — `CalculadoraCostos` escala cada ingrediente por el número de personas y
 **redondea hacia arriba lo que se vende por unidad**: media palta no existe en el

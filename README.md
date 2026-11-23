@@ -33,7 +33,8 @@ armarla igual por el mínimo posible.
 | Motor de planificación | determinista, probado con JUnit |
 | Servicio de precios | ✅ 22 rutas, PostgreSQL, recolector contra Jumbo y Santa Isabel |
 | Precios medidos | 183 fuentes verificadas una por una · 4.934 productos leídos |
-| La app conectada al servicio | 🔜 Hito 3 |
+| La app conectada al servicio | ✅ en producción, con caché de 7 días y respaldo sin red |
+| Publicado | ✅ https://cookifies.duckdns.org, con TLS |
 
 ## El servicio de precios
 
@@ -59,21 +60,63 @@ curl -s https://cookifies.duckdns.org/api/v1/precios?supermercado=JUMBO
 Las instrucciones completas están en [server/README.md](server/README.md) y el contrato
 de la interfaz en [docs/api-cookify.md](docs/api-cookify.md).
 
+## Instalar y usar
+
+El manual completo, con datos de prueba y las fallas más frecuentes, está en
+**[docs/manual-cookify.md](docs/manual-cookify.md)**. En resumen:
+
+**Usar la app.** Descargar `cookify.apk` de
+[Releases](https://github.com/netogu1llen/cookify/releases), abrirlo en un Android 7 o
+superior y aceptar la instalación desde esta fuente. No hace falta levantar nada: la app
+viene apuntando al servicio publicado. Sin red también funciona, con precios estimados.
+
+**Compilarla.** Hace falta JDK 21 y la plataforma 37 del SDK de Android.
+
+```bash
+git clone https://github.com/netogu1llen/cookify.git
+cd cookify
+./gradlew :app:assembleDebug        # el APK queda en app/build/outputs/apk/debug/
+./gradlew test detekt               # pruebas y análisis estático
+```
+
+Para compilarla contra un servicio local: `-PcookifyApiUrl=http://10.0.2.2:8090`.
+
+**Datos de prueba.** Jumbo · 4 personas · lunes, miércoles y viernes · $45.000 ·
+«Rápido y sin esfuerzo» y «Alto en proteína» · sin restricción · estufa y horno. Con
+$6.000 en vez de $45.000 se ve el camino de presupuesto insuficiente.
+
+**Comprobar que habla con el servicio.** Engranaje de la portada → *Estado del servicio*
+→ *Probar conexión*. Dice la dirección con que se compiló, si responde y cuánto tardó.
+
+**Levantar el servicio en otro equipo.** Hacen falta Docker y JDK 21:
+
+```bash
+cp .env.example .env            # y completar tres valores
+docker compose up -d db         # base creada y sembrada
+./gradlew -p server run         # el servicio, en el puerto 8090
+curl -s http://localhost:8090/salud
+```
+
+Si la base levanta sin tablas, el volumen es de un intento anterior:
+`docker compose down -v && docker compose up -d db`.
+
 ## Documentos
 
 | Documento | Qué contiene |
 |---|---|
+| **Hito 3** | |
+| [Manual de uso e instalación](docs/manual-cookify.md) | Requisitos, pasos, datos de prueba y siete fallas frecuentes |
+| [Diagrama de arquitectura](docs/arquitectura.png) | Cliente, servidor, despliegue y capas, al cierre del Hito 3 |
 | **Hito 2** | |
 | [Documento técnico (PDF)](docs/tecnico-cookify.pdf) | 27 páginas: cambios, contrato, capas, datos, decisiones |
 | [Contrato de la API](docs/api-cookify.md) | Las 22 rutas con cuerpos, códigos y versionado |
 | [Instrucciones del servicio](server/README.md) | Cómo levantarlo en otro equipo |
-| [Modelo de datos](db/modelo.png) | Cuatro tablas y una vista |
+| [Modelo de datos](db/modelo.png) | Cinco tablas y una vista |
 | [Colección de Postman](postman/cookify-api.postman_collection.json) | 35 peticiones listas para importar |
 | **Hito 1** | |
 | [Propuesta (PDF)](docs/propuesta-cookify.pdf) | El documento del Hito 1 |
 | [Láminas (PDF)](docs/laminas-hito1.pdf) | Las ocho de la presentación |
 | [Mapa del producto](docs/mapa-del-producto.png) | Arquitectura de información |
-| [Diagrama de arquitectura](docs/arquitectura.png) | Cliente, servidor y capas |
 | [Arquitectura en detalle](docs/arquitectura.md) | El caso de uso recorrido capa por capa |
 | [Evidencia del problema](docs/evidencia.md) | Cifras con fuente verificada |
 | [Precios reales](docs/PRECIOS_REALES.md) | Por qué el precio necesita un servidor |
