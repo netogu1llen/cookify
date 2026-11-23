@@ -1,0 +1,10 @@
+Cookify · video del producto
+Hito 3 · INGT1003 · Arquitectura de Desarrollo (Movil y Web)
+
+https://youtu.be/xKrSLwQnxtg
+
+El enlace va sin el parametro ?si=, que YouTube agrega al compartir y solo
+sirve para rastrear de donde vino la visita.
+
+Comprobado el 23-11-2026: responde y redirige a
+https://www.youtube.com/watch?v=xKrSLwQnxtg
