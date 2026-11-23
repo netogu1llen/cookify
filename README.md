@@ -107,6 +107,7 @@ Si la base levanta sin tablas, el volumen es de un intento anterior:
 | **Hito 3** | |
 | [Documentación final (PDF)](docs/final-cookify.pdf) | 27 páginas: el producto, la integración, la bitácora de veinte decisiones, las limitaciones y los anexos de IA y datos personales |
 | [Manual de uso e instalación](docs/manual-cookify.md) | Requisitos, pasos, datos de prueba y siete fallas frecuentes |
+| [Láminas (PDF)](docs/laminas-hito3.pdf) | Las nueve del producto terminado |
 | [Diagrama de arquitectura](docs/arquitectura.png) | Cliente, servidor, despliegue y capas, al cierre del Hito 3 |
 | **Hito 2** | |
 | [Documento técnico (PDF)](docs/tecnico-cookify.pdf) | 27 páginas: cambios, contrato, capas, datos, decisiones |

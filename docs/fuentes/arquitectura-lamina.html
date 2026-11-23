@@ -3,11 +3,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Archivo:wght@400;500;600;700&display=swap">
 <style>
 /*
- * Version apaisada del diagrama de arquitectura, para la lamina 6.
+ * Version apaisada del diagrama de arquitectura, para la lamina 5 del Hito 3.
  *
  * No es el mismo archivo que el del documento y no deberia serlo: el del documento
  * se lee a treinta centimetros y puede listar cada clase; este se lee proyectado al
  * fondo de una sala, asi que lleva menos piezas y tipografia mas grande.
+ *
+ * Se exporta a PNG con:
+ *   msedge --headless=new --disable-gpu --hide-scrollbars
+ *     --window-size=2400,<alto medido> --screenshot=docs/arquitectura-lamina.png
+ *     file:///.../docs/fuentes/arquitectura-lamina.html
+ * El alto se mide, no se adivina.
  */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -24,7 +30,7 @@ body {
 .cab .tec { font-size: 21px; color: #6B6472; }
 .cab .sello { margin-left: auto; font-size: 17px; font-weight: 700; letter-spacing: 1.4px;
               text-transform: uppercase; padding: 8px 18px; border-radius: 999px; color: #fff; }
-.sello.ok { background: #E2622A; } .sello.h2 { background: #2D6CB5; }
+.sello.ok { background: #E2622A; } .sello.pub { background: #2D6CB5; }
 
 .capa { background: #fff; border: 2px solid #E4DEE6; border-radius: 14px;
         padding: 16px 20px; margin-bottom: 13px; }
@@ -43,6 +49,13 @@ body {
 .puente .et { font-family: ui-monospace, Consolas, monospace; font-size: 16px;
               font-weight: 700; color: #3B3640; text-align: center; line-height: 1.35; }
 .puente .nt { font-size: 15px; color: #877F8C; text-align: center; line-height: 1.3; }
+
+.despliegue { margin-top: 16px; border: 2px solid #E4DEE6; border-radius: 14px;
+              padding: 15px 22px; font-size: 19px; color: #55505C; display: flex;
+              align-items: baseline; gap: 14px; }
+.despliegue b { font-family: "Bricolage Grotesque", sans-serif; font-size: 21px; color: #17161A; }
+.despliegue .url { margin-left: auto; font-family: ui-monospace, Consolas, monospace;
+                   font-size: 19px; font-weight: 700; color: #1F5591; }
 </style>
 
 <div class="tablero">
@@ -58,72 +71,93 @@ body {
       <div class="piezas">
         <span class="p mod">:app</span><span class="p mod">:feature:onboarding</span>
         <span class="p mod">:feature:planning</span><span class="p mod">:feature:week</span>
-        <span class="p mod">:feature:home</span><span class="p">ViewModel + StateFlow</span>
+        <span class="p mod">:feature:home</span><span class="p mod">:feature:ajustes</span>
+        <span class="p">ViewModel + StateFlow</span><span class="p">SelloDePrecios</span>
       </div>
     </div>
 
     <div class="capa">
       <div class="n">Dominio <span style="font-size:18px;font-weight:400;color:#877F8C">· Kotlin puro, sin Android</span></div>
-      <div class="r">Decide qué se come y cuánto cuesta.</div>
+      <div class="r">Decide qué se come y cuánto cuesta. No se enteró de que el precio ahora viene de la red.</div>
       <div class="piezas">
         <span class="p mod">:core:domain</span><span class="p">GenerarPlanSemanalUseCase</span>
-        <span class="p">CalculadoraCostos</span><span class="p mod">:core:model</span>
+        <span class="p">CalculadoraCostos</span><span class="p">PrecioRepository</span>
+        <span class="p mod">:core:model</span>
       </div>
     </div>
 
     <div class="capa">
-      <div class="n">Datos</div>
-      <div class="r">Única capa que sabe de dónde sale el dato.</div>
+      <div class="n">Datos <span style="font-size:18px;font-weight:400;color:#877F8C">· la cascada vive aquí</span></div>
+      <div class="r">Caché fresca → servicio → caché vencida → catálogo del APK.</div>
       <div class="piezas">
-        <span class="p mod">:core:data</span><span class="p">CatalogoLocalDataSource</span>
-        <span class="p">PrecioRepositoryImpl</span>
+        <span class="p mod">:core:data</span><span class="p">PrecioRepositoryRemoto</span>
+        <span class="p">PrecioRepositoryLocal</span><span class="p">ClientePrecios</span>
       </div>
     </div>
 
     <div class="capa">
       <div class="n">Persistencia</div>
-      <div class="r">Room 3 y el recetario dentro del APK.</div>
+      <div class="r">Room 3 para la semana y la caché; el recetario viaja dentro del APK.</div>
       <div class="piezas">
-        <span class="p mod">:core:database</span><span class="p">semanas_guardadas</span>
-        <span class="p">precios_cache</span><span class="p">recetas.json</span>
+        <span class="p mod">:core:database</span><span class="p">CookifyDatabase v2</span>
+        <span class="p">semanas_guardadas</span><span class="p">precios_cache</span>
       </div>
     </div>
   </div>
 
   <div class="puente">
     <div class="fl">▶▶</div>
-    <div class="et">HTTPS · JSON<br>GET /precios</div>
-    <div class="nt">Una descarga cada 7 días,<br>no una por semana armada</div>
+    <div class="et">HTTPS · JSON<br>GET /api/v1/precios</div>
+    <div class="nt">Una descarga cada 7 días<br>por cadena. Solo lectura.</div>
   </div>
 
   <div class="lado servidor">
     <div class="cab">
-      <h2>Servidor</h2><span class="tec">Ktor · comparte :core:model</span>
-      <span class="sello h2">Hito 2</span>
+      <h2>Servidor</h2><span class="tec">Ktor · comparte el modelo con la app</span>
+      <span class="sello pub">Publicado</span>
     </div>
 
     <div class="capa">
-      <div class="n">API</div>
-      <div class="r">Devuelve ingrediente → precio por gramo.</div>
-      <div class="piezas"><span class="p mod">GET /precios</span><span class="p">GET /salud</span></div>
+      <div class="n">Ruteo <span style="font-size:18px;font-weight:400;color:#877F8C">· lo único que el cliente ve</span></div>
+      <div class="r">22 rutas, cinco recursos. Ningún error viaja con código 200.</div>
+      <div class="piezas">
+        <span class="p mod">GET /api/v1/precios</span><span class="p">ingredientes</span>
+        <span class="p">fuentes</span><span class="p">recolecciones</span><span class="p">StatusPages</span>
+      </div>
     </div>
 
     <div class="capa">
-      <div class="n">Normalización <span style="font-size:18px;font-weight:400;color:#877F8C">· el trabajo real</span></div>
-      <div class="r">«Arroz Tucapel 1 kg · $2.540» → «arroz · $2,54/g».</div>
-      <div class="piezas"><span class="p">TamanoEnvase</span><span class="p">MapeadorIngrediente</span></div>
+      <div class="n">Negocio <span style="font-size:18px;font-weight:400;color:#877F8C">· el trabajo real</span></div>
+      <div class="r">«Arroz Tucapel 1 kg · $2.540» → «arroz · $2,54/g». Lee categorías, no búsquedas.</div>
+      <div class="piezas">
+        <span class="p">Normalizador</span><span class="p">PrecioServicio</span>
+        <span class="p">RecolectorServicio</span>
+      </div>
     </div>
 
     <div class="capa">
-      <div class="n">Recolección</div>
-      <div class="r">Lee categorías, no búsquedas: la categoría de verduras solo trae verduras.</div>
-      <div class="piezas"><span class="p">RecolectorJumbo</span><span class="p">RecolectorSantaIsabel</span></div>
+      <div class="n">Datos <span style="font-size:18px;font-weight:400;color:#877F8C">· el único lugar con SQL</span></div>
+      <div class="r">JDBC con HikariCP, sin ORM. La transacción la abre el negocio, no el DAO.</div>
+      <div class="piezas">
+        <span class="p">PrecioDao</span><span class="p">IngredienteDao</span>
+        <span class="p mod">datos/externo/</span><span class="p">ParserCatalogo</span>
+      </div>
     </div>
 
     <div class="capa">
-      <div class="n">Persistencia</div>
-      <div class="r">Guarda cada corrida: hay historia de precios.</div>
-      <div class="piezas"><span class="p">precios</span><span class="p">corridas_de_sincronizacion</span></div>
+      <div class="n">Persistencia <span style="font-size:18px;font-weight:400;color:#877F8C">· PostgreSQL 18</span></div>
+      <div class="r">Guarda cada corrida en vez de sobrescribir: hay historia de precios.</div>
+      <div class="piezas">
+        <span class="p">precio</span><span class="p">fuente_precio</span>
+        <span class="p">recoleccion</span><span class="p">precio_vigente</span>
+        <span class="p mod">db/001_esquema.sql</span>
+      </div>
     </div>
   </div>
+</div>
+
+<div class="despliegue">
+  <b>Despliegue</b>
+  <span>tres contenedores con <code>docker compose</code> · Caddy delante, con certificado que se renueva solo · credenciales en <code>.env</code>, fuera del repositorio</span>
+  <span class="url">cookifies.duckdns.org</span>
 </div>
