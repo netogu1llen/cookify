@@ -105,6 +105,7 @@ Si la base levanta sin tablas, el volumen es de un intento anterior:
 | Documento | Qué contiene |
 |---|---|
 | **Hito 3** | |
+| [Documentación final (PDF)](docs/final-cookify.pdf) | 27 páginas: el producto, la integración, la bitácora de veinte decisiones, las limitaciones y los anexos de IA y datos personales |
 | [Manual de uso e instalación](docs/manual-cookify.md) | Requisitos, pasos, datos de prueba y siete fallas frecuentes |
 | [Diagrama de arquitectura](docs/arquitectura.png) | Cliente, servidor, despliegue y capas, al cierre del Hito 3 |
 | **Hito 2** | |
@@ -202,5 +203,6 @@ de programación para:
   láminas y los diagramas.
 - **Verificación** El mapeo de las 196 fuentes de precio se revisó ingrediente por
   ingrediente contra el sitio real con `tools/verificar_fuentes.py`, y las correcciones
-  salieron de esa salida, no de suponer. El contrato de la interfaz se comprueba con 46
-  verificaciones automáticas y la capa de negocio con 33 pruebas.
+  salieron de esa salida, no de suponer. El contrato de la interfaz se comprueba con 48
+  verificaciones automáticas y la capa de negocio con 33 pruebas. El detalle completo está
+  en el [Anexo A de la documentación final](docs/final-cookify.pdf).
